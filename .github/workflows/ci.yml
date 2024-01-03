@@ -2,9 +2,9 @@ name: Build & Test on push and open PR
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "build/feature-login"]
   pull_request:
-    branches: ["main"]
+    branches: ["main", "build/feature-login"]
 
 jobs:
   build:
