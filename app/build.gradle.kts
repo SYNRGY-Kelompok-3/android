@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.travelid"
-    compileSdk = 33
+    namespace = "com.synrgy.travelid"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.travelid"
-        minSdk = 24
-        targetSdk = 33
+        applicationId = "com.synrgy.travelid"
+        minSdk = 21
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

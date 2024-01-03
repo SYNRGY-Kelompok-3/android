@@ -1,4 +1,4 @@
-package com.example.travelid
+package com.synrgy.travelid
 
 import org.junit.Test
 

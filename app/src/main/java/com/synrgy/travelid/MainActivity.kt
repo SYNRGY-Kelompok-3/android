@@ -1,4 +1,4 @@
-package com.example.travelid
+package com.synrgy.travelid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
