@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1075221873007",
+    "project_id": "travelid-synrgy",
+    "storage_bucket": "travelid-synrgy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075221873007:android:31bc9c58b7a869d198289a",
+        "android_client_info": {
+          "package_name": "com.synrgy.travelid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6qjoYzmupPDCA_MbsnPeTe-o0-ZX1iAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
