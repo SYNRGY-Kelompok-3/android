@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="textInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="boxStrokeColor">@color/darker_gray</item>
+        <item name="boxStrokeWidth">10dp</item>
+        <item name="boxBackgroundColor">@color/black</item>
+        <item name="boxCollapsedPaddingTop">8dp</item>
+        <item name="hintEnabled">true</item>
+    </style>
+</resources>
