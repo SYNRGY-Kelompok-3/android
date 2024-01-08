@@ -1,19 +1,17 @@
-package com.febi.projek
+package com.synrgy.travelid
 
+import android.app.Application
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
-class Application {
-    class Application : android.app.Application() {
-        override fun onCreate() {
-            super.onCreate()
-            startKoin {
-                androidLogger()
-                androidContext(this@Application)
-                modules(appModules)
-            }
+class Application : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            androidLogger()
+            androidContext(this@Application)
+            modules(appModules)
         }
     }
-
 }

@@ -1,4 +1,4 @@
-package com.febi.projek.domain.repo
+package com.synrgy.travelid.domain.repo
 
 interface TokenRepository {
     suspend fun setToken(token: String)

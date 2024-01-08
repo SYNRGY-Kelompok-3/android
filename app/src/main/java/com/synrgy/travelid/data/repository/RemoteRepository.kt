@@ -1,12 +1,12 @@
-package com.febi.projek.data.repository
+package com.synrgy.travelid.data.repository
 
-import com.febi.projek.data.auth.toUpdateUser
-import com.febi.projek.data.local.DataStoreManager
-import com.febi.projek.data.remote.service.APIService
-import com.febi.projek.domain.model.auth.ResetPassword
-import com.febi.projek.domain.model.auth.ResetPasswordRequest
-import com.febi.projek.domain.repo.AuthRepository
-import com.febi.projek.domain.repo.TokenRepository
+import com.synrgy.travelid.data.local.DataStoreManager
+import com.synrgy.travelid.data.remote.service.APIService
+import com.synrgy.travelid.domain.model.auth.ResetPassword
+import com.synrgy.travelid.domain.model.auth.ResetPasswordRequest
+import com.synrgy.travelid.domain.repo.AuthRepository
+import com.synrgy.travelid.domain.repo.TokenRepository
+import com.synrgy.travelid.data.auth.toUpdateUser
 import kotlinx.coroutines.flow.firstOrNull
 
 class RemoteRepository (

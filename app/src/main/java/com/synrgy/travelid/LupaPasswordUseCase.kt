@@ -1,7 +1,7 @@
-package com.febi.projek
+package com.synrgy.travelid
 
-import com.febi.projek.domain.model.auth.ResetPasswordRequest
-import com.febi.projek.domain.repo.AuthRepository
+import com.synrgy.travelid.domain.model.auth.ResetPasswordRequest
+import com.synrgy.travelid.domain.repo.AuthRepository
 
 class LupaPasswordUseCase (
     private val authRepository: AuthRepository,
@@ -9,8 +9,8 @@ class LupaPasswordUseCase (
 ){
     suspend operator fun invoke(request: ResetPasswordRequest): Boolean{
         val result = authRepository.lupaPassword(request)
-        val token = result.token.orEmpty()
-        insertTokenUseCase.invoke(token = token)
+//        val token = result.token.orEmpty()
+//        insertTokenUseCase.invoke(token = token)
         return true
     }
 }

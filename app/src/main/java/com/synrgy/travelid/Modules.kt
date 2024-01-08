@@ -1,11 +1,11 @@
-package com.febi.projek
+package com.synrgy.travelid
 
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.febi.projek.data.local.DataStoreManager
-import com.febi.projek.data.remote.service.APIService
-import com.febi.projek.data.repository.RemoteRepository
-import com.febi.projek.domain.repo.AuthRepository
-import com.febi.projek.domain.repo.TokenRepository
+import com.synrgy.travelid.data.local.DataStoreManager
+import com.synrgy.travelid.data.remote.service.APIService
+import com.synrgy.travelid.data.repository.RemoteRepository
+import com.synrgy.travelid.domain.repo.AuthRepository
+import com.synrgy.travelid.domain.repo.TokenRepository
 import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,7 +20,7 @@ private val generalModule =
         single { ChuckerInterceptor(get()) }
         single { HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY } }
         single { provideOkhttpClient(get(), get()) }
-        single { "https://easy-school-uniform-ant.cyclic.app/api/v1/" }
+        single { "https://travelid-backend-java-dev.up.railway.app/v1/" }
         single { GsonConverterFactory.create() }
         single { provideRetrofit(get(), get(), get()) }
         single { provideOkhttpClient(get(), get()) }

@@ -1,6 +1,6 @@
-package com.febi.projek
+package com.synrgy.travelid
 
-import com.febi.projek.domain.repo.TokenRepository
+import com.synrgy.travelid.domain.repo.TokenRepository
 
 class InsertTokenUseCase (
     private val tokenRepository: TokenRepository

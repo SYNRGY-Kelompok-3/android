@@ -1,4 +1,4 @@
-package com.febi.projek.data.local
+package com.synrgy.travelid.data.local
 
 import android.content.Context
 import androidx.datastore.core.DataStore

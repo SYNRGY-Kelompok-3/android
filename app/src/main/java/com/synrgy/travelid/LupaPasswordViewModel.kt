@@ -1,4 +1,4 @@
-package com.febi.projek
+package com.synrgy.travelid
 
 import android.widget.Button
 import android.widget.EditText
@@ -7,19 +7,18 @@ import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.febi.projek.domain.model.auth.ResetPasswordRequest
+import com.synrgy.travelid.domain.model.auth.ResetPasswordRequest
 import kotlinx.coroutines.Dispatchers
 import androidx.lifecycle.viewModelScope
+import com.synrgy.travelid.domain.repo.AuthRepository
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class LupaPasswordViewModel (
-    private val lupaPasswordUseCase: LupaPasswordUseCase,
+//    private val lupaPasswordUseCase: LupaPasswordUseCase,
+    private val authRepository: AuthRepository
 
 ): ViewModel() {
-    private val _openBottomSheet = MutableLiveData<Boolean>()
-    val openBottomSheet: LiveData<Boolean> = _openBottomSheet
-
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
 
@@ -27,7 +26,7 @@ class LupaPasswordViewModel (
         viewModelScope.launch(Dispatchers.IO){
             try{
                 withContext(Dispatchers.Main){
-                    _openBottomSheet.value = lupaPasswordUseCase.invoke(request)
+                    authRepository.lupaPassword(request)
                 }
             } catch (e: Exception){
                 withContext(Dispatchers.Main){
