@@ -15,11 +15,18 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.synrgy.travelid.databinding.FragmentLoginBinding
 
 import com.synrgy.travelid.R
 
 class LoginFragment : Fragment() {
+
+    private fun navigateToMain() {
+        // Use the action ID to navigate to the main fragment
+        findNavController().navigate(R.id.action_login_to_main)
+    }
 
     private lateinit var loginViewModel: LoginViewModel
     private var _binding: FragmentLoginBinding? = null
@@ -44,9 +51,9 @@ class LoginFragment : Fragment() {
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
 
-        val usernameEditText = binding.username
-        val passwordEditText = binding.password
-        val loginButton = binding.login
+        val usernameEditText = binding.emailEditText
+        val passwordEditText = binding.passwordEditText
+        val loginButton = binding.button
         val loadingProgressBar = binding.loading
 
         loginViewModel.loginFormState.observe(viewLifecycleOwner,

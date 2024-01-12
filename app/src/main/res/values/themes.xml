@@ -6,4 +6,23 @@
     </style>
 
     <style name="Theme.Travelid" parent="Base.Theme.Travelid" />
+
+    <style name="belum_punya">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="lupa_kata_s">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">#1C1B1F</item>
+    </style>
+    <style name="lanjut_deng">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#1C1B1F</item>
+    </style>
 </resources>
