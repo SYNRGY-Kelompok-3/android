@@ -39,6 +39,7 @@ private val generalModule =
 private val viewModelModule =
     module{
         viewModel { LupaPasswordViewModel(get()) }
+        viewModel { AturUlangPasswordViewModel(get()) }
     }
 
 val appModules = listOf(generalModule, viewModelModule)

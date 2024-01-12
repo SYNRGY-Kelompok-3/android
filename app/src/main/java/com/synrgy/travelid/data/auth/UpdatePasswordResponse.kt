@@ -1,17 +1,17 @@
 package com.synrgy.travelid.data.auth
 
-import com.synrgy.travelid.domain.model.auth.ResetPassword
 import com.google.gson.annotations.SerializedName
+import com.synrgy.travelid.domain.model.auth.UpdatePassword
 
-data class ResetPasswordResponse (
-
+data class UpdatePasswordResponse(
     @SerializedName("data"    ) var data    : String? = null,
     @SerializedName("message" ) var message : String? = null,
     @SerializedName("status"  ) var status  : Int?    = null
 
 )
-    fun ResetPasswordResponse.toUpdateUser(): ResetPassword {
-        return ResetPassword(
+
+    fun UpdatePasswordResponse.toUpdatePassword(): UpdatePassword {
+        return UpdatePassword(
             data = data.orEmpty(),
             message = message.orEmpty(),
             status = status ?: 0
