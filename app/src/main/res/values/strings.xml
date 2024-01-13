@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">travel.id</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="login_now">Login sekarang</string>
+    <string name="register">Register</string>
+    <string name="visibility_password">visibility_password</string>
+    <string name="password">Password</string>
+    <string name="checking_format">checking_format</string>
+    <string name="phone_number">Nomor telepon</string>
+    <string name="email">Email</string>
+    <string name="name">Nama</string>
+    <string name="make_your_account">Buat akunmu</string>
+    <string name="background">background</string>
+    <string name="navigation">navigation</string>
+    <string name="date_of_birthday">Tanggal lahir</string>
+    <string name="otp_title_box">Silakan masukkan kode OTP Anda</string>
+    <string name="tv_otp_desc">Cek pesan masuk, kode Anda sudah dikirimkan ke nomor Anda</string>
+    <string name="send_otp_button">KIRIM</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="done">Berhasil!</string>
+    <string name="instruction_code_otp">Kode sudah dikirim ke email, silakan cek email</string>
+    <string name="cek_email">Cek Email</string>
 </resources>

@@ -14,6 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "travel.id"
 include(":app")
 include(":data")
