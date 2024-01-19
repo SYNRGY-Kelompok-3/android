@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary_blue">#3E7BFA</color>
-    <color name="transparan">#00FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
     <color name="error">#CB3A31</color>
     <color name="green">#18AF5E</color>
     <color name="darker_gray">#aaa</color>

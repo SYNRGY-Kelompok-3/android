@@ -7,4 +7,14 @@
         <item name="boxCollapsedPaddingTop">8dp</item>
         <item name="hintEnabled">true</item>
     </style>
+
+    <style name="LoginTextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#3E7BFA</item>
+    </style>
+
+    <style name="ErrorTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>
