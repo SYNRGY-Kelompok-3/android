@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".presentation.OtpActivity">
+
+
+    <TextView
+        android:id="@+id/tv_label_verification_code"
+        style="@style/DefaultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/otp_title_box"/>
+
+    <LinearLayout
+        android:id="@+id/ll_verification_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_code_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_otp_edit_text"
+            android:ems="2"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/et_code_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/custom_otp_edit_text"
+            android:ems="2"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/et_code_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/custom_otp_edit_text"
+            android:ems="2"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/et_code_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/custom_otp_edit_text"
+            android:ems="2"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/et_code_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/custom_otp_edit_text"
+            android:ems="2"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/et_code_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/custom_otp_edit_text"
+            android:ems="2"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_send_otp"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_button"
+        android:text="@string/send_otp_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

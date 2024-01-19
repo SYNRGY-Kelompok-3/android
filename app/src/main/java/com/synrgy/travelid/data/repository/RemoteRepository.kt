@@ -43,4 +43,12 @@ class RemoteRepository @Inject constructor(
     override suspend fun clearToken() {
         setToken("")
     }
+
+    override suspend fun userRegister(request: UserRegisterRequest): UserRegister {
+        return authApi.register(request).toUserRegister()
+    }
+
+    override suspend fun userConfirmOtpRegister(otp: String): UserConfirmOtpRegister {
+        return authApi.confirmOtpRegister(otp).toUserConfirmOtpRegister()
+    }
 }
