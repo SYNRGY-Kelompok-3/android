@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/ic_back"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_arrow_left" />
 
     </com.google.android.material.appbar.MaterialToolbar>
@@ -32,8 +32,7 @@
         android:text="Masukan kode OTP"
         android:textColor="#232323"
         android:textSize="22sp"
-        android:letterSpacing="-0.03"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
@@ -49,8 +48,7 @@
         android:textColor="#9799A1"
         android:textSize="14sp"
         android:layout_marginTop="8dp"
-        android:letterSpacing="0.01"
-        android:lineHeight="22dp"
+        android:lineHeight="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
@@ -63,11 +61,10 @@
         android:fontFamily="@font/poppinsmedium"
         android:includeFontPadding="false"
         android:text="travel-id@gmail.com"
-        android:textColor="#85878E"
+        android:textColor="#9799A1"
         android:textSize="14sp"
         android:layout_marginTop="3dp"
-        android:letterSpacing="0.01"
-        android:lineHeight="22dp"
+        android:lineHeight="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_subtitle" />
@@ -273,7 +270,6 @@
         android:includeFontPadding="false"
         android:textColor="#9799A1"
         android:textSize="14sp"
-        android:letterSpacing="0.01"
         app:layout_constraintStart_toStartOf="@+id/linearLayoutCompat"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
 
@@ -287,7 +283,6 @@
         android:text="Kirim ulang"
         android:textColor="#3E7BFA"
         android:textSize="14sp"
-        android:letterSpacing="0.01"
         app:layout_constraintBottom_toBottomOf="@+id/materialTextView"
         app:layout_constraintStart_toEndOf="@+id/materialTextView"
         app:layout_constraintTop_toTopOf="@+id/materialTextView" />
@@ -309,14 +304,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-<!--    <ImageView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="400dp"-->
-<!--        android:src="@drawable/img"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

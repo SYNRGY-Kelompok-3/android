@@ -4,264 +4,346 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.RegisterActivity">
+    tools:context=".presentation.register.RegisterActivity"
+    android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/iv_back"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/navigation"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/background"
-        android:src="@drawable/photo_register"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ic_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_left" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_back"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="16dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tv_make_your_account"
-                style='@style/DefaultText'
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/make_your_account"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/cl_content"
-                app:layout_constraintTop_toTopOf="@id/cl_content" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:includeFontPadding="false"
+                android:text="Buat akun untukmu"
+                android:textColor="#232323"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppinsregular"
+                android:includeFontPadding="false"
+                android:lineHeight="24dp"
+                android:text="Daftar untuk memesan perjalanan pertama kamu dan dapatkan diskon hingga 50% atau tiket gratis!"
+                android:textColor="#9799A1"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_name_input"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-                android:layout_width="match_parent"
+                android:id="@+id/til_nama"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="@string/name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_make_your_account">
+                android:layout_marginTop="32dp"
+                android:layout_weight="1"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/text_input_box_stroke"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/ErrorTextAppearance"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@+id/tv_subtitle"
+                app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
+                app:layout_constraintTop_toBottomOf="@+id/tv_subtitle">
 
-                <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_name_input"
-                    style="@style/DefaultText"
+                    android:id="@+id/et_nama"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="start|center_vertical"
+                    android:hint="Masukan nama lengkap"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="0dp"
+                    android:textSize="15sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppinsregular"
+                android:includeFontPadding="false"
+                android:text="Nama lengkap"
+                android:textColor="#3E7BFA"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/til_nama"
+                app:layout_constraintTop_toTopOf="@+id/til_nama" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_email_input"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-                android:layout_width="match_parent"
+                android:id="@+id/til_email"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="@string/email"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_name_input">
+                android:layout_weight="1"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/text_input_box_stroke"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/ErrorTextAppearance"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@+id/tv_subtitle"
+                app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
+                app:layout_constraintTop_toBottomOf="@+id/til_nama">
 
-                <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_email_input"
-                    style="@style/DefaultText"
+                    android:id="@+id/et_email"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="start|center_vertical"
+                    android:hint="Masukan email"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="0dp"
+                    android:textSize="15sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:id="@+id/iv_checklist_email"
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:contentDescription="@string/checking_format"
-                android:src="@drawable/ic_check_circle"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@id/til_email_input"
-                app:layout_constraintEnd_toEndOf="@id/til_email_input"
-                app:layout_constraintTop_toTopOf="@id/til_email_input" />
-
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:includeFontPadding="false"
+                android:text="Email"
+                android:textColor="#3E7BFA"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/til_email"
+                app:layout_constraintTop_toTopOf="@+id/til_email" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_phone_number"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-                android:layout_width="match_parent"
+                android:id="@+id/til_nomor_handphone"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="@string/phone_number"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_email_input">
+                android:layout_weight="1"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/text_input_box_stroke"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/ErrorTextAppearance"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@+id/tv_subtitle"
+                app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
+                app:layout_constraintTop_toBottomOf="@+id/til_email">
 
-                <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_phone_number"
-                    style="@style/DefaultText"
+                    android:id="@+id/et_nomor_handphone"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="start|center_vertical"
+                    android:hint="Masukan nomor handphone"
+                    android:includeFontPadding="false"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="0dp"
+                    android:textSize="15sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <ImageView
-                android:id="@+id/iv_checklist_phone_number"
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:contentDescription="@string/checking_format"
-                android:src="@drawable/ic_check_circle"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@id/til_phone_number"
-                app:layout_constraintEnd_toEndOf="@id/til_phone_number"
-                app:layout_constraintTop_toTopOf="@id/til_phone_number" />
-
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:includeFontPadding="false"
+                android:text="Nomor handphone"
+                android:textColor="#3E7BFA"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/til_nomor_handphone"
+                app:layout_constraintTop_toTopOf="@+id/til_nomor_handphone" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_input_password"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-                android:layout_width="match_parent"
+                android:id="@+id/til_nomor_identity"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="@string/password"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_phone_number">
+                android:layout_weight="1"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/text_input_box_stroke"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/ErrorTextAppearance"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@+id/tv_subtitle"
+                app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
+                app:layout_constraintTop_toBottomOf="@+id/til_nomor_handphone">
 
-                <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_input_password"
-                    style="@style/DefaultText"
+                    android:id="@+id/et_nomor_identity"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="start|center_vertical"
+                    android:hint="Masukan nomor KTP"
+                    android:includeFontPadding="false"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="0dp"
+                    android:textSize="15sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <ImageView
-                android:id="@+id/iv_visibility_on"
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:contentDescription="@string/visibility_password"
-                android:src="@drawable/ic_visibility_on"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@id/til_input_password"
-                app:layout_constraintEnd_toEndOf="@id/til_input_password"
-                app:layout_constraintTop_toTopOf="@id/til_input_password" />
-
-            <ImageView
-                android:id="@+id/iv_visibility_off"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:contentDescription="@string/visibility_password"
-                android:src="@drawable/ic_visibility_off"
-                app:layout_constraintBottom_toBottomOf="@id/til_input_password"
-                app:layout_constraintEnd_toEndOf="@id/til_input_password"
-                app:layout_constraintTop_toTopOf="@id/til_input_password" />
-
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:includeFontPadding="false"
+                android:text="Nomor KTP"
+                android:textColor="#3E7BFA"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/til_nomor_identity"
+                app:layout_constraintTop_toTopOf="@+id/til_nomor_identity" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_birthdate_input"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-                android:layout_width="match_parent"
+                android:id="@+id/til_password"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="@string/date_of_birthday"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_input_password">
+                android:layout_weight="1"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/text_input_box_stroke"
+                app:endIconMode="password_toggle"
+                app:endIconTint="#C7CDD5"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/ErrorTextAppearance"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@+id/tv_subtitle"
+                app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
+                app:layout_constraintTop_toBottomOf="@+id/til_nomor_identity">
 
-                <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_birthday_input"
-                    style="@style/DefaultText"
+                    android:id="@+id/et_password"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="start|center_vertical"
+                    android:hint="Masukan kata sandi"
+                    android:includeFontPadding="false"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="0dp"
+                    android:textSize="15sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_register"
-                style="@style/DefaultButton"
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:includeFontPadding="false"
+                android:text="Kata sandi"
+                android:textColor="#3E7BFA"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/til_password"
+                app:layout_constraintTop_toTopOf="@+id/til_password" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_daftar"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/register"
+                android:layout_marginHorizontal="16dp"
+                android:backgroundTint="#3E7BFA"
+                android:fontFamily="@font/poppinssemibold"
+                android:includeFontPadding="false"
+                android:text="Daftar"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:cornerRadius="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_birthdate_input" />
+                app:layout_constraintTop_toBottomOf="@+id/til_password" />
 
-            <LinearLayout
-                android:id="@+id/ll_sudah_punya_akun"
-                android:layout_width="match_parent"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center_horizontal"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/btn_register"
-                tools:layout_editor_absoluteX="16dp">
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/button_daftar"
+                app:layout_constraintStart_toStartOf="@+id/button_daftar"
+                app:layout_constraintTop_toBottomOf="@id/button_daftar">
 
-                <TextView
-                    android:id="@+id/tv_sudah_punya_akun"
-                    style="@style/DefaultText"
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/materialTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sudah_punya_akun"
-                    android:textSize="11sp" />
+                    android:fontFamily="@font/poppinsregular"
+                    android:includeFontPadding="false"
+                    android:text="Sudah punya akun?"
+                    android:textColor="#9799A1"
+                    android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/login_now"
-                    style="@style/DefaultText"
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_kirim_ulang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="@string/login_now"
-                    android:textColor="@color/primary"
-                    android:textSize="11sp" />
-            </LinearLayout>
+                    android:fontFamily="@font/poppinsmedium"
+                    android:includeFontPadding="false"
+                    android:text="Masuk sekarang"
+                    android:textColor="#3E7BFA"
+                    android:textSize="14sp" />
 
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

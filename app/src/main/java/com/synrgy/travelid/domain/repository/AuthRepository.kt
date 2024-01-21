@@ -2,6 +2,8 @@ package com.synrgy.travelid.domain.repository
 
 import com.synrgy.travelid.domain.model.ResetPassword
 import com.synrgy.travelid.domain.model.ResetPasswordRequest
+import com.synrgy.travelid.domain.model.SendOTP
+import com.synrgy.travelid.domain.model.SendOTPRequest
 import com.synrgy.travelid.domain.model.UpdatePassword
 import com.synrgy.travelid.domain.model.UpdatePasswordRequest
 import com.synrgy.travelid.domain.model.ValidateOTP
@@ -31,4 +33,8 @@ interface AuthRepository {
     suspend fun userConfirmOtpRegister(
         otp: String
     ): UserConfirmOtpRegister
+
+    suspend fun sendOTPRegister(
+        request: SendOTPRequest
+    ): SendOTP
 }

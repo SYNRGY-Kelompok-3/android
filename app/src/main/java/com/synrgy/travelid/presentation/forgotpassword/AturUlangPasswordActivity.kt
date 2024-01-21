@@ -63,27 +63,35 @@ class AturUlangPasswordActivity : AppCompatActivity() {
         newPw: String,
         confirmNewPw: String
     ): String {
-        return if (newPw.isEmpty()){
-            binding.tilKataSandi.error = "Kata sandi ga boleh kosong ya!"
-            "Kata sandi kosong!"
-        }else if(newPw.length < 8){
-            binding.tilKataSandi.error = "Kata sandimu kurang dari 8 karakter nih!"
-            "Kata sandi kurang dari 8 karakter!"
-        }else if(confirmNewPw.isEmpty()){
-            binding.tilKonfirmasiKataSandi.error = "Konfirmasi kata sandi ga boleh kosong ya!"
-            "Konfirmasi kata sandi kosong!"
-        }else if(confirmNewPw.length < 8) {
-            binding.tilKonfirmasiKataSandi.error = "Konfirmasi kata sandimu kurang dari 8 karakter nih!"
-            "Konfirmasi kata sandi kurang dari 8 karakter!"
-        }else if(confirmNewPw != newPw) {
-            binding.tilKonfirmasiKataSandi.error = "Konfirmasi kata sandimu ga sesuai!"
-            "Konfirmasi kata sandi ga sesuai!"
-        }else{
-            binding.tilKataSandi.error = null
-            binding.tilKonfirmasiKataSandi.error = null
-            "passed"
+        return when {
+            newPw.isEmpty() -> {
+                binding.tilKataSandi.error = "Kata sandi ga boleh kosong ya!"
+                "Kata sandi kosong!"
+            }
+            newPw.length < 8 -> {
+                binding.tilKataSandi.error = "Kata sandimu kurang dari 8 karakter nih!"
+                "Kata sandi kurang dari 8 karakter!"
+            }
+            confirmNewPw.isEmpty() -> {
+                binding.tilKonfirmasiKataSandi.error = "Konfirmasi kata sandi ga boleh kosong ya!"
+                "Konfirmasi kata sandi kosong!"
+            }
+            confirmNewPw.length < 8 -> {
+                binding.tilKonfirmasiKataSandi.error = "Konfirmasi kata sandimu kurang dari 8 karakter nih!"
+                "Konfirmasi kata sandi kurang dari 8 karakter!"
+            }
+            confirmNewPw != newPw -> {
+                binding.tilKonfirmasiKataSandi.error = "Konfirmasi kata sandimu ga sesuai!"
+                "Konfirmasi kata sandi ga sesuai!"
+            }
+            else -> {
+                binding.tilKataSandi.error = null
+                binding.tilKonfirmasiKataSandi.error = null
+                "passed"
+            }
         }
     }
+
 
     private fun handlePasswordTextOnChanged() {
         binding.etKataSandi.doOnTextChanged { text, _, _, _ ->
