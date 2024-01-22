@@ -92,7 +92,6 @@
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxStrokeColor="@color/text_input_box_stroke"
-                app:errorEnabled="true"
                 app:errorTextAppearance="@style/ErrorTextAppearance"
                 app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="@+id/tv_subtitle"
@@ -139,9 +138,9 @@
                 app:boxStrokeColor="@color/text_input_box_stroke"
                 app:endIconMode="password_toggle"
                 app:endIconTint="#C7CDD5"
-                app:errorEnabled="true"
                 app:errorTextAppearance="@style/ErrorTextAppearance"
                 app:hintEnabled="false"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="@+id/tv_subtitle"
                 app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
                 app:layout_constraintTop_toBottomOf="@+id/til_email">
@@ -184,6 +183,7 @@
                 android:textColor="#3E7BFA"
                 android:includeFontPadding="false"
                 android:textSize="14sp"
+                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="@+id/til_password"
                 app:layout_constraintTop_toBottomOf="@+id/til_password" />
 
@@ -199,7 +199,7 @@
                 android:textAllCaps="false"
                 android:textSize="16sp"
                 app:cornerRadius="12dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_lupa_kata_sandi" />

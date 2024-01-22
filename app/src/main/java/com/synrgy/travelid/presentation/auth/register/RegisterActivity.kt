@@ -3,10 +3,14 @@ package com.synrgy.travelid.presentation.auth.register
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
+import com.synrgy.travelid.data.remote.response.ErrorResponse
 import com.synrgy.travelid.databinding.ActivityRegisterBinding
+import com.synrgy.travelid.domain.model.ErrorMessage
 import com.synrgy.travelid.domain.model.ResetPasswordRequest
 import com.synrgy.travelid.domain.model.UpdatePasswordRequest
 import com.synrgy.travelid.domain.model.UserRegister
@@ -26,10 +30,8 @@ class RegisterActivity : AppCompatActivity() {
     private var email: String = ""
     private var password: String = ""
     private var fullname: String = ""
-    private var identityNumber: String = ""
-    private var dateOfBirth: String = ""
-    private var gender: String = ""
     private var phoneNumber: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -50,6 +52,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun observeViewModel(){
         viewModel.userRegister.observe(this, ::handleResponse)
+        viewModel.errorRegister.observe(this, ::handleError)
     }
 
     private fun handleRegisterValidation() {
@@ -57,10 +60,9 @@ class RegisterActivity : AppCompatActivity() {
         password = binding.etPassword.text.toString()
         fullname = binding.etNama.text.toString()
         phoneNumber = binding.etNomorHandphone.text.toString()
-        identityNumber = binding.etNomorIdentity.text.toString()
 
         val validation = handleValidation(
-            fullname, email, phoneNumber, identityNumber, password
+            fullname, email, phoneNumber, password
         )
 
         if (validation == "passed") {
@@ -68,9 +70,6 @@ class RegisterActivity : AppCompatActivity() {
                 email,
                 password,
                 fullname,
-                identityNumber,
-                dateOfBirth,
-                gender,
                 phoneNumber
             )
             viewModel.userRegister(request)
@@ -79,10 +78,16 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun handleResponse(response: UserRegister) {
         if(response.message == "Success") { handleOpenBottomSheetSuccess() }
-        if(response.message == "Username already used"){
-            binding.tilEmail.error = "Email udah kedaftar nih!"
-        }else if(response.message == "Identity Number already used") {
-            binding.tilNomorIdentity.error = "Nomor KTP udah kedaftar nih!"
+    }
+
+    private fun handleError(errorMessage: ErrorMessage) {
+        when (errorMessage.message) {
+            "Username already used" -> {
+                binding.tilEmail.error = "Email udah kedaftar nih!"
+            }
+            "password not valid" -> {
+                binding.tilPassword.error = "Kata sandi harus diawali huruf kapital dan diakhiri angka!"
+            }
         }
     }
 
@@ -100,44 +105,56 @@ class RegisterActivity : AppCompatActivity() {
         fullname: String,
         email: String,
         phoneNumber: String,
-        identityNumber: String,
         password: String
     ): String {
+        val passwordRegex = Regex("^(?=.*[A-Z])(?=.*\\d).+\$")
+
         return when {
             fullname.isEmpty() -> {
                 binding.tilNama.error = "Nama ga boleh kosong ya!"
+                binding.tilNama.isErrorEnabled = true
                 "Nama kosong!"
             }
             email.isEmpty() -> {
                 binding.tilEmail.error = "Email ga boleh kosong ya!"
+                binding.tilEmail.isErrorEnabled = true
                 "Email kosong!"
             }
             !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
                 binding.tilEmail.error = "Email ga valid nih!"
+                binding.tilEmail.isErrorEnabled = true
                 "Email tidak valid!"
             }
             phoneNumber.isEmpty() -> {
                 binding.tilNomorHandphone.error = "Nomor handphone ga boleh kosong ya!"
+                binding.tilNomorHandphone.isErrorEnabled = true
                 "Nomor handphone kosong!"
             }
             password.isEmpty() -> {
-                binding.tilPassword.error = "Password ga boleh kosong ya!"
-                "Password kosong!"
-            }
-            identityNumber.isEmpty() -> {
-                binding.tilNomorIdentity.error = "Nomor KTP ga boleh kosong ya!"
-                "Nomor KTP kosong!"
+                binding.tilPassword.error = "Kata sandi ga boleh kosong ya!"
+                binding.tilPassword.isErrorEnabled = true
+                "Kata sandi kosong!"
             }
             password.length < 8 -> {
                 binding.tilPassword.error = "Kata sandimu kurang dari 8 karakter nih!"
+                binding.tilPassword.isErrorEnabled = true
                 "Kata sandi kurang dari 8 karakter!"
+            }
+            !passwordRegex.matches(password) -> {
+                binding.tilPassword.error = "Kata sandi harus diawali huruf kapital dan diakhiri angka!"
+                binding.tilPassword.isErrorEnabled = true
+                "Kata sandi tidak valid!"
             }
             else -> {
                 binding.tilNama.error = null
                 binding.tilNomorHandphone.error = null
-                binding.tilNomorIdentity.error = null
                 binding.tilEmail.error = null
                 binding.tilPassword.error = null
+
+                binding.tilNama.isErrorEnabled = false
+                binding.tilNomorHandphone.isErrorEnabled = false
+                binding.tilEmail.isErrorEnabled = false
+                binding.tilPassword.isErrorEnabled = false
                 "passed"
             }
         }
@@ -147,8 +164,10 @@ class RegisterActivity : AppCompatActivity() {
         binding.etNama.doOnTextChanged { text, _, _, _ ->
             if(text!!.isEmpty()){
                 binding.tilNama.error = "Nama ga boleh kosong ya!"
+                binding.tilNama.isErrorEnabled = true
             }else if(text.isNotEmpty()){
                 binding.tilNama.error = null
+                binding.tilNama.isErrorEnabled = false
             }
         }
     }
@@ -157,8 +176,10 @@ class RegisterActivity : AppCompatActivity() {
         binding.etPassword.doOnTextChanged { text, _, _, _ ->
             if(text!!.isEmpty()){
                 binding.tilPassword.error = "Kata sandi ga boleh kosong ya!"
+                binding.tilPassword.isErrorEnabled = true
             }else if(text.isNotEmpty()){
                 binding.tilPassword.error = null
+                binding.tilPassword.isErrorEnabled = false
             }
         }
     }
@@ -167,8 +188,10 @@ class RegisterActivity : AppCompatActivity() {
         binding.etEmail.doOnTextChanged { text, _, _, _ ->
             if(text!!.isEmpty()){
                 binding.tilEmail.error = "Email ga boleh kosong ya!"
+                binding.tilEmail.isErrorEnabled = true
             }else if(text.isNotEmpty()){
                 binding.tilEmail.error = null
+                binding.tilEmail.isErrorEnabled = false
             }
         }
     }
@@ -177,8 +200,10 @@ class RegisterActivity : AppCompatActivity() {
         binding.etNomorHandphone.doOnTextChanged { text, _, _, _ ->
             if(text!!.isEmpty()){
                 binding.tilNomorHandphone.error = "Nomor handphone ga boleh kosong ya!"
+                binding.tilNomorHandphone.isErrorEnabled = true
             }else if(text.isNotEmpty()){
                 binding.tilNomorHandphone.error = null
+                binding.tilNomorHandphone.isErrorEnabled = false
             }
         }
     }

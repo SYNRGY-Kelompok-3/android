@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.FragmentSuccessRegisterBinding
+import com.synrgy.travelid.presentation.auth.login.LoginActivity
 
 class SuccessRegisterFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentSuccessRegisterBinding
@@ -24,8 +25,8 @@ class SuccessRegisterFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSelesai.setOnClickListener {
-//            val intentActivity = Intent(activity, OtpActivity::class.java)
-//            startActivity(intentActivity)
+            val intentActivity = Intent(activity, LoginActivity::class.java)
+            startActivity(intentActivity)
         }
     }
 }

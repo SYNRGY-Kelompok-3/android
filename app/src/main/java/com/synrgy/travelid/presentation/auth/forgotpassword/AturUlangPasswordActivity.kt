@@ -66,27 +66,35 @@ class AturUlangPasswordActivity : AppCompatActivity() {
         return when {
             newPw.isEmpty() -> {
                 binding.tilKataSandi.error = "Kata sandi ga boleh kosong ya!"
+                binding.tilKataSandi.isErrorEnabled = true
                 "Kata sandi kosong!"
             }
             newPw.length < 8 -> {
                 binding.tilKataSandi.error = "Kata sandimu kurang dari 8 karakter nih!"
+                binding.tilKataSandi.isErrorEnabled = true
                 "Kata sandi kurang dari 8 karakter!"
             }
             confirmNewPw.isEmpty() -> {
                 binding.tilKonfirmasiKataSandi.error = "Konfirmasi kata sandi ga boleh kosong ya!"
+                binding.tilKonfirmasiKataSandi.isErrorEnabled = true
                 "Konfirmasi kata sandi kosong!"
             }
             confirmNewPw.length < 8 -> {
                 binding.tilKonfirmasiKataSandi.error = "Konfirmasi kata sandimu kurang dari 8 karakter nih!"
+                binding.tilKonfirmasiKataSandi.isErrorEnabled = true
                 "Konfirmasi kata sandi kurang dari 8 karakter!"
             }
             confirmNewPw != newPw -> {
                 binding.tilKonfirmasiKataSandi.error = "Konfirmasi kata sandimu ga sesuai!"
+                binding.tilKonfirmasiKataSandi.isErrorEnabled = true
                 "Konfirmasi kata sandi ga sesuai!"
             }
             else -> {
                 binding.tilKataSandi.error = null
                 binding.tilKonfirmasiKataSandi.error = null
+
+                binding.tilKataSandi.isErrorEnabled = false
+                binding.tilKonfirmasiKataSandi.isErrorEnabled = false
                 "passed"
             }
         }
@@ -97,8 +105,10 @@ class AturUlangPasswordActivity : AppCompatActivity() {
         binding.etKataSandi.doOnTextChanged { text, _, _, _ ->
             if(text!!.isEmpty()){
                 binding.tilKataSandi.error = "Kata sandi ga boleh kosong ya!"
+                binding.tilKataSandi.isErrorEnabled = true
             }else if(text.isNotEmpty()){
                 binding.tilKataSandi.error = null
+                binding.tilKataSandi.isErrorEnabled = false
             }
         }
     }
@@ -107,8 +117,10 @@ class AturUlangPasswordActivity : AppCompatActivity() {
         binding.etKonfirmasiKataSandi.doOnTextChanged { text, _, _, _ ->
             if(text!!.isEmpty()){
                 binding.tilKonfirmasiKataSandi.error = "Konfirmasi kata sandi ga boleh kosong ya!"
+                binding.tilKonfirmasiKataSandi.isErrorEnabled = true
             }else if(text.isNotEmpty()){
                 binding.tilKonfirmasiKataSandi.error = null
+                binding.tilKonfirmasiKataSandi.isErrorEnabled = false
             }
         }
     }

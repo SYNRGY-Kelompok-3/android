@@ -13,6 +13,7 @@ import com.synrgy.travelid.data.remote.response.toUserConfirmOtpRegister
 import com.synrgy.travelid.data.remote.response.toUserLogin
 import com.synrgy.travelid.data.remote.response.toUserRegister
 import com.synrgy.travelid.data.remote.response.toValidateOTP
+import com.synrgy.travelid.domain.model.ErrorMessage
 import com.synrgy.travelid.domain.model.SendOTP
 import com.synrgy.travelid.domain.model.SendOTPRequest
 import com.synrgy.travelid.domain.model.UpdatePassword

@@ -85,8 +85,10 @@ class LupaPasswordActivity : AppCompatActivity() {
         binding.etInputEmail.doOnTextChanged { text, _, _, _ ->
             if(text!!.isEmpty()){
                 binding.tilInputEmail.error = "Email ga boleh kosong ya!"
+                binding.tilInputEmail.isErrorEnabled = true
             }else if(text.isNotEmpty()){
                 binding.tilInputEmail.error = null
+                binding.tilInputEmail.isErrorEnabled = false
             }
         }
     }

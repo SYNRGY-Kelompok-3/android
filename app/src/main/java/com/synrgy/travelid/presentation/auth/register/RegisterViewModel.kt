@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.synrgy.travelid.domain.model.ResetPassword
+import com.google.gson.Gson
+import com.synrgy.travelid.domain.model.ErrorMessage
 import com.synrgy.travelid.domain.model.SendOTP
 import com.synrgy.travelid.domain.model.SendOTPRequest
 import com.synrgy.travelid.domain.model.UserConfirmOtpRegister
 import com.synrgy.travelid.domain.model.UserRegister
 import com.synrgy.travelid.domain.model.UserRegisterRequest
-import com.synrgy.travelid.domain.model.ValidateOTP
 import com.synrgy.travelid.domain.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -31,6 +31,9 @@ class RegisterViewModel @Inject constructor(
     private val _sendOTP = MutableLiveData<SendOTP>()
     val sendOTP: LiveData<SendOTP> = _sendOTP
 
+    private val _errorRegister = MutableLiveData<ErrorMessage>()
+    val errorRegister: LiveData<ErrorMessage> = _errorRegister
+
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
 
@@ -43,7 +46,14 @@ class RegisterViewModel @Inject constructor(
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    _error.value = e.message
+                    if(e is retrofit2.HttpException){
+                        val error =
+                            Gson().fromJson(
+                                e.response()?.errorBody()?.string(),
+                                ErrorMessage::class.java
+                            )
+                        _errorRegister.value = ErrorMessage(message = error.message)
+                    }
                 }
             }
         }

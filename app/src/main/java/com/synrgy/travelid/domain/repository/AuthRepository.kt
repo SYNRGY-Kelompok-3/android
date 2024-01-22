@@ -15,7 +15,6 @@ import com.synrgy.travelid.domain.model.UserRegister
 import com.synrgy.travelid.domain.model.UserRegisterRequest
 
 interface AuthRepository {
-
     suspend fun lupaPassword(
         request: ResetPasswordRequest
     ): ResetPassword

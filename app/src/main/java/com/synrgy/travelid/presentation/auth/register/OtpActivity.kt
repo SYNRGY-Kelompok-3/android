@@ -101,6 +101,13 @@ class OtpActivity : AppCompatActivity() {
                 override fun afterTextChanged(s: Editable?) {
                     if (s?.length == 1) {
                         nextEditText.requestFocus()
+                    } else if (s?.length == 0) {
+                        // Handle backspace or delete key press
+                        currentEditText.clearFocus()
+                        if (i > 0) {
+                            editTextIds[i - 1].requestFocus()
+                            editTextIds[i - 1].text = null
+                        }
                     }
                 }
             })
@@ -115,6 +122,13 @@ class OtpActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 if (s?.length == 1) {
                     binding.etCode1.clearFocus()
+                } else if (s?.length == 0) {
+                    // Handle backspace or delete key press
+                    val previousIndex = editTextIds.indexOf(lastEditText) - 1
+                    if (previousIndex >= 0) {
+                        editTextIds[previousIndex].requestFocus()
+                        editTextIds[previousIndex].text = null
+                    }
                 }
             }
         })

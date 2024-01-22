@@ -84,23 +84,30 @@ class LoginActivity : AppCompatActivity() {
         return when {
             email.isEmpty() -> {
                 binding.tilEmail.error = "Email ga boleh kosong ya!"
+                binding.tilEmail.isErrorEnabled = true
                 false
             }
             !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
                 binding.tilEmail.error = "Email ga valid nih!"
+                binding.tilEmail.isErrorEnabled = true
                 false
             }
             password.isEmpty() -> {
                 binding.tilPassword.error = "Kata sandi ga boleh kosong ya!"
+                binding.tilPassword.isErrorEnabled = true
                 false
             }
             password.length < 8 -> {
                 binding.tilPassword.error = "Kata sandimu kurang dari 8 karakter nih!"
+                binding.tilPassword.isErrorEnabled = true
                 false
             }
             else -> {
                 binding.tilEmail.error = null
                 binding.tilPassword.error = null
+
+                binding.tilEmail.isErrorEnabled = false
+                binding.tilPassword.isErrorEnabled = false
                 true
             }
         }
@@ -110,8 +117,10 @@ class LoginActivity : AppCompatActivity() {
         binding.etPassword.doOnTextChanged { text, _, _, _ ->
             if(text!!.isEmpty()){
                 binding.tilPassword.error = "Kata sandi ga boleh kosong ya!"
+                binding.tilPassword.isErrorEnabled = true
             }else if(text.isNotEmpty()){
                 binding.tilPassword.error = null
+                binding.tilPassword.isErrorEnabled = false
             }
         }
     }
@@ -120,8 +129,10 @@ class LoginActivity : AppCompatActivity() {
         binding.etEmail.doOnTextChanged { text, _, _, _ ->
             if(text!!.isEmpty()){
                 binding.tilEmail.error = "Email ga boleh kosong ya!"
+                binding.tilEmail.isErrorEnabled = true
             }else if(text.isNotEmpty()){
                 binding.tilEmail.error = null
+                binding.tilEmail.isErrorEnabled = false
             }
         }
     }
