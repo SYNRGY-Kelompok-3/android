@@ -1,5 +1,6 @@
-package com.synrgy.travelid.presentation.register
+package com.synrgy.travelid.presentation.auth.register
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -10,7 +11,8 @@ import com.synrgy.travelid.domain.model.ResetPasswordRequest
 import com.synrgy.travelid.domain.model.UpdatePasswordRequest
 import com.synrgy.travelid.domain.model.UserRegister
 import com.synrgy.travelid.domain.model.UserRegisterRequest
-import com.synrgy.travelid.presentation.forgotpassword.LupaPasswordActivity
+import com.synrgy.travelid.presentation.auth.forgotpassword.LupaPasswordActivity
+import com.synrgy.travelid.presentation.auth.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,6 +41,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun bindView() {
         binding.buttonDaftar.setOnClickListener { handleRegisterValidation() }
+        binding.icBack.setOnClickListener { handleGoBack() }
         handleNamaTextOnChanged()
         handlePasswordTextOnChanged()
         handleEmailTextOnChanged()
@@ -89,6 +92,10 @@ class RegisterActivity : AppCompatActivity() {
         confirmFragment.show(supportFragmentManager, "BSDialogFragment")
     }
 
+    private fun handleGoBack() {
+        startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+    }
+
     private fun handleValidation(
         fullname: String,
         email: String,
@@ -106,8 +113,8 @@ class RegisterActivity : AppCompatActivity() {
                 "Email kosong!"
             }
             !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
-                binding.tilEmail.error = "Email ga sesuai nih!"
-                "Email tidak sesuai!"
+                binding.tilEmail.error = "Email ga valid nih!"
+                "Email tidak valid!"
             }
             phoneNumber.isEmpty() -> {
                 binding.tilNomorHandphone.error = "Nomor handphone ga boleh kosong ya!"

@@ -2,6 +2,7 @@ package com.synrgy.travelid.data.local
 
 import android.content.Context
 import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.SharedPreferencesMigration
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -10,36 +11,29 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class DataStoreManager @Inject constructor(
-    private val context: Context,
-){
+class DataStoreManager @Inject constructor(private val context: Context) {
     companion object {
-        private val KEY_TOKEN = stringPreferencesKey("token")
-        private val KEY_EMAIL = stringPreferencesKey("email")
         private const val PREF_NAME = "User"
+        val TOKEN_KEY = stringPreferencesKey("TOKEN")
 
-        private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(
-            name = PREF_NAME
+        val Context.dataStoreAuth: DataStore<Preferences> by preferencesDataStore(
+            name = PREF_NAME,
+            produceMigrations = Companion::sharedPreferencesMigration
         )
-    }
 
-    suspend fun saveToken(token: String){
-        context.dataStore.edit{settings -> settings[KEY_TOKEN]}
-    }
-
-    suspend fun saveEmail(username: String) {
-        context.dataStore.edit { settings -> settings[KEY_EMAIL] = username }
+        private fun sharedPreferencesMigration(context: Context) =
+            listOf(SharedPreferencesMigration(context, PREF_NAME))
     }
 
     fun getToken(): Flow<String> {
-        return context.dataStore.data.map { settings ->
-            settings[KEY_TOKEN].orEmpty()
+        return context.dataStoreAuth.data.map { preferences ->
+            preferences[TOKEN_KEY].orEmpty()
         }
     }
 
     suspend fun setToken(value: String) {
-        context.dataStore.edit { settings ->
-            settings [KEY_TOKEN] = value
+        context.dataStoreAuth.edit { preferences ->
+            preferences[TOKEN_KEY] = value
         }
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">travel.id</string>
+    <string name="app_name">Travel.id</string>
     <string name="sudah_punya_akun">Sudah punya akun?</string>
     <string name="login_now">Login sekarang</string>
     <string name="register">Register</string>

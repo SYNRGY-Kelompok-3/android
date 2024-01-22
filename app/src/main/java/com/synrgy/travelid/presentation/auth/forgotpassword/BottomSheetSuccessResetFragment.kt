@@ -1,4 +1,4 @@
-package com.synrgy.travelid.presentation.forgotpassword
+package com.synrgy.travelid.presentation.auth.forgotpassword
 
 import android.os.Bundle
 import android.view.LayoutInflater

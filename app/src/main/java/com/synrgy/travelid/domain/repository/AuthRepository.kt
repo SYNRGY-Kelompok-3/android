@@ -9,6 +9,8 @@ import com.synrgy.travelid.domain.model.UpdatePasswordRequest
 import com.synrgy.travelid.domain.model.ValidateOTP
 import com.synrgy.travelid.domain.model.ValidateOTPRequest
 import com.synrgy.travelid.domain.model.UserConfirmOtpRegister
+import com.synrgy.travelid.domain.model.UserLogin
+import com.synrgy.travelid.domain.model.UserLoginRequest
 import com.synrgy.travelid.domain.model.UserRegister
 import com.synrgy.travelid.domain.model.UserRegisterRequest
 
@@ -37,4 +39,8 @@ interface AuthRepository {
     suspend fun sendOTPRegister(
         request: SendOTPRequest
     ): SendOTP
+
+    suspend fun userLogin(
+        request: UserLoginRequest
+    ): UserLogin
 }

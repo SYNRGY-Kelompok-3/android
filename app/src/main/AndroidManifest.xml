@@ -14,36 +14,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Travelid"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.forgotpassword.ValidateOTPActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false">
-        </activity>
+            android:name=".presentation.home.HomeActivity"
+            android:exported="false" />
         <activity
-            android:name=".presentation.forgotpassword.AturUlangPasswordActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name=".presentation.forgotpassword.LupaPasswordActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name=".presentation.register.OtpActivity"
+            android:name=".presentation.auth.login.LoginActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
+            android:theme="@style/Theme.LoginActivity" />
         <activity
-            android:name=".presentation.register.RegisterActivity"
-            android:exported="true">
+            android:name=".presentation.onboarding.OnboardingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OnboardingActivity" />
+        <activity
+            android:name=".presentation.splashscreen.RoutingActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.auth.forgotpassword.ValidateOTPActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".presentation.auth.forgotpassword.AturUlangPasswordActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".presentation.auth.forgotpassword.LupaPasswordActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".presentation.auth.register.OtpActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".presentation.auth.register.RegisterActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.synrgy.travelid.presentation.forgotpassword
+package com.synrgy.travelid.presentation.auth.forgotpassword
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import androidx.core.widget.doOnTextChanged
 import com.synrgy.travelid.domain.model.ResetPasswordRequest
 import com.synrgy.travelid.databinding.ActivityLupaPasswordBinding
 import com.synrgy.travelid.domain.model.ResetPassword
+import com.synrgy.travelid.presentation.auth.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,6 +43,7 @@ class LupaPasswordActivity : AppCompatActivity() {
 
     private fun bindView(){
         binding.buttonKirimLupaPw.setOnClickListener { handleValidation() }
+        binding.icBack.setOnClickListener { handleGoBack() }
         binding.etInputEmail.requestFocus()
         handleEditTextOnChanged()
     }
@@ -73,6 +75,10 @@ class LupaPasswordActivity : AppCompatActivity() {
         val bottomSheetFragment = BottomSheetEmailFragment()
         bottomSheetFragment.isCancelable = false
         bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+    }
+
+    private fun handleGoBack() {
+        startActivity(Intent(this@LupaPasswordActivity, LoginActivity::class.java))
     }
 
     private fun handleEditTextOnChanged() {

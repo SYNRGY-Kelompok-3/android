@@ -1,4 +1,4 @@
-package com.synrgy.travelid.presentation.register
+package com.synrgy.travelid.presentation.auth.register
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.synrgy.travelid.databinding.FragmentConfirmBinding
-import com.synrgy.travelid.presentation.forgotpassword.LupaPasswordActivity
-import com.synrgy.travelid.presentation.forgotpassword.ValidateOTPActivity
-import com.synrgy.travelid.presentation.register.RegisterActivity.Companion.USER_EMAIL_REGISTER
+import com.synrgy.travelid.presentation.auth.forgotpassword.LupaPasswordActivity
+import com.synrgy.travelid.presentation.auth.forgotpassword.ValidateOTPActivity
+import com.synrgy.travelid.presentation.auth.register.RegisterActivity.Companion.USER_EMAIL_REGISTER
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ConfirmFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentConfirmBinding
     override fun onCreateView(

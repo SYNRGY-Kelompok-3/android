@@ -10,6 +10,7 @@ import com.synrgy.travelid.domain.repository.AuthRepository
 import com.synrgy.travelid.domain.repository.TokenRepository
 import com.synrgy.travelid.data.remote.response.toUpdateUser
 import com.synrgy.travelid.data.remote.response.toUserConfirmOtpRegister
+import com.synrgy.travelid.data.remote.response.toUserLogin
 import com.synrgy.travelid.data.remote.response.toUserRegister
 import com.synrgy.travelid.data.remote.response.toValidateOTP
 import com.synrgy.travelid.domain.model.SendOTP
@@ -17,6 +18,8 @@ import com.synrgy.travelid.domain.model.SendOTPRequest
 import com.synrgy.travelid.domain.model.UpdatePassword
 import com.synrgy.travelid.domain.model.UpdatePasswordRequest
 import com.synrgy.travelid.domain.model.UserConfirmOtpRegister
+import com.synrgy.travelid.domain.model.UserLogin
+import com.synrgy.travelid.domain.model.UserLoginRequest
 import com.synrgy.travelid.domain.model.UserRegister
 import com.synrgy.travelid.domain.model.UserRegisterRequest
 import com.synrgy.travelid.domain.model.ValidateOTP
@@ -62,5 +65,9 @@ class RemoteRepository @Inject constructor(
 
     override suspend fun sendOTPRegister(request: SendOTPRequest): SendOTP {
         return apiService.sendOTPRegister(request).toSendOTPPassword()
+    }
+
+    override suspend fun userLogin(request: UserLoginRequest): UserLogin {
+        return apiService.login(request).toUserLogin()
     }
 }

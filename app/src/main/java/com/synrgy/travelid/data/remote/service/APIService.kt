@@ -1,6 +1,7 @@
 package com.synrgy.travelid.data.remote.service
 
 import com.synrgy.travelid.data.remote.response.ConfirmOtpRegisterResponse
+import com.synrgy.travelid.data.remote.response.LoginResponse
 import com.synrgy.travelid.data.remote.response.RegisterResponse
 import com.synrgy.travelid.data.remote.response.ResetPasswordResponse
 import com.synrgy.travelid.data.remote.response.SendOTPRegisterResponse
@@ -10,6 +11,7 @@ import com.synrgy.travelid.domain.model.ValidateOTPRequest
 import com.synrgy.travelid.domain.model.ResetPasswordRequest
 import com.synrgy.travelid.domain.model.SendOTPRequest
 import com.synrgy.travelid.domain.model.UpdatePasswordRequest
+import com.synrgy.travelid.domain.model.UserLoginRequest
 import com.synrgy.travelid.domain.model.UserRegisterRequest
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -17,6 +19,12 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface APIService {
+    // Login
+    @POST("user-login/login")
+    suspend fun login(
+        @Body request: UserLoginRequest
+    ): LoginResponse
+
     // Register
     @POST("user-register/register")
     suspend fun register(

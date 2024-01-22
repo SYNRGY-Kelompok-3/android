@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_color"
+    tools:context=".presentation.auth.login.LoginActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_logo_login"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="-20dp"
+        android:layout_marginBottom="-20dp"
+        android:src="@drawable/img_login1"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="215dp"
+        android:layout_height="215dp"
+        android:layout_marginEnd="-105dp"
+        android:layout_marginBottom="-70dp"
+        android:src="@drawable/img_login2"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/bg_card_login"
+        app:strokeWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:includeFontPadding="false"
+                android:text="Selamat datang!"
+                android:textColor="#232323"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppinsregular"
+                android:includeFontPadding="false"
+                android:lineHeight="24dp"
+                android:text="Silahkan masukkan email dan password untuk akses ke akun kamu."
+                android:textColor="#9799A1"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_weight="1"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/text_input_box_stroke"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/ErrorTextAppearance"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@+id/tv_subtitle"
+                app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
+                app:layout_constraintTop_toBottomOf="@+id/tv_subtitle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="start|center_vertical"
+                    android:hint="Masukan email"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="0dp"
+                    android:textSize="15sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:includeFontPadding="false"
+                android:text="Email"
+                android:textColor="#3E7BFA"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/til_email"
+                app:layout_constraintTop_toTopOf="@+id/til_email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/text_input_box_stroke"
+                app:endIconMode="password_toggle"
+                app:endIconTint="#C7CDD5"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/ErrorTextAppearance"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@+id/tv_subtitle"
+                app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
+                app:layout_constraintTop_toBottomOf="@+id/til_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="start|center_vertical"
+                    android:hint="Masukan kata sandi"
+                    android:includeFontPadding="false"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="0dp"
+                    android:textSize="15sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:includeFontPadding="false"
+                android:text="Kata sandi"
+                android:textColor="#3E7BFA"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/til_password"
+                app:layout_constraintTop_toTopOf="@+id/til_password" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_lupa_kata_sandi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lupa kata sandi?"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="#3E7BFA"
+                android:includeFontPadding="false"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/til_password"
+                app:layout_constraintTop_toBottomOf="@+id/til_password" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_daftar"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="16dp"
+                android:backgroundTint="#3E7BFA"
+                android:fontFamily="@font/poppinssemibold"
+                android:includeFontPadding="false"
+                android:text="Masuk"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:cornerRadius="12dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_lupa_kata_sandi" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/button_daftar"
+                app:layout_constraintStart_toStartOf="@+id/button_daftar"
+                app:layout_constraintTop_toBottomOf="@id/button_daftar">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/materialTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:includeFontPadding="false"
+                    android:text="Belum punya akun?"
+                    android:textColor="#9799A1"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_daftar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:includeFontPadding="false"
+                    android:text="Daftar sekarang"
+                    android:textColor="#3E7BFA"
+                    android:textSize="14sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

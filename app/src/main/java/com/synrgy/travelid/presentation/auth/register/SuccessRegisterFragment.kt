@@ -1,4 +1,4 @@
-package com.synrgy.travelid.presentation.register
+package com.synrgy.travelid.presentation.auth.register
 
 import android.content.Intent
 import android.os.Bundle

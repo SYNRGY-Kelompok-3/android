@@ -1,4 +1,4 @@
-package com.synrgy.travelid.presentation.forgotpassword
+package com.synrgy.travelid.presentation.auth.forgotpassword
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.FragmentBottomSheetEmailBinding
-import com.synrgy.travelid.presentation.forgotpassword.LupaPasswordActivity.Companion.USER_EMAIL
+import com.synrgy.travelid.presentation.auth.forgotpassword.LupaPasswordActivity.Companion.USER_EMAIL
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="textInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
         <item name="boxStrokeColor">@color/darker_gray</item>
         <item name="boxStrokeWidth">10dp</item>
@@ -15,6 +15,17 @@
     <style name="ErrorTextAppearance" parent="@android:style/TextAppearance">
         <item name="android:fontFamily">@font/poppinsmedium</item>
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Theme.OnboardingActivity" parent="Base.Theme.Travelid">
+        <item name="android:statusBarColor">#3E7BFA</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:navigationBarColor">#0B51E1</item>
+    </style>
+
+    <style name="Theme.LoginActivity" parent="Base.Theme.Travelid">
+        <item name="android:statusBarColor">#3E7BFA</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
     </style>
 
 </resources>
