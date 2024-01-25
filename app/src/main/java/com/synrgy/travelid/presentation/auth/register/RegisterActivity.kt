@@ -3,19 +3,13 @@ package com.synrgy.travelid.presentation.auth.register
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
-import com.synrgy.travelid.data.remote.response.ErrorResponse
 import com.synrgy.travelid.databinding.ActivityRegisterBinding
-import com.synrgy.travelid.domain.model.ErrorMessage
-import com.synrgy.travelid.domain.model.ResetPasswordRequest
-import com.synrgy.travelid.domain.model.UpdatePasswordRequest
-import com.synrgy.travelid.domain.model.UserRegister
-import com.synrgy.travelid.domain.model.UserRegisterRequest
-import com.synrgy.travelid.presentation.auth.forgotpassword.LupaPasswordActivity
+import com.synrgy.travelid.domain.model.auth.ErrorMessage
+import com.synrgy.travelid.domain.model.auth.UserRegister
+import com.synrgy.travelid.domain.model.auth.UserRegisterRequest
 import com.synrgy.travelid.presentation.auth.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 

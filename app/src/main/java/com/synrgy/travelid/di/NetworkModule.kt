@@ -3,7 +3,8 @@ package com.synrgy.travelid.di
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.synrgy.travelid.data.remote.service.APIService
+import com.synrgy.travelid.data.remote.service.AuthAPIService
+import com.synrgy.travelid.data.remote.service.MainAPIService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,8 +21,10 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
     companion object{
-        const val BASE_URL = "https://travelid-backend-java-dev.up.railway.app/v1/"
+        const val BASE_URL_AUTH = "https://travelid-backend-java-dev.up.railway.app/v1/"
+        const val BASE_URL_MAIN = "https://travelid-backend-java-dev.up.railway.app/"
         const val RETROFIT_AUTH = "RetrofitAuth"
+        const val RETROFIT_MAIN = "RetrofitMain"
     }
 
     @Singleton
@@ -63,7 +66,7 @@ class NetworkModule {
     @Named(RETROFIT_AUTH)
     fun provideRetrofitAuth(client: OkHttpClient) : Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL_AUTH)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
@@ -71,7 +74,24 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideAuthAPI(@Named(RETROFIT_AUTH) retrofit: Retrofit) : APIService {
-        return retrofit.create(APIService::class.java)
+    @Named(RETROFIT_MAIN)
+    fun provideRetrofitMain(client: OkHttpClient) : Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL_MAIN)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideAuthAPI(@Named(RETROFIT_AUTH) retrofit: Retrofit) : AuthAPIService {
+        return retrofit.create(AuthAPIService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideMainAPI(@Named(RETROFIT_MAIN) retrofit: Retrofit) : MainAPIService {
+        return retrofit.create(MainAPIService::class.java)
     }
 }

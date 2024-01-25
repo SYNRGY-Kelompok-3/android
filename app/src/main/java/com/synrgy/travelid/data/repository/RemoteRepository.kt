@@ -1,47 +1,51 @@
 package com.synrgy.travelid.data.repository
 
-import com.synrgy.travelid.data.remote.response.toUpdatePassword
+import com.synrgy.travelid.data.remote.response.auth.toUpdatePassword
 import com.synrgy.travelid.data.local.DataStoreManager
-import com.synrgy.travelid.data.remote.response.toSendOTPPassword
-import com.synrgy.travelid.data.remote.service.APIService
-import com.synrgy.travelid.domain.model.ResetPassword
-import com.synrgy.travelid.domain.model.ResetPasswordRequest
+import com.synrgy.travelid.data.remote.response.auth.toSendOTPPassword
+import com.synrgy.travelid.data.remote.service.AuthAPIService
+import com.synrgy.travelid.domain.model.auth.ResetPassword
+import com.synrgy.travelid.domain.model.auth.ResetPasswordRequest
 import com.synrgy.travelid.domain.repository.AuthRepository
 import com.synrgy.travelid.domain.repository.TokenRepository
-import com.synrgy.travelid.data.remote.response.toUpdateUser
-import com.synrgy.travelid.data.remote.response.toUserConfirmOtpRegister
-import com.synrgy.travelid.data.remote.response.toUserLogin
-import com.synrgy.travelid.data.remote.response.toUserRegister
-import com.synrgy.travelid.data.remote.response.toValidateOTP
-import com.synrgy.travelid.domain.model.ErrorMessage
-import com.synrgy.travelid.domain.model.SendOTP
-import com.synrgy.travelid.domain.model.SendOTPRequest
-import com.synrgy.travelid.domain.model.UpdatePassword
-import com.synrgy.travelid.domain.model.UpdatePasswordRequest
-import com.synrgy.travelid.domain.model.UserConfirmOtpRegister
-import com.synrgy.travelid.domain.model.UserLogin
-import com.synrgy.travelid.domain.model.UserLoginRequest
-import com.synrgy.travelid.domain.model.UserRegister
-import com.synrgy.travelid.domain.model.UserRegisterRequest
-import com.synrgy.travelid.domain.model.ValidateOTP
-import com.synrgy.travelid.domain.model.ValidateOTPRequest
+import com.synrgy.travelid.data.remote.response.auth.toUpdateUser
+import com.synrgy.travelid.data.remote.response.auth.toUserConfirmOtpRegister
+import com.synrgy.travelid.data.remote.response.auth.toUserLogin
+import com.synrgy.travelid.data.remote.response.auth.toUserRegister
+import com.synrgy.travelid.data.remote.response.auth.toValidateOTP
+import com.synrgy.travelid.data.remote.response.main.toUserProfile
+import com.synrgy.travelid.data.remote.service.MainAPIService
+import com.synrgy.travelid.domain.model.auth.SendOTP
+import com.synrgy.travelid.domain.model.auth.SendOTPRequest
+import com.synrgy.travelid.domain.model.auth.UpdatePassword
+import com.synrgy.travelid.domain.model.auth.UpdatePasswordRequest
+import com.synrgy.travelid.domain.model.auth.UserConfirmOtpRegister
+import com.synrgy.travelid.domain.model.auth.UserLogin
+import com.synrgy.travelid.domain.model.auth.UserLoginRequest
+import com.synrgy.travelid.domain.model.auth.UserRegister
+import com.synrgy.travelid.domain.model.auth.UserRegisterRequest
+import com.synrgy.travelid.domain.model.auth.ValidateOTP
+import com.synrgy.travelid.domain.model.auth.ValidateOTPRequest
+import com.synrgy.travelid.domain.model.main.UserProfile
+import com.synrgy.travelid.domain.repository.MainRepository
 import kotlinx.coroutines.flow.firstOrNull
 import javax.inject.Inject
 
 class RemoteRepository @Inject constructor(
     private val dataStore: DataStoreManager,
-    private val apiService: APIService,
-): TokenRepository, AuthRepository {
+    private val authAPIService: AuthAPIService,
+    private val mainAPIService: MainAPIService,
+): TokenRepository, AuthRepository, MainRepository {
     override suspend fun lupaPassword(request: ResetPasswordRequest): ResetPassword {
-        return apiService.resetPassword(request).toUpdateUser()
+        return authAPIService.resetPassword(request).toUpdateUser()
     }
 
     override suspend fun validateOTP(request: ValidateOTPRequest): ValidateOTP {
-        return apiService.validateOTP(request).toValidateOTP()
+        return authAPIService.validateOTP(request).toValidateOTP()
     }
 
     override suspend fun aturPassword(request: UpdatePasswordRequest): UpdatePassword {
-        return apiService.updatePassword(request).toUpdatePassword()
+        return authAPIService.updatePassword(request).toUpdatePassword()
     }
 
     override suspend fun setToken(token: String) {
@@ -57,18 +61,22 @@ class RemoteRepository @Inject constructor(
     }
 
     override suspend fun userRegister(request: UserRegisterRequest): UserRegister {
-        return apiService.register(request).toUserRegister()
+        return authAPIService.register(request).toUserRegister()
     }
 
     override suspend fun userConfirmOtpRegister(otp: String): UserConfirmOtpRegister {
-        return apiService.confirmOtpRegister(otp).toUserConfirmOtpRegister()
+        return authAPIService.confirmOtpRegister(otp).toUserConfirmOtpRegister()
     }
 
     override suspend fun sendOTPRegister(request: SendOTPRequest): SendOTP {
-        return apiService.sendOTPRegister(request).toSendOTPPassword()
+        return authAPIService.sendOTPRegister(request).toSendOTPPassword()
     }
 
     override suspend fun userLogin(request: UserLoginRequest): UserLogin {
-        return apiService.login(request).toUserLogin()
+        return authAPIService.login(request).toUserLogin()
+    }
+
+    override suspend fun userProfile(token: String): UserProfile {
+        return mainAPIService.userProfile(token = "Bearer $token").data2!!.toUserProfile()
     }
 }

@@ -1,6 +1,6 @@
 package com.synrgy.travelid.presentation.auth.forgotpassword
 
-import com.synrgy.travelid.domain.model.ResetPasswordRequest
+import com.synrgy.travelid.domain.model.auth.ResetPasswordRequest
 import com.synrgy.travelid.domain.repository.AuthRepository
 
 class LupaPasswordUseCase (

@@ -7,12 +7,10 @@ import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.activity.viewModels
-import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.ActivityValidateOtpBinding
-import com.synrgy.travelid.domain.model.ResetPassword
-import com.synrgy.travelid.domain.model.ResetPasswordRequest
-import com.synrgy.travelid.domain.model.ValidateOTP
-import com.synrgy.travelid.domain.model.ValidateOTPRequest
+import com.synrgy.travelid.domain.model.auth.ResetPasswordRequest
+import com.synrgy.travelid.domain.model.auth.ValidateOTP
+import com.synrgy.travelid.domain.model.auth.ValidateOTPRequest
 import com.synrgy.travelid.presentation.auth.forgotpassword.LupaPasswordActivity.Companion.USER_EMAIL
 import dagger.hilt.android.AndroidEntryPoint
 

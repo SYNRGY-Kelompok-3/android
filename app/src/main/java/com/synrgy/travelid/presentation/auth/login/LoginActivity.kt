@@ -9,11 +9,10 @@ import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
 import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.ActivityLoginBinding
-import com.synrgy.travelid.domain.model.UserLoginRequest
+import com.synrgy.travelid.domain.model.auth.UserLoginRequest
+import com.synrgy.travelid.presentation.MainActivity
 import com.synrgy.travelid.presentation.auth.forgotpassword.LupaPasswordActivity
 import com.synrgy.travelid.presentation.auth.register.RegisterActivity
-import com.synrgy.travelid.presentation.home.HomeActivity
-import com.synrgy.travelid.presentation.home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun handleOpenHomePage(isLoggedIn: Boolean) {
         if(isLoggedIn){
-            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         }
     }
 

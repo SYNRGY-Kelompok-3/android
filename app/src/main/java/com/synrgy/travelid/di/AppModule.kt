@@ -3,9 +3,11 @@ package com.synrgy.travelid.di
 import android.app.Application
 import android.content.Context
 import com.synrgy.travelid.data.local.DataStoreManager
-import com.synrgy.travelid.data.remote.service.APIService
+import com.synrgy.travelid.data.remote.service.AuthAPIService
+import com.synrgy.travelid.data.remote.service.MainAPIService
 import com.synrgy.travelid.data.repository.RemoteRepository
 import com.synrgy.travelid.domain.repository.AuthRepository
+import com.synrgy.travelid.domain.repository.MainRepository
 import com.synrgy.travelid.domain.repository.TokenRepository
 import dagger.Module
 import dagger.Provides
@@ -25,12 +27,14 @@ class AppModule {
     @Singleton
     @Provides
     fun provideRemoteRepository(
-        apiService: APIService,
+        authAPIService: AuthAPIService,
+        mainAPIService: MainAPIService,
         dataStoreManager: DataStoreManager
     ): RemoteRepository {
         return RemoteRepository(
             dataStoreManager,
-            apiService
+            authAPIService,
+            mainAPIService
         )
     }
 
@@ -43,6 +47,12 @@ class AppModule {
     @Singleton
     @Provides
     fun provideTokenRepository(remoteRepository: RemoteRepository): TokenRepository {
+        return remoteRepository
+    }
+
+    @Singleton
+    @Provides
+    fun provideMainRepository(remoteRepository: RemoteRepository): MainRepository {
         return remoteRepository
     }
 }

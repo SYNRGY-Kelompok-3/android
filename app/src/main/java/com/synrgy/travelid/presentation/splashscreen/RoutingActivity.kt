@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.ActivityRoutingBinding
+import com.synrgy.travelid.presentation.MainActivity
 import com.synrgy.travelid.presentation.auth.register.RegisterActivity
 import com.synrgy.travelid.presentation.onboarding.OnboardingActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,7 +23,7 @@ class RoutingActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         splashScreen.setOnExitAnimationListener {
-            val intent = Intent(this, OnboardingActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }

@@ -27,21 +27,5 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bindView()
-        observeViewModel()
-    }
-
-    private fun bindView() {
-        binding.btnLogout.setOnClickListener { viewModel.clearDataUser() }
-    }
-
-    private fun observeViewModel() {
-        viewModel.openLoginPage.observe(viewLifecycleOwner, ::handleOpenLoginPage)
-    }
-
-    private fun handleOpenLoginPage(isLoggedOut: Boolean) {
-        if(isLoggedOut){
-            LoginActivity.startActivity(requireContext())
-        }
     }
 }

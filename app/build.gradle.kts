@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId = "com.synrgy.travelid"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -108,6 +108,15 @@ dependencies {
 
     // SplashScreen
     implementation("androidx.core:core-splashscreen:1.0.1")
+
+    // Rounded Image View
+    implementation("com.makeramen:roundedimageview:2.3.0")
+
+    // Avatar Image Generator
+    implementation("com.github.amoskorir:avatarimagegenerator:1.5.0")
+
+    // Chip Navigation Bar
+    implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
