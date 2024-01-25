@@ -1,15 +1,11 @@
 package com.synrgy.travelid.presentation.auth.forgotpassword
 
 import android.os.Bundle
-import android.text.method.PasswordTransformationMethod
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
-import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.ActivityAturUlangPasswordBinding
-import com.synrgy.travelid.databinding.ActivityLupaPasswordBinding
-import com.synrgy.travelid.domain.model.UpdatePasswordRequest
+import com.synrgy.travelid.domain.model.auth.UpdatePasswordRequest
 import com.synrgy.travelid.presentation.auth.forgotpassword.LupaPasswordActivity.Companion.USER_EMAIL
 import com.synrgy.travelid.presentation.auth.forgotpassword.ValidateOTPActivity.Companion.USER_OTP_CODE
 import dagger.hilt.android.AndroidEntryPoint

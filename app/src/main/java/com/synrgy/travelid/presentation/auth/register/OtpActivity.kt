@@ -7,8 +7,8 @@ import android.text.TextWatcher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.synrgy.travelid.databinding.ActivityOtpBinding
-import com.synrgy.travelid.domain.model.SendOTPRequest
-import com.synrgy.travelid.domain.model.UserConfirmOtpRegister
+import com.synrgy.travelid.domain.model.auth.SendOTPRequest
+import com.synrgy.travelid.domain.model.auth.UserConfirmOtpRegister
 import com.synrgy.travelid.presentation.auth.forgotpassword.LupaPasswordActivity
 import com.synrgy.travelid.presentation.auth.register.RegisterActivity.Companion.USER_EMAIL_REGISTER
 import dagger.hilt.android.AndroidEntryPoint

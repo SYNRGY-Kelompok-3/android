@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.synrgy.travelid.domain.model.UserLoginRequest
+import com.synrgy.travelid.domain.model.auth.UserLoginRequest
 import com.synrgy.travelid.domain.repository.AuthRepository
 import com.synrgy.travelid.domain.repository.TokenRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

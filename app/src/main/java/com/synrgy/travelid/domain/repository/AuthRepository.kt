@@ -1,18 +1,18 @@
 package com.synrgy.travelid.domain.repository
 
-import com.synrgy.travelid.domain.model.ResetPassword
-import com.synrgy.travelid.domain.model.ResetPasswordRequest
-import com.synrgy.travelid.domain.model.SendOTP
-import com.synrgy.travelid.domain.model.SendOTPRequest
-import com.synrgy.travelid.domain.model.UpdatePassword
-import com.synrgy.travelid.domain.model.UpdatePasswordRequest
-import com.synrgy.travelid.domain.model.ValidateOTP
-import com.synrgy.travelid.domain.model.ValidateOTPRequest
-import com.synrgy.travelid.domain.model.UserConfirmOtpRegister
-import com.synrgy.travelid.domain.model.UserLogin
-import com.synrgy.travelid.domain.model.UserLoginRequest
-import com.synrgy.travelid.domain.model.UserRegister
-import com.synrgy.travelid.domain.model.UserRegisterRequest
+import com.synrgy.travelid.domain.model.auth.ResetPassword
+import com.synrgy.travelid.domain.model.auth.ResetPasswordRequest
+import com.synrgy.travelid.domain.model.auth.SendOTP
+import com.synrgy.travelid.domain.model.auth.SendOTPRequest
+import com.synrgy.travelid.domain.model.auth.UpdatePassword
+import com.synrgy.travelid.domain.model.auth.UpdatePasswordRequest
+import com.synrgy.travelid.domain.model.auth.ValidateOTP
+import com.synrgy.travelid.domain.model.auth.ValidateOTPRequest
+import com.synrgy.travelid.domain.model.auth.UserConfirmOtpRegister
+import com.synrgy.travelid.domain.model.auth.UserLogin
+import com.synrgy.travelid.domain.model.auth.UserLoginRequest
+import com.synrgy.travelid.domain.model.auth.UserRegister
+import com.synrgy.travelid.domain.model.auth.UserRegisterRequest
 
 interface AuthRepository {
     suspend fun lupaPassword(

@@ -4,13 +4,11 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Patterns
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
-import com.synrgy.travelid.domain.model.ResetPasswordRequest
+import com.synrgy.travelid.domain.model.auth.ResetPasswordRequest
 import com.synrgy.travelid.databinding.ActivityLupaPasswordBinding
-import com.synrgy.travelid.domain.model.ResetPassword
+import com.synrgy.travelid.domain.model.auth.ResetPassword
 import com.synrgy.travelid.presentation.auth.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
