@@ -123,4 +123,10 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-perf")
+
+    // recyclerview
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+
+    // cardview
+    implementation ("androidx.cardview:cardview:1.0.0")
 }

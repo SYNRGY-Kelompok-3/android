@@ -20,4 +20,23 @@
     <string name="done">Berhasil!</string>
     <string name="instruction_code_otp">Kode sudah dikirim ke email, silakan cek email</string>
     <string name="cek_email">Cek Email</string>
+    <string name="arrivalname">Yogyakarta</string>
+    <string name="departurename">Jakarta</string>
+    <string name="txt_seat">1 Kursi</string>
+    <string name="txt_date">Selasa, 1 Jan</string>
+    <string name="txt_seat_class">Ekonomi</string>
+    <string name="txt_list_date">Selasa, 1 Jan</string>
+    <string name="txt_list_price">Rp700.000</string>
+    <string name="txt_airline_name">Citilink</string>
+    <string name="txt_travel_price">Rp1.500.000/pax</string>
+    <string name="txt_startday">Jumat</string>
+    <string name="txt_endday">Sabtu</string>
+    <string name="txt_transit">Tanpa Transit</string>
+    <string name="txt_startime">19:50</string>
+    <string name="txt_endtime">22:45</string>
+    <string name="txt_flight_time">2 Jam 30 Menit</string>
+    <string name="txt_origin_airport">YIA</string>
+    <string name="txt_destination_airport">CGA</string>
+
+
 </resources>
