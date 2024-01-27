@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="230dp"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_atc_rv_semua"
+        android:layout_width="230dp"
+        android:layout_height="100dp"
+        android:src="@drawable/img_test_article"
+        android:scaleType="centerCrop"
+        android:background="@drawable/border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/tv_atc_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="10 Rekomendasi Tempat Wisata Di Jawa Timur"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppinsmedium"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:lines="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_atc_rv_semua"/>
+    <TextView
+        android:id="@+id/tv_atc_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bali merupakan surga wisata bagi wisatawan lokal dan asing. Banyak dari mereka yang berkunjung kesini setiap tahunnya. Pulau Dewata ini memberikan berbagai bentuk wisata yang wajib dikunjungi orang-orang dari pantai"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/darker_gray"
+        android:lines="3"
+        android:ellipsize="end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_atc_title"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_atc_description"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_atc_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wisata"
+            android:textSize="10sp"
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="@color/primary_blue"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" • "
+            android:textSize="10sp"
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="#334155"/>
+        <TextView
+            android:id="@+id/tv_atc_read_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 min read"
+            android:textSize="10sp"
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

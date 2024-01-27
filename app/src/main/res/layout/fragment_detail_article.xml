@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.article.DetailArticleFragment"
+        android:layout_margin="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/left_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/primary_blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail Article"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppinsmedium"
+                app:layout_constraintStart_toEndOf="@id/back_button"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:id="@+id/tv_datc_published"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Published in"
+                android:textSize="12dp"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/back_button"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="12dp"/>
+            <ImageView
+                android:id="@+id/tv_datc_simbol"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_travel_id"
+                android:layout_gravity="center"
+                app:layout_constraintStart_toEndOf="@id/tv_datc_published"
+                app:layout_constraintTop_toBottomOf="@id/back_button"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="4dp"/>
+            <TextView
+                android:id="@+id/tv_datc_travel.id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travel.id"
+                android:textSize="12dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/primary_blue"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/tv_datc_simbol"
+                app:layout_constraintTop_toBottomOf="@id/back_button"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="12dp"/>
+            <TextView
+                android:id="@+id/tv_datc_simbol2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" • "
+                android:textSize="12sp"
+                android:fontFamily="@font/poppinsmedium"
+                app:layout_constraintStart_toEndOf="@id/tv_datc_travel.id"
+                app:layout_constraintTop_toBottomOf="@id/back_button"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#334155"/>
+            <TextView
+                android:id="@+id/tv_datc_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 Oktober 2023"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppinsregular"
+                app:layout_constraintStart_toEndOf="@id/tv_datc_simbol2"
+                app:layout_constraintTop_toBottomOf="@id/back_button"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_datc_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10 Rekomendasi Tempat Wisata Di Jawa Timur"
+                android:textSize="20dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tv_datc_published"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="8dp"/>
+            <ImageView
+                android:id="@+id/img_datc_first"
+                android:layout_width="match_parent"
+                android:layout_height="184.5dp"
+                android:src="@drawable/alam_1"
+                app:layout_constraintTop_toBottomOf="@id/tv_datc_title"
+                app:layout_constraintStart_toStartOf="parent"
+                android:scaleType="center"
+                />
+
+            <View
+                android:id="@+id/view_datc_border"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="1dp"
+                android:background="@color/light_gray"
+                app:layout_constraintTop_toBottomOf="@id/img_datc_first"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tv_datc_introduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Introduction"
+                android:fontFamily="@font/poppinsmedium"
+                app:layout_constraintTop_toBottomOf="@id/view_datc_border"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_datc_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20 Oktober 2023 Travel Indonesia merupakan platform yang menyediakan akses untuk menemukan serta membeli tiket pesawat dengan mudah dan cepat. Travel Indonesia percaya bahwa kepuasan bisa mendatangkan pengalaman yang sangat berharga. Oleh karena itu, travel indonesia dapat menemani setiap perjalanan anda secara nyaman dan terjamin. Didukung dengan berbagai macam pembayaran serta maskapai yang beragam, travel indonesia mampu menghadirkan pengalaman yang berkesan."
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/darker_gray"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@id/tv_datc_introduction"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <ImageView
+                android:id="@+id/img_datc_second"
+                android:layout_width="match_parent"
+                android:layout_height="184.5dp"
+                android:src="@drawable/alam_1"
+                android:scaleType="center"
+                app:layout_constraintTop_toBottomOf="@id/tv_datc_desc"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_menu"
+            android:foregroundGravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintHeight_default="wrap"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
