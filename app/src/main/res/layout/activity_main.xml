@@ -25,7 +25,7 @@
         android:background="@color/white"
         app:cnb_menuResource="@menu/bottom_menu"
         app:cnb_unselectedColor="#6E6E6E"
-        app:cnb_animationDuration="150"
+        app:cnb_animationDuration="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

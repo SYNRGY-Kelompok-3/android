@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.gson.Gson
+import com.synrgy.travelid.domain.model.auth.ErrorMessage
+import com.synrgy.travelid.domain.model.auth.UserLogin
 import com.synrgy.travelid.domain.model.auth.UserLoginRequest
 import com.synrgy.travelid.domain.repository.AuthRepository
 import com.synrgy.travelid.domain.repository.TokenRepository
@@ -18,8 +21,11 @@ class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository,
     private val tokenRepository: TokenRepository
 ): ViewModel() {
-    private val _openHomePage = MutableLiveData<Boolean>()
-    val openHomePage: LiveData<Boolean> = _openHomePage
+    private val _userLogin = MutableLiveData<UserLogin>()
+    val userLogin: LiveData<UserLogin> = _userLogin
+
+    private val _errorLogin = MutableLiveData<ErrorMessage>()
+    val errorLogin: LiveData<ErrorMessage> = _errorLogin
 
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
@@ -31,11 +37,17 @@ class LoginViewModel @Inject constructor(
                 val token = response.accessToken
                 insertToken(token = token)
                 withContext(Dispatchers.Main) {
-                    _openHomePage.value = true
+                    _userLogin.value = response
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    _error.value = e.message
+                    if(e is retrofit2.HttpException){
+                        val error = Gson().fromJson(
+                                e.response()?.errorBody()?.string(),
+                                ErrorMessage::class.java
+                        )
+                        _errorLogin.value = ErrorMessage(message = error.message)
+                    }
                 }
             }
         }

@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.avatarfirst.avatargenlib.AvatarGenerator
 import com.bumptech.glide.Glide
+import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.FragmentProfileBinding
 import com.synrgy.travelid.domain.model.main.UserProfile
 import com.synrgy.travelid.presentation.auth.login.LoginActivity
@@ -39,6 +41,7 @@ class ProfileFragment : Fragment() {
     private fun bindView() {
         binding.btnMasuk.setOnClickListener { LoginActivity.startActivity(requireContext()) }
         binding.btnKeluar.setOnClickListener { viewModel.clearDataUser() }
+        binding.container1.setOnClickListener { goToEditProfile() }
     }
 
     private fun observeViewModel() {
@@ -57,6 +60,7 @@ class ProfileFragment : Fragment() {
             binding.cardFulfillProfile.visibility = View.VISIBLE
             binding.cardHelp.visibility = View.VISIBLE
             binding.btnKeluar.visibility = View.VISIBLE
+            binding.tvVersion.visibility = View.VISIBLE
             viewModel.showUser.observe(viewLifecycleOwner, ::handleShowUserProfile)
         }
     }
@@ -66,6 +70,7 @@ class ProfileFragment : Fragment() {
             binding.logo.visibility = View.VISIBLE
             binding.cardLogin.visibility = View.VISIBLE
             binding.cardHelp.visibility = View.VISIBLE
+            binding.tvVersion.visibility = View.VISIBLE
 
             binding.profileUser.visibility = View.GONE
             binding.cardUserMenu.visibility = View.GONE
@@ -74,21 +79,25 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun handleShowUserProfile(userProfile: UserProfile?) {
+    private fun handleShowUserProfile(userProfile: UserProfile) {
         Glide.with(requireContext())
-            .load(userProfile?.profilePicture.toString())
+            .load("https://travelid-backend-java-dev.up.railway.app/showFile/${userProfile.profilePicture}")
             .placeholder(
                 AvatarGenerator.AvatarBuilder(requireContext())
                     .setTextSize(28)
                     .setAvatarSize(150)
                     .toSquare()
-                    .setLabel(userProfile?.name.toString())
+                    .setLabel(userProfile.name)
                     .build()
             )
             .into(binding.ivUserProfile)
 
-        binding.tvUsername.text = userProfile?.name.toString()
-        binding.tvUserEmail.text = userProfile?.email.toString()
+        binding.tvUsername.text = userProfile.name
+        binding.tvUserEmail.text = userProfile.email
+    }
+
+    private fun goToEditProfile() {
+        findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
     }
 
     private fun handleOpenLoginPage(isLoggedOut: Boolean) {
