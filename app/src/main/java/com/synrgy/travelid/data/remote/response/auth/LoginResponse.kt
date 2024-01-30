@@ -10,7 +10,9 @@ data class LoginResponse (
     @SerializedName("scope"         ) var scope        : String? = null,
     @SerializedName("token_type"    ) var tokenType    : String? = null,
     @SerializedName("expires_in"    ) var expiresIn    : Int?    = null,
-    @SerializedName("jti"           ) var jti          : String? = null
+    @SerializedName("jti"           ) var jti          : String? = null,
+    @SerializedName("message"       ) var message      : String? = null,
+    @SerializedName("status"        ) var status       : Int?    = null
 
 )
 
@@ -21,6 +23,8 @@ fun LoginResponse.toUserLogin(): UserLogin {
         scope = scope.orEmpty(),
         tokenType = tokenType.orEmpty(),
         expiresIn = expiresIn ?: 0,
-        jti = jti.orEmpty()
+        jti = jti.orEmpty(),
+        message = message.orEmpty(),
+        status = status ?: 0
     )
 }

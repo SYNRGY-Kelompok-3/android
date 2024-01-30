@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.profile.editprofile.EditProfileFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ic_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_left"
+            android:layout_marginEnd="8dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pengaturan profil"
+            android:fontFamily="@font/poppinssemibold"
+            android:textColor="@color/black"
+            android:includeFontPadding="false"
+            android:textSize="16sp"/>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/iv_user_profile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
+        app:riv_corner_radius="99dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_edit_profile_picture"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:linksClickable="false"
+        android:text="Edit foto"
+        android:textAlignment="center"
+        android:textColor="@color/primary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_user_profile"
+        app:layout_constraintStart_toStartOf="@+id/iv_user_profile"
+        app:layout_constraintTop_toBottomOf="@+id/iv_user_profile" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_nama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/text_input_box_stroke"
+        app:errorEnabled="false"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:hintEnabled="false"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_edit_profile_picture">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_nama"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="start|center_vertical"
+            android:hint="Masukan nama lengkap"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:paddingTop="17dp"
+            android:paddingBottom="0dp"
+            android:textColorHint="#C2C2C2"
+            android:textSize="14sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:includeFontPadding="false"
+        android:text="Nama lengkap"
+        android:textColor="#3E7BFA"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/til_nama"
+        app:layout_constraintTop_toTopOf="@+id/til_nama" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/text_input_box_stroke"
+        app:errorEnabled="false"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:hintEnabled="false"
+        android:enabled="false"
+        android:clickable="false"
+        app:boxBackgroundColor="#F5F5F5"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_nomor_handphone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="start|center_vertical"
+            android:hint="Masukan email"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:paddingTop="18dp"
+            android:paddingBottom="0dp"
+            android:textColorHint="#CDCDCD"
+            android:textSize="14sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:text="Email"
+        android:textColor="#C2C2C2"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/til_email"
+        app:layout_constraintTop_toTopOf="@+id/til_email" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_nomor_handphone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/text_input_box_stroke"
+        app:errorEnabled="false"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:hintEnabled="false"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_nama">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_nomor_handphone"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="start|center_vertical"
+            android:hint="Masukan nomor handphone"
+            android:includeFontPadding="false"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingTop="18dp"
+            android:paddingBottom="0dp"
+            android:textColorHint="#C2C2C2"
+            android:textSize="14sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:text="Nomor handphone"
+        android:textColor="#3E7BFA"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/til_nomor_handphone"
+        app:layout_constraintTop_toTopOf="@+id/til_nomor_handphone" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_tanggal_lahir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/text_input_box_stroke"
+        app:errorEnabled="false"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:hintEnabled="false"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_tanggal_lahir"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="start|center_vertical"
+            android:hint="Masukan tanggal lahir"
+            android:includeFontPadding="false"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingTop="18dp"
+            android:paddingBottom="0dp"
+            android:textColorHint="#C2C2C2"
+            android:textSize="14sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:text="Tanggal lahir"
+        android:textColor="#3E7BFA"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/til_tanggal_lahir"
+        app:layout_constraintTop_toTopOf="@+id/til_tanggal_lahir" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_jenis_kelamin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/text_input_box_stroke"
+        app:errorEnabled="false"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:hintEnabled="false"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_tanggal_lahir">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_jenis_kelamin"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="start|center_vertical"
+            android:hint="Masukan jenis kelamin"
+            android:includeFontPadding="false"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingTop="18dp"
+            android:paddingBottom="0dp"
+            android:textColorHint="#C2C2C2"
+            android:textSize="14sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:text="Jenis kelamin"
+        android:textColor="#3E7BFA"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/til_jenis_kelamin"
+        app:layout_constraintTop_toTopOf="@+id/til_jenis_kelamin" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="#3E7BFA"
+        android:fontFamily="@font/poppinssemibold"
+        android:includeFontPadding="false"
+        android:text="Simpan"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:cornerRadius="12dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_jenis_kelamin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
