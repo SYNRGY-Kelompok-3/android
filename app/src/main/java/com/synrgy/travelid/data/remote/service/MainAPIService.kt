@@ -2,6 +2,7 @@ package com.synrgy.travelid.data.remote.service
 
 import com.synrgy.travelid.data.remote.response.main.EditProfilePictureResponse
 import com.synrgy.travelid.data.remote.response.main.EditProfileResponse
+import com.synrgy.travelid.data.remote.response.main.NotificationResponse
 import com.synrgy.travelid.data.remote.response.main.UserProfileResponse
 import com.synrgy.travelid.domain.model.main.EditProfileRequest
 import okhttp3.MultipartBody
@@ -16,6 +17,7 @@ import retrofit2.http.Part
 import retrofit2.http.Path
 
 interface MainAPIService {
+    // Profile
     @GET("user/detail-profile")
     suspend fun userProfile(
         @Header("Authorization") token: String
@@ -24,7 +26,7 @@ interface MainAPIService {
     @PUT("customers/update")
     suspend fun editProfile(
         @Header("Authorization") token: String,
-        @Body request : EditProfileRequest
+        @Body request: EditProfileRequest
     ): EditProfileResponse
 
     @Multipart
@@ -34,4 +36,17 @@ interface MainAPIService {
         @Part file: MultipartBody.Part? = null,
         @Part("idCustomer") id: RequestBody?
     ): EditProfilePictureResponse
+
+    // Order History
+
+
+    // Notification
+    @GET("notification/getByCustomerId/{id}")
+    suspend fun notification(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int
+    ): List<NotificationResponse>
+
+    // Article
+
 }

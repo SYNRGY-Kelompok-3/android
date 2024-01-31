@@ -15,6 +15,7 @@ import com.synrgy.travelid.data.remote.response.auth.toUserRegister
 import com.synrgy.travelid.data.remote.response.auth.toValidateOTP
 import com.synrgy.travelid.data.remote.response.main.toEditProfile
 import com.synrgy.travelid.data.remote.response.main.toEditProfilePicture
+import com.synrgy.travelid.data.remote.response.main.toNotification
 import com.synrgy.travelid.data.remote.response.main.toUserProfile
 import com.synrgy.travelid.data.remote.service.MainAPIService
 import com.synrgy.travelid.domain.model.auth.SendOTP
@@ -31,6 +32,7 @@ import com.synrgy.travelid.domain.model.auth.ValidateOTPRequest
 import com.synrgy.travelid.domain.model.main.EditProfile
 import com.synrgy.travelid.domain.model.main.EditProfilePicture
 import com.synrgy.travelid.domain.model.main.EditProfileRequest
+import com.synrgy.travelid.domain.model.main.Notification
 import com.synrgy.travelid.domain.model.main.UserProfile
 import com.synrgy.travelid.domain.repository.MainRepository
 import kotlinx.coroutines.flow.firstOrNull
@@ -99,5 +101,11 @@ class RemoteRepository @Inject constructor(
         return mainAPIService.editProfilePicture(
             token = "Bearer $token", profilePicture, idCustomer
         ).data!!.toEditProfilePicture()
+    }
+
+    override suspend fun notification(token: String, id: Int): List<Notification> {
+        return mainAPIService.notification(
+            token = "Bearer $token", id
+        ).map { response -> response.toNotification() }
     }
 }
