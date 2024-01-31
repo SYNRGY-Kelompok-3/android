@@ -18,4 +18,5 @@ class HomeViewModel @Inject constructor(
 
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
+
 }

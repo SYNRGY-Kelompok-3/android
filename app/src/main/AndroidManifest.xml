@@ -61,8 +61,9 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".presentation.auth.register.OtpActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
         <activity
             android:name=".presentation.auth.register.RegisterActivity"
             android:exported="true" />

@@ -13,6 +13,9 @@ import com.synrgy.travelid.data.remote.response.auth.toUserConfirmOtpRegister
 import com.synrgy.travelid.data.remote.response.auth.toUserLogin
 import com.synrgy.travelid.data.remote.response.auth.toUserRegister
 import com.synrgy.travelid.data.remote.response.auth.toValidateOTP
+import com.synrgy.travelid.data.remote.response.main.toEditProfile
+import com.synrgy.travelid.data.remote.response.main.toEditProfilePicture
+import com.synrgy.travelid.data.remote.response.main.toNotification
 import com.synrgy.travelid.data.remote.response.main.toUserProfile
 import com.synrgy.travelid.data.remote.service.MainAPIService
 import com.synrgy.travelid.domain.model.auth.SendOTP
@@ -26,9 +29,15 @@ import com.synrgy.travelid.domain.model.auth.UserRegister
 import com.synrgy.travelid.domain.model.auth.UserRegisterRequest
 import com.synrgy.travelid.domain.model.auth.ValidateOTP
 import com.synrgy.travelid.domain.model.auth.ValidateOTPRequest
+import com.synrgy.travelid.domain.model.main.EditProfile
+import com.synrgy.travelid.domain.model.main.EditProfilePicture
+import com.synrgy.travelid.domain.model.main.EditProfileRequest
+import com.synrgy.travelid.domain.model.main.Notification
 import com.synrgy.travelid.domain.model.main.UserProfile
 import com.synrgy.travelid.domain.repository.MainRepository
 import kotlinx.coroutines.flow.firstOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import javax.inject.Inject
 
 class RemoteRepository @Inject constructor(
@@ -78,5 +87,25 @@ class RemoteRepository @Inject constructor(
 
     override suspend fun userProfile(token: String): UserProfile {
         return mainAPIService.userProfile(token = "Bearer $token").data2!!.toUserProfile()
+    }
+
+    override suspend fun editProfile(token: String, request: EditProfileRequest): EditProfile {
+        return mainAPIService.editProfile(token = "Bearer $token", request).data2!!.toEditProfile()
+    }
+
+    override suspend fun editProfilePicture(
+        token: String,
+        profilePicture: MultipartBody.Part?,
+        idCustomer: RequestBody?
+    ): EditProfilePicture {
+        return mainAPIService.editProfilePicture(
+            token = "Bearer $token", profilePicture, idCustomer
+        ).data!!.toEditProfilePicture()
+    }
+
+    override suspend fun notification(token: String, id: Int): List<Notification> {
+        return mainAPIService.notification(
+            token = "Bearer $token", id
+        ).map { response -> response.toNotification() }
     }
 }

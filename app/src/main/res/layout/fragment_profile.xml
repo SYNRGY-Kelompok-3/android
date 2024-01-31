@@ -48,7 +48,6 @@
                 android:id="@+id/iv_user_profile"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:src="@drawable/img_placeholder_profile"
                 app:riv_corner_radius="99dp"
                 android:scaleType="centerCrop"
                 android:background="@drawable/bg_stroke_profile"
@@ -67,7 +66,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinssemibold"
                     android:includeFontPadding="false"
-                    android:text="Travel.id user"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
@@ -79,7 +77,6 @@
                     android:fontFamily="@font/poppinsregular"
                     android:includeFontPadding="false"
                     android:lineHeight="24dp"
-                    android:text="travelid-user@gmail.com"
                     android:textColor="#D5D5D5"
                     android:textSize="14sp" />
 
@@ -185,7 +182,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/appCompatImageView6"
                     android:layout_width="70dp"
-                    android:layout_height="60dp"
+                    android:layout_height="55dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginVertical="16dp"
                     android:src="@drawable/img_must_login"
@@ -257,87 +254,106 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ic_profile"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="16dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_profile"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="12dp"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:includeFontPadding="false"
-                    android:text="Pengaturan profil"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/ic_profile"
-                    app:layout_constraintStart_toEndOf="@id/ic_profile"
-                    app:layout_constraintTop_toTopOf="@+id/ic_profile" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ic_right_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/ic_right"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_profile"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_profile" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ic_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="16dp"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/ic_profile"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:includeFontPadding="false"
+                        android:text="Pengaturan profil"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/ic_profile"
+                        app:layout_constraintStart_toEndOf="@id/ic_profile"
+                        app:layout_constraintTop_toTopOf="@+id/ic_profile" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ic_right_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_right"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_profile"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tv_profile" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <View
                     android:id="@+id/view_user_menu"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
                     android:background="#E4E7EC"
-                    app:layout_constraintTop_toBottomOf="@+id/ic_profile" />
+                    app:layout_constraintTop_toBottomOf="@+id/container1" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ic_history"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="16dp"
-                    android:layout_marginStart="16dp"
-                    android:src="@drawable/ic_history"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view_user_menu" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_history"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="12dp"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:includeFontPadding="false"
-                    android:text="Riwayat transaksi"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/ic_history"
-                    app:layout_constraintStart_toEndOf="@id/ic_history"
-                    app:layout_constraintTop_toTopOf="@+id/ic_history" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ic_right_history"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/ic_right"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_history"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_history" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_user_menu">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ic_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="16dp"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/ic_history"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:includeFontPadding="false"
+                        android:text="Riwayat transaksi"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/ic_history"
+                        app:layout_constraintStart_toEndOf="@id/ic_history"
+                        app:layout_constraintTop_toTopOf="@+id/ic_history" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ic_right_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_right"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_history"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tv_history" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -491,12 +507,26 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Versi 1.0"
+        android:textColor="#B1B1B1"
+        android:textSize="12sp"
+        android:includeFontPadding="false"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat3"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_keluar"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="24dp"
+        android:layout_marginVertical="16dp"
         android:backgroundTint="#3E7BFA"
         android:fontFamily="@font/poppinssemibold"
         android:includeFontPadding="false"
@@ -507,6 +537,6 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat3" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_version" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

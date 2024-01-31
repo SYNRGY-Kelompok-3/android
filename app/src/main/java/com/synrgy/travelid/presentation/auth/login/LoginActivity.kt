@@ -9,6 +9,8 @@ import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
 import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.ActivityLoginBinding
+import com.synrgy.travelid.domain.model.auth.ErrorMessage
+import com.synrgy.travelid.domain.model.auth.UserLogin
 import com.synrgy.travelid.domain.model.auth.UserLoginRequest
 import com.synrgy.travelid.presentation.MainActivity
 import com.synrgy.travelid.presentation.auth.forgotpassword.LupaPasswordActivity
@@ -44,13 +46,20 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel(){
-        viewModel.openHomePage.observe(this, ::handleOpenHomePage)
-        viewModel.error.observe(this, ::handleError)
+        viewModel.userLogin.observe(this, ::handleUserLogin)
     }
 
-    private fun handleOpenHomePage(isLoggedIn: Boolean) {
-        if(isLoggedIn){
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+    private fun handleUserLogin(userLogin: UserLogin) {
+        when(userLogin.message) {
+            "user not found" -> {
+                binding.tilEmail.error = "Email belum kedaftar nih!"
+            }
+            "wrong password" -> {
+                binding.tilPassword.error = "Kata sandi yang kamu masukin salah!"
+            }
+            else -> {
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            }
         }
     }
 
@@ -69,11 +78,6 @@ class LoginActivity : AppCompatActivity() {
 
     private fun goToForgotPassword() {
         startActivity(Intent(this@LoginActivity, LupaPasswordActivity::class.java))
-    }
-
-    private fun handleError(error: String?){
-        binding.tilEmail.error = error
-        binding.tilPassword.error = error
     }
 
     private fun validator(

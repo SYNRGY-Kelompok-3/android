@@ -1,11 +1,22 @@
 package com.synrgy.travelid.presentation.auth.register
 
+import android.app.ActionBar
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Gravity
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.widget.doOnTextChanged
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
+import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.ActivityOtpBinding
 import com.synrgy.travelid.domain.model.auth.SendOTPRequest
 import com.synrgy.travelid.domain.model.auth.UserConfirmOtpRegister
@@ -41,10 +52,17 @@ class OtpActivity : AppCompatActivity() {
         binding.etCode1.requestFocus()
         setDataUser()
         setupOtpTextWatchers()
+        handleOtpCode1()
+        handleOtpCode2()
+        handleOtpCode3()
+        handleOtpCode4()
+        handleOtpCode5()
+        handleOtpCode6()
     }
 
     private fun observeViewModel(){
         viewModel.confirmOTP.observe(this, ::handleResponse)
+        viewModel.error.observe(this, ::handleErrorOTP)
     }
 
     private fun handleRegisterValidation() {
@@ -75,6 +93,11 @@ class OtpActivity : AppCompatActivity() {
 
     private fun handleResponse(userConfirmOtpRegister: UserConfirmOtpRegister) {
         if(userConfirmOtpRegister.message == "sukses"){ handleOpenBottomSheetLogin() }
+    }
+
+    private fun handleErrorOTP(error: String?) {
+        binding.tvError.text = error
+        binding.tvError.visibility = View.VISIBLE
     }
 
     private fun handleOpenBottomSheetLogin() {
@@ -160,5 +183,65 @@ class OtpActivity : AppCompatActivity() {
         val seconds = (timeRemaining / 1000) % 60
         val countdownText = String.format("%02d:%02d", minutes, seconds)
         binding.tvKirimUlang.text = countdownText
+    }
+
+    private fun handleOtpCode1() {
+        binding.etCode1.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun handleOtpCode2() {
+        binding.etCode2.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun handleOtpCode3() {
+        binding.etCode3.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun handleOtpCode4() {
+        binding.etCode4.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun handleOtpCode5() {
+        binding.etCode5.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun handleOtpCode6() {
+        binding.etCode6.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
     }
 }

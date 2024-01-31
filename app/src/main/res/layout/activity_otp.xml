@@ -262,17 +262,32 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:text="OTP yang kamu masukan salah!"
+        android:textColor="@color/system_error"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
+
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/materialTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Belum mendapatkan kode?"
         android:fontFamily="@font/poppinsregular"
         android:includeFontPadding="false"
+        android:text="Belum mendapatkan kode?"
         android:textColor="#9799A1"
         android:textSize="14sp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/linearLayoutCompat"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_error" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_kirim_ulang"

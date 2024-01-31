@@ -34,6 +34,9 @@ class RegisterViewModel @Inject constructor(
     private val _errorRegister = MutableLiveData<ErrorMessage>()
     val errorRegister: LiveData<ErrorMessage> = _errorRegister
 
+    private val _errorOTP = MutableLiveData<ErrorMessage>()
+    val errorOTP: LiveData<ErrorMessage> = _errorOTP
+
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
 
@@ -68,7 +71,7 @@ class RegisterViewModel @Inject constructor(
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    _error.value = e.message
+                    _error.value = "OTP yang kamu masukan salah"
                 }
             }
         }

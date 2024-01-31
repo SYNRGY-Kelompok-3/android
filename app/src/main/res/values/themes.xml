@@ -6,6 +6,7 @@
         <!-- Customize your light theme here. -->
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:navigationBarColor">@color/white</item>
+        <item name="switchStyle">@style/App.Switches</item>
 
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
@@ -37,5 +38,10 @@
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/poppins</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="App.Switches" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="track">@drawable/track_selector</item>
+        <item name="android:thumb">@drawable/thumb_selector</item>
     </style>
 </resources>
