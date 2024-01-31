@@ -6,6 +6,8 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Environment
+import android.preference.PreferenceManager
+import androidx.core.content.edit
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -59,4 +61,41 @@ fun uriToFile(
 private fun createTempFile(context: Context): File {
     val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
     return File.createTempFile(timeStamp, ".jpg", storageDir)
+}
+
+fun formatDate(timestamp: String): String {
+    val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.getDefault())
+    val date = sdf.parse(timestamp)
+    date?.let {
+        val currentTime = System.currentTimeMillis()
+        val timeDifference = currentTime - date.time
+        val seconds = timeDifference / 1000
+        val minutes = seconds / 60
+        val hours = minutes / 60
+        val days = hours / 24
+
+        return when {
+            days >= 1 -> "${days.toInt()} hari yang lalu"
+            hours >= 1 -> "${hours.toInt()} jam yang lalu"
+            minutes >= 1 -> "${minutes.toInt()} menit yang lalu"
+            else -> "Baru saja"
+        }
+    }
+    return ""
+}
+
+object BadgePreferencesHelper {
+    private const val KEY_BADGE_READ = "badge_read"
+
+    fun isBadgeRead(context: Context, notificationId: Int): Boolean {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        return preferences.getBoolean("$KEY_BADGE_READ$notificationId", false)
+    }
+
+    fun markBadgeAsRead(context: Context, notificationId: Int) {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        preferences.edit {
+            putBoolean("$KEY_BADGE_READ$notificationId", true)
+        }
+    }
 }
