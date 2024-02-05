@@ -2,6 +2,6 @@ package com.synrgy.travelid.domain.repository
 
 import com.synrgy.travelid.domain.model.main.Article
 
-interface ArticleRepository {
+interface SideRepository {
     suspend fun fetchArticle() : List<Article>
 }

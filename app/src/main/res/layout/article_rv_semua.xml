@@ -1,73 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="230dp"
     android:layout_height="wrap_content"
-    android:layout_marginRight="8dp"
+    android:layout_marginEnd="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.appcompat.widget.AppCompatImageView
+
+    <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/img_atc_rv_semua"
         android:layout_width="230dp"
-        android:layout_height="100dp"
-        android:src="@drawable/img_test_article"
-        android:scaleType="centerCrop"
+        android:layout_height="120dp"
         android:background="@drawable/border"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_test_article"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="8dp" />
+
     <TextView
         android:id="@+id/tv_atc_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="10 Rekomendasi Tempat Wisata Di Jawa Timur"
-        android:textSize="14sp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:maxLines="2"
+        android:text="10 Rekomendasi Tempat Wisata Di Jawa Timur"
         android:textColor="@color/black"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:lines="2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_atc_rv_semua"/>
+        app:layout_constraintTop_toBottomOf="@id/img_atc_rv_semua" />
+
     <TextView
         android:id="@+id/tv_atc_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bali merupakan surga wisata bagi wisatawan lokal dan asing. Banyak dari mereka yang berkunjung kesini setiap tahunnya. Pulau Dewata ini memberikan berbagai bentuk wisata yang wajib dikunjungi orang-orang dari pantai"
-        android:textSize="12sp"
-        android:fontFamily="@font/poppinsregular"
-        android:textColor="@color/darker_gray"
-        android:lines="3"
+        android:layout_marginTop="4dp"
         android:ellipsize="end"
+        android:fontFamily="@font/poppinsregular"
+        android:includeFontPadding="false"
+        android:maxLines="3"
+        android:text="Bali merupakan surga wisata bagi wisatawan lokal dan asing. Banyak dari mereka yang berkunjung kesini setiap tahunnya. Pulau Dewata ini memberikan berbagai bentuk wisata yang wajib dikunjungi orang-orang dari pantai"
+        android:textColor="@color/darker_gray"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_atc_title"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_atc_title" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_atc_description"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp">
+
         <TextView
             android:id="@+id/tv_atc_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Wisata"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:fontFamily="@font/poppinsmedium"
             android:textColor="@color/primary_blue"
-            />
+            android:includeFontPadding="false"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" • "
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:fontFamily="@font/poppinsmedium"
-            android:textColor="#334155"/>
+            android:textColor="#334155"
+            android:includeFontPadding="false"/>
+
         <TextView
             android:id="@+id/tv_atc_read_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10 min read"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:fontFamily="@font/poppinsmedium"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:includeFontPadding="false"/>
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

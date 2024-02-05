@@ -5,9 +5,11 @@ import android.content.Context
 import com.synrgy.travelid.data.local.DataStoreManager
 import com.synrgy.travelid.data.remote.service.AuthAPIService
 import com.synrgy.travelid.data.remote.service.MainAPIService
+import com.synrgy.travelid.data.remote.service.SideAPIService
 import com.synrgy.travelid.data.repository.RemoteRepository
 import com.synrgy.travelid.domain.repository.AuthRepository
 import com.synrgy.travelid.domain.repository.MainRepository
+import com.synrgy.travelid.domain.repository.SideRepository
 import com.synrgy.travelid.domain.repository.TokenRepository
 import dagger.Module
 import dagger.Provides
@@ -29,12 +31,14 @@ class AppModule {
     fun provideRemoteRepository(
         authAPIService: AuthAPIService,
         mainAPIService: MainAPIService,
+        sideAPIService: SideAPIService,
         dataStoreManager: DataStoreManager
     ): RemoteRepository {
         return RemoteRepository(
             dataStoreManager,
             authAPIService,
-            mainAPIService
+            mainAPIService,
+            sideAPIService
         )
     }
 
@@ -53,6 +57,12 @@ class AppModule {
     @Singleton
     @Provides
     fun provideMainRepository(remoteRepository: RemoteRepository): MainRepository {
+        return remoteRepository
+    }
+
+    @Singleton
+    @Provides
+    fun provideSideRepository(remoteRepository: RemoteRepository): SideRepository {
         return remoteRepository
     }
 }

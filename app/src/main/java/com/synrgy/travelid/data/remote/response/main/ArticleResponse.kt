@@ -13,6 +13,7 @@ data class ArticleResponse (
     @SerializedName("updated_at" ) var updatedAt : String? = null
 
     )
+
 fun ArticleResponse.toFetchArticle() : Article {
     return Article(
         id = id.orEmpty(),

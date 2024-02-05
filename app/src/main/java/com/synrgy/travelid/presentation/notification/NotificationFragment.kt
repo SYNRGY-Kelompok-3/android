@@ -33,6 +33,7 @@ class NotificationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.userProfile()
+        viewModel.checkLoggedIn()
 
         bindAdapter()
         bindView()
@@ -42,7 +43,10 @@ class NotificationFragment : Fragment() {
     private fun bindView(){
         binding.tvMarkAllRead.setOnClickListener { markAllItemsAsRead() }
     }
+
     private fun observeViewModel() {
+        viewModel.notLoggedIn.observe(viewLifecycleOwner, ::handleNotLoggedIn)
+        viewModel.showEmpty.observe(viewLifecycleOwner, ::handleEmptyData)
         viewModel.showUser.observe(viewLifecycleOwner, ::handleShowUser)
         viewModel.showNotification.observe(viewLifecycleOwner, ::handleDataNotification)
     }
@@ -54,6 +58,18 @@ class NotificationFragment : Fragment() {
             }
         })
         binding.rvNotification.adapter = notificationAdapter
+    }
+
+    private fun handleEmptyData(isEmpty: Boolean) {
+        binding.emptyState.visibility = if(isEmpty) View.VISIBLE else View.GONE
+    }
+
+    private fun handleNotLoggedIn(isNotLoggedIn: Boolean) {
+        if (isNotLoggedIn) {
+            val bottomSheetLogin = BottomSheetNotificationFragment()
+            bottomSheetLogin.isCancelable = false
+            bottomSheetLogin.show(childFragmentManager, bottomSheetLogin.tag)
+        }
     }
 
     private fun handleShowUser(userProfile: UserProfile) {

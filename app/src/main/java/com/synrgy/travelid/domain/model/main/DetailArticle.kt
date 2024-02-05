@@ -1,4 +1,4 @@
-package com.febi.myapplication
+package com.synrgy.travelid.domain.model.main
 
 data class DetailArticle(
     val id: Int,

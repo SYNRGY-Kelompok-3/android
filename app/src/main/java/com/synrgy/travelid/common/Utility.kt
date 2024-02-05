@@ -13,8 +13,12 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
+import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Locale
+import java.util.TimeZone
 
 fun reduceFileImage(file: File): File {
     val bitmap = BitmapFactory.decodeFile(file.path)
@@ -98,4 +102,70 @@ object BadgePreferencesHelper {
             putBoolean("$KEY_BADGE_READ$notificationId", true)
         }
     }
+}
+
+fun formatDateOrderHistory(inputDate: String): String {
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+    val outputFormat = SimpleDateFormat("d MMMM yyyy", Locale("id", "ID"))
+
+    try {
+        val date = inputFormat.parse(inputDate)
+        return outputFormat.format(date!!)
+    } catch (e: ParseException) {
+        e.printStackTrace()
+    }
+
+    return inputDate
+}
+
+fun formatPriceOrderHistory(totalPrice: Int): String {
+    val currencyFormat = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+
+    if (currencyFormat is DecimalFormat) {
+        currencyFormat.minimumFractionDigits = 0
+        currencyFormat.maximumFractionDigits = 0
+    }
+
+    return currencyFormat.format(totalPrice)
+}
+
+fun formatDateTimeDetail(inputDateTime: String): String {
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+    val outputFormat = SimpleDateFormat("EEEE, dd MMMM yyyy - HH.mm", Locale("id", "ID"))
+
+    try {
+        val date = inputFormat.parse(inputDateTime)
+        return outputFormat.format(date)
+    } catch (e: ParseException) {
+        e.printStackTrace()
+    }
+
+    return inputDateTime
+}
+
+fun formatDateArticle(timestamp: String): String {
+    val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.getDefault())
+    sdf.timeZone = TimeZone.getTimeZone("UTC")
+    val date = sdf.parse(timestamp)
+
+    date?.let {
+        val currentTime = System.currentTimeMillis()
+        val timeDifference = currentTime - date.time
+        val seconds = timeDifference / 1000
+        val minutes = seconds / 60
+        val hours = minutes / 60
+        val days = hours / 24
+
+        return when {
+            days >= 7 -> {
+                val week = days / 7
+                "${week.toInt()} minggu yang lalu"
+            }
+            days >= 1 -> "${days.toInt()} hari yang lalu"
+            hours >= 1 -> "${hours.toInt()} jam yang lalu"
+            minutes >= 1 -> "${minutes.toInt()} menit yang lalu"
+            else -> "Baru saja"
+        }
+    }
+    return ""
 }

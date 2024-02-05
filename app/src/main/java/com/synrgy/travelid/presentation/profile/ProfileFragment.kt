@@ -42,6 +42,7 @@ class ProfileFragment : Fragment() {
         binding.btnMasuk.setOnClickListener { LoginActivity.startActivity(requireContext()) }
         binding.btnKeluar.setOnClickListener { viewModel.clearDataUser() }
         binding.container1.setOnClickListener { goToEditProfile() }
+        binding.container2.setOnClickListener { goToOrderHistory() }
     }
 
     private fun observeViewModel() {
@@ -98,6 +99,10 @@ class ProfileFragment : Fragment() {
 
     private fun goToEditProfile() {
         findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
+    }
+
+    private fun goToOrderHistory() {
+        findNavController().navigate(R.id.action_profileFragment_to_orderHistoryFragment)
     }
 
     private fun handleOpenLoginPage(isLoggedOut: Boolean) {
