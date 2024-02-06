@@ -1,8 +1,11 @@
 package com.synrgy.travelid.data.remote.service
 
+import com.synrgy.travelid.data.remote.response.main.ArticleResponse
 import com.synrgy.travelid.data.remote.response.main.EditProfilePictureResponse
 import com.synrgy.travelid.data.remote.response.main.EditProfileResponse
 import com.synrgy.travelid.data.remote.response.main.NotificationResponse
+import com.synrgy.travelid.data.remote.response.main.OrderHistoryByIdResponse
+import com.synrgy.travelid.data.remote.response.main.OrderHistoryResponse
 import com.synrgy.travelid.data.remote.response.main.UserProfileResponse
 import com.synrgy.travelid.domain.model.main.EditProfileRequest
 import okhttp3.MultipartBody
@@ -15,6 +18,7 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface MainAPIService {
     // Profile
@@ -38,7 +42,17 @@ interface MainAPIService {
     ): EditProfilePictureResponse
 
     // Order History
+    @GET("booking/bookingsByCustomerId")
+    suspend fun orderHistory(
+        @Header("Authorization") token: String,
+        @Query("customerId") customerId: Int
+    ): OrderHistoryResponse
 
+    @GET("booking/{id}")
+    suspend fun orderHistoryById(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int
+    ): OrderHistoryByIdResponse
 
     // Notification
     @GET("notification/getByCustomerId/{id}")
@@ -46,7 +60,4 @@ interface MainAPIService {
         @Header("Authorization") token: String,
         @Path("id") id: Int
     ): List<NotificationResponse>
-
-    // Article
-
 }

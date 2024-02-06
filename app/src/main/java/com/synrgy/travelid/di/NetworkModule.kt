@@ -5,6 +5,7 @@ import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.synrgy.travelid.data.remote.service.AuthAPIService
 import com.synrgy.travelid.data.remote.service.MainAPIService
+import com.synrgy.travelid.data.remote.service.SideAPIService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,8 +24,10 @@ class NetworkModule {
     companion object{
         const val BASE_URL_AUTH = "https://travelid-backend-java-dev.up.railway.app/v1/"
         const val BASE_URL_MAIN = "https://travelid-backend-java-dev.up.railway.app/"
+        const val BASE_URL_SIDE = "https://api-artikel.fly.dev/"
         const val RETROFIT_AUTH = "RetrofitAuth"
         const val RETROFIT_MAIN = "RetrofitMain"
+        const val RETROFIT_SIDE = "RetrofitSide"
     }
 
     @Singleton
@@ -85,6 +88,17 @@ class NetworkModule {
 
     @Singleton
     @Provides
+    @Named(RETROFIT_SIDE)
+    fun provideRetrofitSide(client: OkHttpClient) : Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL_SIDE)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+    }
+
+    @Singleton
+    @Provides
     fun provideAuthAPI(@Named(RETROFIT_AUTH) retrofit: Retrofit) : AuthAPIService {
         return retrofit.create(AuthAPIService::class.java)
     }
@@ -93,5 +107,11 @@ class NetworkModule {
     @Provides
     fun provideMainAPI(@Named(RETROFIT_MAIN) retrofit: Retrofit) : MainAPIService {
         return retrofit.create(MainAPIService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideSideAPI(@Named(RETROFIT_SIDE) retrofit: Retrofit) : SideAPIService {
+        return retrofit.create(SideAPIService::class.java)
     }
 }

@@ -19,6 +19,12 @@ class NotificationViewModel @Inject constructor(
     private val mainRepository: MainRepository,
     private val tokenRepository: TokenRepository
 ): ViewModel() {
+    private val _showEmpty = MutableLiveData<Boolean>()
+    val showEmpty: LiveData<Boolean> = _showEmpty
+
+    private val _notLoggedIn = MutableLiveData<Boolean>()
+    val notLoggedIn: LiveData<Boolean> = _notLoggedIn
+
     private val _showUser = MutableLiveData<UserProfile>()
     val showUser: LiveData<UserProfile> = _showUser
 
@@ -27,6 +33,21 @@ class NotificationViewModel @Inject constructor(
 
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
+
+    fun checkLoggedIn(){
+        viewModelScope.launch(Dispatchers.IO){
+            try {
+                val isLoggedIn = tokenRepository.getToken().isNullOrEmpty()
+                withContext(Dispatchers.Main){
+                    if(isLoggedIn) _notLoggedIn.value = true
+                }
+            }catch (e: Exception){
+                withContext(Dispatchers.Main){
+                    _error.value = e.message
+                }
+            }
+        }
+    }
 
     fun userProfile() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -42,18 +63,21 @@ class NotificationViewModel @Inject constructor(
         }
     }
 
-    fun notification(id: Int){
+    fun notification(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val response = mainRepository.notification(tokenRepository.getToken()!!, id)
                 withContext(Dispatchers.Main) {
                     _showNotification.value = response
+                    _showEmpty.value = response.isEmpty()
                 }
-            }catch (e: Exception) {
+            } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
+                    _showEmpty.value = false
                     _error.value = e.message
                 }
             }
         }
     }
+
 }

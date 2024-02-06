@@ -18,7 +18,7 @@ class NotificationAdapter(private val onClick: OnClickListener) :
     var notifications: List<Notification> = emptyList()
 
     fun submitData(value: List<Notification>?) {
-        notifications = value ?: emptyList()
+        notifications = value?.sortedByDescending { it.id } ?: emptyList()
         notifyDataSetChanged()
     }
 
@@ -30,6 +30,7 @@ class NotificationAdapter(private val onClick: OnClickListener) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: Notification) {
+            data.id
             when (data.message) {
                 "Booking berhasil! Segera lakukan pembayaran sebelum 2 jam dari waktu booking!" -> {
                     binding.tvTitle.text = "Selesaikan pembayaranmu"
@@ -47,7 +48,6 @@ class NotificationAdapter(private val onClick: OnClickListener) :
             binding.icBadge.visibility = if (isBadgeRead) View.GONE else View.VISIBLE
             binding.root.setOnClickListener {
                 onClick.onClickItem(data)
-                // Update isBadgeRead and refresh UI
                 BadgePreferencesHelper.markBadgeAsRead(itemView.context, data.id)
                 notifyDataSetChanged()
             }
