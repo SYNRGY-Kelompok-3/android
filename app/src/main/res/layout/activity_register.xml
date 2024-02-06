@@ -91,11 +91,12 @@
                     android:fontFamily="@font/poppinsmedium"
                     android:gravity="start|center_vertical"
                     android:hint="Masukan nama lengkap"
+                    android:textColorHint="#C2C2C2"
                     android:includeFontPadding="false"
                     android:maxLines="1"
-                    android:paddingTop="15dp"
+                    android:paddingTop="18dp"
                     android:paddingBottom="0dp"
-                    android:textSize="15sp" />
+                    android:textSize="14sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,11 +138,12 @@
                     android:fontFamily="@font/poppinsmedium"
                     android:gravity="start|center_vertical"
                     android:hint="Masukan email"
+                    android:textColorHint="#C2C2C2"
                     android:includeFontPadding="false"
                     android:maxLines="1"
-                    android:paddingTop="15dp"
+                    android:paddingTop="18dp"
                     android:paddingBottom="0dp"
-                    android:textSize="15sp" />
+                    android:textSize="14sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -183,12 +185,13 @@
                     android:fontFamily="@font/poppinsmedium"
                     android:gravity="start|center_vertical"
                     android:hint="Masukan nomor handphone"
+                    android:textColorHint="#C2C2C2"
                     android:includeFontPadding="false"
                     android:inputType="number"
                     android:maxLines="1"
-                    android:paddingTop="15dp"
+                    android:paddingTop="18dp"
                     android:paddingBottom="0dp"
-                    android:textSize="15sp" />
+                    android:textSize="14sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -232,12 +235,13 @@
                     android:fontFamily="@font/poppinsmedium"
                     android:gravity="start|center_vertical"
                     android:hint="Masukan kata sandi"
+                    android:textColorHint="#C2C2C2"
                     android:includeFontPadding="false"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:paddingTop="15dp"
+                    android:paddingTop="18dp"
                     android:paddingBottom="0dp"
-                    android:textSize="15sp" />
+                    android:textSize="14sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -291,7 +295,7 @@
                     android:textSize="14sp" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_kirim_ulang"
+                    android:id="@+id/tv_masuk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"

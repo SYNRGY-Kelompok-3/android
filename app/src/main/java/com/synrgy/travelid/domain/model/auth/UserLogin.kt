@@ -7,4 +7,6 @@ data class UserLogin(
     val tokenType: String,
     val expiresIn: Int,
     val jti: String,
+    val message: String,
+    val status: Int
 )

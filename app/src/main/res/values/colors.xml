@@ -12,6 +12,7 @@
     <color name="error">#CB3A31</color>
     <color name="green">#18AF5E</color>
     <color name="darker_gray">#aaa</color>
+    <color name="light_gray">#EDEDED</color>
     <color name="primary">#3E7BFA</color>
     <color name="neutral_04">#C2C2C2</color>
     <color name="gray">#CFD5DB</color>

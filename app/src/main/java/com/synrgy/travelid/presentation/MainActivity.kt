@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         setStatusBarTransparent()
         setBadgeMenu()
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
         navController = navHostFragment.navController
 
         binding.bottomNav.setOnItemSelectedListener { itemId ->
@@ -38,6 +39,21 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val destinationId = destination.id
             binding.bottomNav.setItemSelected(destinationId)
+
+            when (destinationId) {
+                R.id.editProfileFragment -> {
+                    hideBottomNav()
+                }
+                R.id.orderHistoryFragment -> {
+                    hideBottomNav()
+                }
+                R.id.detailOrderHistoryFragment -> {
+                    hideBottomNav()
+                }
+                else -> {
+                    showBottomNav()
+                }
+            }
         }
     }
 
@@ -52,6 +68,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigateToDestination(itemId: Int, navController: NavController) {
         navController.navigate(itemId)
+    }
+
+    private fun hideBottomNav() {
+        binding.bottomNav.visibility = View.GONE
+    }
+
+    private fun showBottomNav() {
+        binding.bottomNav.visibility = View.VISIBLE
     }
 }
 
