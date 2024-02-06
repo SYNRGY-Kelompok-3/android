@@ -38,6 +38,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun bindView() {
         binding.buttonDaftar.setOnClickListener { handleRegisterValidation() }
         binding.icBack.setOnClickListener { handleGoBack() }
+        binding.tvMasuk.setOnClickListener { handleGoBack() }
         handleNamaTextOnChanged()
         handlePasswordTextOnChanged()
         handleEmailTextOnChanged()
@@ -46,7 +47,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun observeViewModel(){
         viewModel.userRegister.observe(this, ::handleResponse)
-        viewModel.errorRegister.observe(this, ::handleError)
+        viewModel.errorRegister.observe(this, ::handleErrorRegister)
     }
 
     private fun handleRegisterValidation() {
@@ -74,7 +75,7 @@ class RegisterActivity : AppCompatActivity() {
         if(response.message == "Success") { handleOpenBottomSheetSuccess() }
     }
 
-    private fun handleError(errorMessage: ErrorMessage) {
+    private fun handleErrorRegister(errorMessage: ErrorMessage) {
         when (errorMessage.message) {
             "Username already used" -> {
                 binding.tilEmail.error = "Email udah kedaftar nih!"

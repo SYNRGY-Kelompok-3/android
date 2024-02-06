@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import androidx.activity.viewModels
+import androidx.core.widget.doOnTextChanged
 import com.synrgy.travelid.databinding.ActivityValidateOtpBinding
 import com.synrgy.travelid.domain.model.auth.ResetPasswordRequest
 import com.synrgy.travelid.domain.model.auth.ValidateOTP
@@ -45,6 +47,12 @@ class ValidateOTPActivity : AppCompatActivity() {
         binding.etOtp1.requestFocus()
         setupOtpTextWatchers()
         setDataUser()
+        handleOtpCode1()
+        handleOtpCode2()
+        handleOtpCode3()
+        handleOtpCode4()
+        handleOtpCode5()
+        handleOtpCode6()
     }
 
     private fun handleSendVerifCode() {
@@ -73,6 +81,9 @@ class ValidateOTPActivity : AppCompatActivity() {
 
     private fun handleResponse(validateOTP: ValidateOTP) {
         if(validateOTP.message == "sukses"){ goToActivityAturUlangPassword() }
+        else if(validateOTP.message == "Token not valid") {
+            binding.tvError.visibility = View.VISIBLE
+        }
     }
 
     private fun goToActivityAturUlangPassword() {
@@ -171,5 +182,65 @@ class ValidateOTPActivity : AppCompatActivity() {
         val seconds = (timeRemaining / 1000) % 60
         val countdownText = String.format("%02d:%02d", minutes, seconds)
         binding.tvKirimUlang.text = countdownText
+    }
+
+    private fun handleOtpCode1() {
+        binding.etOtp1.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun handleOtpCode2() {
+        binding.etOtp2.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun handleOtpCode3() {
+        binding.etOtp3.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun handleOtpCode4() {
+        binding.etOtp4.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun handleOtpCode5() {
+        binding.etOtp5.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun handleOtpCode6() {
+        binding.etOtp6.doOnTextChanged { text, _, _, _ ->
+            if(text!!.isEmpty()){
+                binding.tvError.visibility = View.GONE
+            }else if(text.isNotEmpty()){
+                binding.tvError.visibility = View.GONE
+            }
+        }
     }
 }

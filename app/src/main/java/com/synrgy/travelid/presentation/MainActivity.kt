@@ -24,10 +24,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setStatusBarTransparent()
+//        setStatusBarTransparent()
         setBadgeMenu()
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
         navController = navHostFragment.navController
 
         binding.bottomNav.setOnItemSelectedListener { itemId ->
@@ -38,6 +39,12 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val destinationId = destination.id
             binding.bottomNav.setItemSelected(destinationId)
+
+            if (destinationId == R.id.editProfileFragment) {
+                hideBottomNav()
+            } else {
+                showBottomNav()
+            }
         }
     }
 
@@ -45,13 +52,21 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.showBadge(R.id.notificationFragment)
     }
 
-    private fun setStatusBarTransparent() {
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
-        window.statusBarColor = Color.TRANSPARENT
-    }
+//    private fun setStatusBarTransparent() {
+//        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
+//        window.statusBarColor = Color.TRANSPARENT
+//    }
 
     private fun navigateToDestination(itemId: Int, navController: NavController) {
         navController.navigate(itemId)
+    }
+
+    private fun hideBottomNav() {
+        binding.bottomNav.visibility = View.GONE
+    }
+
+    private fun showBottomNav() {
+        binding.bottomNav.visibility = View.VISIBLE
     }
 }
 

@@ -101,6 +101,7 @@ dependencies {
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
 
     // Chucker
     debugImplementation("com.github.chuckerteam.chucker:library:4.0.0")
@@ -117,6 +118,12 @@ dependencies {
 
     // Chip Navigation Bar
     implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
+
+    // Custom Switch
+    implementation("com.github.codersrouteandroid:flexible-switch:1.0")
+
+    // Image Picker
+    implementation("com.github.dhaval2404:imagepicker:2.1")
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
