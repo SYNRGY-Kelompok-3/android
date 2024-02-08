@@ -19,4 +19,6 @@
     <color name="secondary_danger">#CB3A31</color>
     <color name="neutral_09">#1C1B1F</color>
     <color name="system_error">#E03616</color>
+    <color name="neutral_07">#757575</color>
+    <color name="neutral_08">#505050</color>
 </resources>

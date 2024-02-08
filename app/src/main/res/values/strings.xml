@@ -20,4 +20,9 @@
     <string name="done">Berhasil!</string>
     <string name="instruction_code_otp">Kode sudah dikirim ke email, silakan cek email</string>
     <string name="cek_email">Cek Email</string>
+    <string name="teks"><![CDATA[
+<html><body style="text-align:justify">%s</body></html>
+Travel.id juga memberikan penawaran yang sangat beragam, dimulai dari berbagai pilihan maskapai terbaik di Indonesia yang dapat dipilih oleh kamu. Artikel rekomendasi tempat yang bisa kamu kunjungi dan memilih tempat duduk sesuai kebutuhan kamu dengan hanya sekali pemesanan. Keamanan dan kenyamanan kamu adalah tujuan kami oleh sebab itu kamu tidak perlu khawatir untuk dapat bertransaksi di Travel.id karena Travel.id memiliki layanan customer service 24/7 dan juga keamanan platform yang terbaik.
+]]>
+</string>
 </resources>

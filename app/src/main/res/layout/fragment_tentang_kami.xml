@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.tentangkami.TentangKamiFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_scrollFlags="scroll|enterAlways">
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="12dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_back_button"
+            android:background="@color/transparent"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="16dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tentang Kami"
+            app:layout_constraintStart_toEndOf="@id/button_back"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="20dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="@color/black"
+            />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="56dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+            <ImageView
+                android:id="@+id/img_tk_frame"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:src="@drawable/img_tentang_kami"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:id="@+id/tv_tk_title_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_tk_frame"
+                android:layout_marginTop="12dp"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Perusahaan Travel Indonesia"/>
+            <TextView
+                android:id="@+id/tv_tk_content_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_tk_title_1"
+                android:text="Travel Indonesia merupakan platform yang menyediakan akses untuk menemukan serta membeli tiket pesawat dengan mudah dan cepat. Travel Indonesia percaya bahwa kepuasan bisa mendatangkan pengalaman yang sangat berharga. Oleh karena itu, travel indonesia dapat menemani setiap perjalanan anda secara nyaman dan terjamin. Didukung dengan berbagai macam pembayaran serta maskapai yang beragam, travel indonesia mampu menghadirkan pengalaman yang berkesan."
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07"
+                android:layout_marginTop="8dp"
+                />
+            <TextView
+                android:id="@+id/tv_tk_content_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Travel.id juga memberikan penawaran yang sangat beragam, dimulai dari berbagai pilihan maskapai terbaik di Indonesia yang dapat dipilih oleh kamu. Artikel rekomendasi tempat yang bisa kamu kunjungi dan memilih tempat duduk sesuai kebutuhan kamu dengan hanya sekali pemesanan. Keamanan dan kenyamanan kamu adalah tujuan kami oleh sebab itu kamu tidak perlu khawatir untuk dapat bertransaksi di Travel.id karena Travel.id memiliki layanan customer service 24/7 dan juga keamanan platform yang terbaik."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_tk_content_1"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07"
+                android:layout_marginTop="4dp"
+                />
+            <TextView
+                android:id="@+id/tv_tk_title_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_tk_content_2"
+                android:text="Visi dan Misi Travel Indonesia"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/neutral_09"
+                android:layout_marginTop="12dp"
+                />
+            <TextView
+                android:id="@+id/tv_tk_simbol_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_tk_title_2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text=" • "
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/tv_tk_content_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_tk_title_2"
+                app:layout_constraintStart_toEndOf="@id/tv_tk_simbol_1"
+                android:text="Memberikan kemudahan kepada konsumen dalam layanan secara efektif dan efisien."
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07"
+                />
+            <TextView
+                android:id="@+id/tv_tk_simbol_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_tk_content_3"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text=" • "
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"/>
+            <TextView
+                android:id="@+id/tv_tk_content_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_tk_content_3"
+                app:layout_constraintStart_toEndOf="@id/tv_tk_simbol_2"
+                android:text="Menjadi akomodasi akses online travel booking terbaik melalui web dan aplikasi mobile."
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07"
+                />
+            <TextView
+                android:id="@+id/tv_tk_simbol_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_tk_content_4"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text=" • "
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"/>
+            <TextView
+                android:id="@+id/tv_tk_content_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_tk_content_4"
+                app:layout_constraintStart_toEndOf="@id/tv_tk_simbol_3"
+                android:text="Menjadi perusahaan tours &amp; travel online terbaik di Indonesia dengan selalu memberikan kepuasan pelayanan dan manfaat kepada konsumen."
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:cnb_menuResource="@menu/bottom_menu"
+        app:cnb_unselectedColor="#6E6E6E"
+        app:cnb_animationDuration="150" />
+</FrameLayout>

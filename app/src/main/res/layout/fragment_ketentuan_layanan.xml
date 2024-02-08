@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.layanan.KetentuanLayananFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_scrollFlags="scroll|enterAlways">
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="12dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_back_button"
+            android:background="@color/transparent"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="16dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ketentuan Layanan"
+            app:layout_constraintStart_toEndOf="@id/button_back"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="20dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="@color/black"
+            />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="56dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+            <ImageView
+                android:id="@+id/img_priv_frame"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:src="@drawable/img_layanan"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:id="@+id/tv_priv_title_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_priv_frame"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="Syarat dan Ketentuan Travel Indonesia"/>
+            <TextView
+                android:id="@+id/tv_priv_content_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_title_1"
+                android:text="SYARAT DAN KETENTUAN DI BAWAH INI HARUS DIBACA SEBELUM MENGGUNAKAN SITUS INI. PENGGUNAAN ANDA ATAS SITUS INI MENUNJUKKAN PENERIMAAN ANDA TERHADAP SYARAT DAN KETENTUAN INI."
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_08"
+                android:layout_marginTop="8dp" />
+            <TextView
+                android:id="@+id/tv_priv_content_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Situs web dan aplikasinya (&quot;Situs&quot;) dikelola oleh Grup Perusahaan Travel Indonesia, termasuk anak perusahaan dan perusahaan afiliasinya (&quot;Kami&quot;, &quot;Travel Indonesia&quot;). Dengan mengakses dan/atau menggunakan Situs, Anda mengakui bahwa Anda telah membaca dan memahami, dan menyetujui untuk terikat oleh Syarat dan Ketentuan yang ditetapkan di bawah ini (&quot;Ketentuan&quot;) dan syarat dan ketentuan lainnya dalam kaitannya dengan Situs, baik yang dituliskan secara tegas pada Ketentuan ini, maupun yang dibuat di luar Ketentuan ini namun memberikan rujukan pada Ketentuan ini. Apabila Anda tidak setuju untuk terikat dengan Ketentuan ini, Anda tidak dapat mengakses atau menggunakan bagian manapun dari Situs. Ketentuan ini merupakan perjanjian yang mengikat secara hukum bagi Anda sebagai seorang pengguna (&quot;Anda&quot; atau &quot;Pengguna&quot;). Anda harus setidaknya berusia delapan belas (18) tahun untuk menggunakan Situs ini."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_1"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07"
+                android:layout_marginTop="4dp" />
+            <TextView
+                android:id="@+id/tv_priv_content_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Harap diketahui bahwa Kami dapat mengubah, memodifikasi, menambah dan menghapus Syarat ini sewaktu-waktu apabila diperlukan untuk mematuhi ketentuan peraturan perundang-undangan yang berlaku bagi Kami atau mencerminkan perubahan atas operasional Kami, dengan ketentuan bahwa Kami akan melakukan upaya yang wajar untuk menyampaikan pemberitahuan mengenai perubahan atas Ketentuan. Anda wajib melakukan pengecekan Ketentuan secara berkala untuk memastikan kepatuhan Anda terhadap versi terkini. Dengan terus menggunakan Situs ini setelah adanya perubahan terhadap Ketentuan, Anda dianggap menyepakati dan menyetujui perubahan tersebut."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_2"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07"
+                android:layout_marginTop="4dp" />
+            <TextView
+                android:id="@+id/tv_priv_content_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jika Anda menggunakan salah satu layanan Kami yang lain, maka penggunaan Anda atas layanan tersebut tunduk pada syarat dan ketentuan yang berlaku untuk layanan tersebut, yang akan disediakan bagi Anda ketika Anda menggunakan layanan lainnya tersebut."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_6"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tv_priv_no_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1."
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_7"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/neutral_09"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="8dp"/>
+            <TextView
+                android:id="@+id/tv_priv_title_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_7"
+                android:text="LINGKUP LAYANAN KAMI"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/neutral_09"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="22dp" />
+            <TextView
+                android:id="@+id/tv_priv_content_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_title_2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Melalui Situs, Travel Indonesia menyediakan platform daring sehingga Anda dapat menelusuri dan melakukan pemesanan berbagai jenis maskapai penerbangan, kereta, dan layanan transportasi lainnya, akomodasi dan penginapan sementara (yang mana yang sesuai), tiket masuk acara, tiket masuk objek wisata, paket perjalanan wisata, pulsa prabayar, voucher untuk kartu sim prabayar, aktivitas wisata dan tur, produk kuliner dan kebutuhan sehari-hari, layanan kesehatan pilihan, serta produk atau layanan lainnya, termasuk menggunakan metode pembayaran yang tersedia sehubungan dengan pilihan produk atau layanan tersebut (&quot;Layanan&quot;). Pengguna dapat melakukan pemesanan layanan yang disediakan oleh maskapai penerbangan yang bekerjasama dengan Travel Indonesia (&quot;Vendor&quot;) di Situs. Dengan melakukan pemesanan melalui Situs, Anda akan dapat memesan dan/atau membeli tiket pesawat, tiket kereta dan transportasi lainnya, akomodasi dan penginapan sementara (yang mana yang sesuai), tiket masuk acara, tiket masuk objek wisata, paket perjalanan wisata, pulsa prabayar, voucher untuk kartu sim prabayar, aktivitas wisata dan tur, produk kuliner dan kebutuhan sehari-hari, serta produk atau layanan lainnya. Kami akan memberikan konfirmasi pemesanan atau"
+                android:layout_marginTop="8dp"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07" />
+
+            <TextView
+                android:id="@+id/tv_priv_no_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2."
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_3"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/neutral_09"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="8dp"/>
+            <TextView
+                android:id="@+id/tv_priv_title_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_3"
+                android:text="BIAYA TAMBAHAN"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/neutral_09"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="22dp" />
+            <TextView
+                android:id="@+id/tv_priv_content_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_title_3"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Setiap harga yang tercantum pada Situs ini hanya tersedia dengan ketentuan tertentu dan harga tersebut dapat berubah tergantung pada berbagai faktor seperti namun tidak terbatas pada ketersediaan pemesanan, lamanya pemesanan dan/atau faktor lainnya. Harga yang tersedia dapat mencakup pajak tambahan dan biaya lainnya lagi tapi dalam keadaan tertentu mungkin tidak termasuk pajak dan biaya jasa lainnya (seperti biaya tips untuk pemandu wisata, biaya fasilitas lainnya (jika ada), dan biaya-biaya lainnya yang timbul dari penggunaan layanan selain layanan Travel Indonesia (apabila ada)). Anda setuju bahwa Anda bertanggung jawab untuk memverifikasi total biaya yang harus dibayar dan persyaratan lainnya dan rincian ketika email konfirmasi telah dikirim. Anda harus memverifikasi pemesanan dalam lembar pemesanan, dan Anda dapat membatalkan pemesanan setiap saat sebelum konfirmasi akhir dilakukan. Harga yang ditampilkan terperinci sehingga Anda dapat melihat jumlah yang harus dibayar, biaya tambahan apa pun yang disebabkan penggunaan kartu kredit atau biaya antarbank yang dikenakan untuk biaya pengiriman akan dibebankan kepada Anda. Jika terdapat kekurangan dalam jumlah yang dibayarkan, maka Travel Indonesia dapat memberikan notifikasi surat elektronik mengenai kekurangan dalam jumlah yang harus dibayarkan Anda."
+                android:layout_marginTop="8dp"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07" />
+
+            <TextView
+                android:id="@+id/tv_priv_no_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3."
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_4"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/neutral_09"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="8dp"/>
+            <TextView
+                android:id="@+id/tv_priv_title_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_4"
+                android:text="AKUN PENGGUNA"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/neutral_09"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="22dp" />
+            <TextView
+                android:id="@+id/tv_priv_content_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_title_4"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Anda harus membuat akun untuk menggunakan Layanan. Untuk tujuan pendaftaran, Kami akan mengumpulkan dan memproses informasi pribadi anda, seperti nama, alamat surat elektronik (surel), dan nomor telepon genggam Anda ketika Anda melakukan pendaftaran. Anda harus memberikan Kami informasi yang akurat, lengkap dan terkini dan setuju untuk bukti identitas diri yang mungkin Kami minta dengan alasan yang jelas. Kami akan mengumpulkan, menggunakan, mengungkapkan, dan memproses informasi pribadi Anda sesuai dengan Kebijakan Privasi Kami."
+                android:layout_marginTop="8dp"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07" />
+
+            <TextView
+                android:id="@+id/tv_priv_no_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4."
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_5"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/neutral_09"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="8dp"/>
+            <TextView
+                android:id="@+id/tv_priv_title_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_content_5"
+                android:text="LAIN-LAIN"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/neutral_09"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="22dp" />
+            <TextView
+                android:id="@+id/tv_priv_content_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_priv_title_5"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Ketentuan yang tercantum dalam Syarat ini dan setiap perjanjian dan kebijakan yang disertakan atau dirujuk dalam Syarat ini membentuk seluruh perjanjian dan pemahaman antara para pihak sehubungan dengan Layanan dan Situs dan menggantikan setiap perjanjian atau pemahaman sebelumnya antara para pihak sehubungan dengan hal tersebut. Dengan ini para pihak juga mengecualikan semua ketentuan yang tersirat. Dalam memasuki perjanjian yang dibentuk oleh Syarat ini, para pihak tidak bersandar pada informasi, pernyataan, garansi, pemahaman, kesanggupan, janji atau jaminan siapa pun selain yang secara tegas diatur dalam Syarat ini."
+                android:layout_marginTop="8dp"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/neutral_07" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:cnb_menuResource="@menu/bottom_menu"
+        app:cnb_unselectedColor="#6E6E6E"
+        app:cnb_animationDuration="150" />
+
+</FrameLayout>
