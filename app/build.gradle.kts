@@ -125,6 +125,9 @@ dependencies {
     // Image Picker
     implementation("com.github.dhaval2404:imagepicker:2.1")
 
+    //lottie
+    implementation("com.airbnb.android:lottie:6.3.0")
+
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-analytics")

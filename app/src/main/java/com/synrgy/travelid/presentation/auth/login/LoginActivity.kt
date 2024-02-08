@@ -5,7 +5,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.view.LayoutInflater
+import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
 import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.ActivityLoginBinding
@@ -47,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun observeViewModel(){
         viewModel.userLogin.observe(this, ::handleUserLogin)
+        viewModel.loading.observe(this, ::handleShowLoading)
     }
 
     private fun handleUserLogin(userLogin: UserLogin) {
@@ -138,5 +142,14 @@ class LoginActivity : AppCompatActivity() {
                 binding.tilEmail.isErrorEnabled = false
             }
         }
+    }
+    private fun handleShowLoading(isLoading: Boolean) {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        val inflater = LayoutInflater.from(this)
+        val dialogView = inflater.inflate(R.layout.tes_lottie, null)
+
+        builder.setView(dialogView)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 }
