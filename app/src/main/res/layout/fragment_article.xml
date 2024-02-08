@@ -122,6 +122,28 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/first_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat7">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <include layout="@layout/article_rv_semua_shimmer"/>
+            <include layout="@layout/article_rv_semua_shimmer"/>
+            <include layout="@layout/article_rv_semua_shimmer"/>
+            <include layout="@layout/article_rv_semua_shimmer"/>
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_atc_semua"
         android:layout_width="match_parent"
@@ -174,6 +196,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view1" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/second_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_postingan_terbaru"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/article_rv_pt_shimmer"/>
+            <include layout="@layout/article_rv_pt_shimmer"/>
+            <include layout="@layout/article_rv_pt_shimmer"/>
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_atc_post_baru"
         android:layout_width="match_parent"
@@ -187,5 +230,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/article_rv_postingan_terbaru" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

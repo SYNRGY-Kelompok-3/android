@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.synrgy.travelid.databinding.FragmentArticleBinding
 import com.synrgy.travelid.domain.model.main.Article
 import com.synrgy.travelid.presentation.article.adapter.ArticleAdapter
@@ -39,6 +40,7 @@ class ArticleFragment : Fragment() {
     private fun observeLiveData() {
         viewModel.articles.observe(viewLifecycleOwner, ::handleDataArticle)
         viewModel.secondArticles.observe(viewLifecycleOwner, ::handleDataSecondArticle)
+        viewModel.loading.observe(viewLifecycleOwner, ::handleLoading)
     }
 
     private fun bindAdapter() {
@@ -63,5 +65,17 @@ class ArticleFragment : Fragment() {
 
     private fun handleDataSecondArticle(article: List<Article>){
         secondArticleAdapter.submitData(article)
+    }
+    private fun handleLoading(isLoading: Boolean){
+        if (isLoading){
+            binding.firstShimmer.startShimmer()
+            binding.secondShimmer.startShimmer()
+        }
+        else{
+            binding.firstShimmer.stopShimmer()
+            binding.secondShimmer.stopShimmer()
+            binding.firstShimmer.visibility = View.GONE
+            binding.secondShimmer.visibility = View.GONE
+        }
     }
 }

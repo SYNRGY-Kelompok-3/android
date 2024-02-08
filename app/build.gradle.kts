@@ -135,6 +135,9 @@ dependencies {
     // Image Picker
     implementation("com.github.dhaval2404:imagepicker:2.1")
 
+    //Shimmer
+    implementation ("com.facebook.shimmer:shimmer:0.5.0")
+
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-analytics")
