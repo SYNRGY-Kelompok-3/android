@@ -4,6 +4,8 @@ import com.synrgy.travelid.domain.model.main.Article
 import com.synrgy.travelid.domain.model.main.EditProfile
 import com.synrgy.travelid.domain.model.main.EditProfilePicture
 import com.synrgy.travelid.domain.model.main.EditProfileRequest
+import com.synrgy.travelid.domain.model.main.FlightById
+import com.synrgy.travelid.domain.model.main.ListFlight
 import com.synrgy.travelid.domain.model.main.Notification
 import com.synrgy.travelid.domain.model.main.OrderHistory
 import com.synrgy.travelid.domain.model.main.OrderHistoryById
@@ -35,4 +37,18 @@ interface MainRepository {
     suspend fun orderHistoryById(
         token: String, id: Int
     ): OrderHistoryById
+
+    suspend fun searchFlight(
+        page: Int,
+        size: Int,
+        originCity: String,
+        destinationCity: String,
+        startDate: String,
+        endDate: String,
+        pasangerClass: String
+    ): List<ListFlight>
+
+    suspend fun flightById(
+        id: Int
+    ): FlightById
 }

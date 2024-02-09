@@ -42,6 +42,7 @@ class OrderHistoryFragment : Fragment() {
         bindView()
         bindAdapter()
         observeViewModel()
+        setStatusBarColor()
     }
 
     private fun bindView(){
@@ -77,5 +78,12 @@ class OrderHistoryFragment : Fragment() {
     private fun handleDataOrderHistory(orderHistory: List<OrderHistory>) {
         orderHistoryAdapter.submitData(orderHistory)
         Log.d("Order History Fragment", "Jumlah data : ${orderHistoryAdapter.itemCount}")
+    }
+
+    private fun setStatusBarColor() {
+        requireActivity().window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
 }

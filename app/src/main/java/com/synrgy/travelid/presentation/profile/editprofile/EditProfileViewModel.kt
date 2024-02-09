@@ -76,7 +76,7 @@ class EditProfileViewModel @Inject constructor(
         idCustomer: Int
     ) {
         val requestFile = profilePicture?.let { reduceFileImage(it).asRequestBody("image/png".toMediaTypeOrNull()) }
-        val picture = requestFile?.let { MultipartBody.Part.createFormData("picture", profilePicture.name, it) }
+        val picture = requestFile?.let { MultipartBody.Part.createFormData("profilePicture", profilePicture.name, it) }
         val id = idCustomer.toString().toRequestBody("text/plain".toMediaTypeOrNull())
 
         viewModelScope.launch(Dispatchers.IO){

@@ -37,6 +37,7 @@
     <string name="txt_flight_time">2 Jam 30 Menit</string>
     <string name="txt_origin_airport">YIA</string>
     <string name="txt_destination_airport">CGA</string>
+    <string name="kabin_bagasi"><![CDATA[Kabin & bagasi]]></string>
 
 
 </resources>

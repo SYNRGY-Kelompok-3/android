@@ -34,6 +34,7 @@ class ArticleFragment : Fragment() {
         bindAdapter()
         viewModel.fetchArticles()
         viewModel.fetchSecondArticles()
+        setStatusBarColor()
     }
 
     private fun observeLiveData() {
@@ -63,5 +64,12 @@ class ArticleFragment : Fragment() {
 
     private fun handleDataSecondArticle(article: List<Article>){
         secondArticleAdapter.submitData(article)
+    }
+
+    private fun setStatusBarColor() {
+        requireActivity().window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
 }

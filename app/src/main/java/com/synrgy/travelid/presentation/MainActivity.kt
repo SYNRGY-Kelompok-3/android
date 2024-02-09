@@ -50,6 +50,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.detailOrderHistoryFragment -> {
                     hideBottomNav()
                 }
+                R.id.searchFragment -> {
+                    hideBottomNav()
+                }
                 else -> {
                     showBottomNav()
                 }

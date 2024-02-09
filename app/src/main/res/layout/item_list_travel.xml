@@ -1,215 +1,285 @@
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/bg_list_travel"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/parentConstraintLayout"
-        android:layout_width="287dp"
-        android:layout_height="230dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/white">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#E4E7EC"
+        app:strokeWidth="1dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="16dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/linearLayoutCompat"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="22dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/parentConstraintLayout">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/img_logo_airline"
-                android:layout_width="0dp"
-                android:layout_height="24dp"
-                android:layout_gravity="start"
-                android:layout_marginTop="2dp"
-                android:layout_weight="1"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="65dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/image_logo_airline" />
 
             <TextView
                 android:id="@+id/tv_airline_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:fontFamily="@font/poppins"
-                android:gravity="center_horizontal|top"
-                android:text="@string/txt_airline_name"
-                android:textAppearance="@style/txt_airline_name" />
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:includeFontPadding="false"
+                android:text="Citilink"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_logo_airline"
+                app:layout_constraintStart_toEndOf="@+id/img_logo_airline"
+                app:layout_constraintTop_toTopOf="@+id/img_logo_airline" />
 
             <TextView
                 android:id="@+id/tv_travel_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:lineSpacingExtra="3sp"
-                android:text="@string/txt_travel_price"
-                android:textAppearance="@style/txt_travel_price" />
+                android:text="Rp1.500.000"
+                android:textSize="18sp"
+                android:includeFontPadding="false"
+                android:textColor="#CB3A31"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppinssemibold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/linearLayoutCompat2"
-            android:layout_width="match_parent"
-            android:layout_height="22dp"
-            android:layout_marginTop="48dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@id/linearLayoutCompat"
-            app:layout_constraintTop_toTopOf="@id/linearLayoutCompat">
-
-            <TextView
-                android:id="@+id/tv_day_start"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins"
-                android:lineSpacingExtra="-1sp"
-                android:text="@string/txt_startday"
-                android:textAppearance="@style/txt_graylabel" />
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_travel_price">
 
-            <TextView
-                android:id="@+id/tv_transit_status"
+                <TextView
+                    android:id="@+id/tv_day_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:includeFontPadding="false"
+                    android:gravity="center_horizontal"
+                    android:text="@string/txt_startday"
+                    android:textAppearance="@style/txt_graylabel" />
+
+                <TextView
+                    android:id="@+id/tv_time_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppinsbold"
+                    android:includeFontPadding="false"
+                    android:gravity="center_horizontal"
+                    android:text="@string/txt_startime"
+                    android:layout_marginVertical="4dp"
+                    android:textAppearance="@style/txt_timelabel" />
+
+                <TextView
+                    android:id="@+id/tv_origin_airport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:text="@string/txt_origin_airport"
+                    android:textAppearance="@style/txt_graylabel" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:text="@string/txt_transit"
-                android:textAppearance="@style/txt_transit" />
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_travel_price">
 
-            <TextView
-                android:id="@+id/tv_day_end"
+                <TextView
+                    android:id="@+id/tv_day_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="@string/txt_endday"
+                    android:textAppearance="@style/txt_graylabel" />
+
+                <TextView
+                    android:id="@+id/tv_time_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppinsbold"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="@string/txt_endtime"
+                    android:textAppearance="@style/txt_timelabel" />
+
+                <TextView
+                    android:id="@+id/tv_destination_airport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="@string/txt_destination_airport"
+                    android:textAppearance="@style/txt_graylabel" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat3"
+                app:layout_constraintStart_toEndOf="@+id/linearLayoutCompat2"
+                app:layout_constraintTop_toBottomOf="@+id/tv_travel_price">
+
+                <TextView
+                    android:id="@+id/tv_transit_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="@string/txt_transit"
+                    android:textAppearance="@style/txt_transit" />
+
+                <ImageView
+                    android:id="@+id/view_flight_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_flight2"/>
+
+                <TextView
+                    android:id="@+id/tv_flight_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppinsregular"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:textColor="#757575"
+                    android:textSize="14sp"
+                    android:text="@string/txt_flight_time"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins"
-                android:gravity="end"
-                android:lineSpacingExtra="-1sp"
-                android:text="@string/txt_endday"
-                android:textAppearance="@style/txt_graylabel" />
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat4">
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/luggage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="0dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="#E4E7EC"
+                    app:strokeWidth="1dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/linearLayoutCompat3"
-            android:layout_width="match_parent"
-            android:layout_height="22dp"
-            android:layout_marginTop="32dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@id/linearLayoutCompat2"
-            app:layout_constraintTop_toTopOf="@id/linearLayoutCompat2">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginVertical="6dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:includeFontPadding="false"
+                        android:text="@string/kabin_bagasi"
+                        android:textColor="@color/primary"
+                        android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/tv_time_start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppinsbold"
-                android:lineSpacingExtra="-1sp"
-                android:text="@string/txt_startime"
-                android:textAppearance="@style/txt_timelabel" />
+                </com.google.android.material.card.MaterialCardView>
 
-            <View
-                android:id="@+id/view_flight_state"
-                android:layout_width="150dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:background="@drawable/flight_state" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/free_meal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:elevation="0dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="#E4E7EC"
+                    app:strokeWidth="1dp">
 
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginVertical="6dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:includeFontPadding="false"
+                        android:text="Gratis makan"
+                        android:textColor="@color/primary"
+                        android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/tv_time_end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppinsbold"
-                android:gravity="end"
-                android:lineSpacingExtra="-1sp"
-                android:text="@string/txt_endtime"
-                android:textAppearance="@style/txt_timelabel" />
+                </com.google.android.material.card.MaterialCardView>
 
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_details"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#3E7BFA"
+                android:fontFamily="@font/poppinsmedium"
+                android:includeFontPadding="false"
+                android:text="Lihat detail"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:cornerRadius="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat11" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/linearLayoutCompat4"
-            android:layout_width="match_parent"
-            android:layout_height="22dp"
-            android:layout_marginTop="32dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@id/linearLayoutCompat3"
-            app:layout_constraintTop_toTopOf="@id/linearLayoutCompat3">
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/tv_origin_airport"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins"
-                android:lineSpacingExtra="-1sp"
-                android:text="@string/txt_origin_airport"
-                android:textAppearance="@style/txt_graylabel" />
+    </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/tv_flight_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/poppins"
-                android:lineSpacingExtra="-1sp"
-                android:text="@string/txt_flight_time"
-                android:textAppearance="@style/txt_graylabel"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv_destination_airport"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins"
-                android:gravity="end"
-                android:lineSpacingExtra="-1sp"
-                android:text="@string/txt_destination_airport"
-                android:textAppearance="@style/txt_graylabel" />
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_details"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginHorizontal="16dp"
-            android:backgroundTint="#3E7BFA"
-            android:fontFamily="@font/poppins"
-            android:includeFontPadding="false"
-            android:text="Lihat Detail"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:cornerRadius="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

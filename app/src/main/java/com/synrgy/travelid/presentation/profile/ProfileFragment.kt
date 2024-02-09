@@ -1,5 +1,6 @@
 package com.synrgy.travelid.presentation.profile
 
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -36,6 +37,7 @@ class ProfileFragment : Fragment() {
         viewModel.checkLoggedIn()
         bindView()
         observeViewModel()
+        setStatusBarColor()
     }
 
     private fun bindView() {
@@ -109,5 +111,11 @@ class ProfileFragment : Fragment() {
         if (isLoggedOut) {
             LoginActivity.startActivity(requireContext())
         }
+    }
+
+    private fun setStatusBarColor() {
+        requireActivity().window.decorView.systemUiVisibility =
+            (View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
     }
 }

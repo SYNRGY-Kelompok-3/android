@@ -47,6 +47,7 @@ class EditProfileFragment : Fragment() {
         viewModel.userProfile()
         bindView()
         observeViewModel()
+        setStatusBarColor()
     }
 
     private fun bindView() {
@@ -91,36 +92,9 @@ class EditProfileFragment : Fragment() {
         viewModel.editProfilePicture(fileImage, id)
         val request = EditProfileRequest(id, nama, jenisKelamin, tanggalLahir, nomorHandphone)
         viewModel.editProfile(request)
-    }
 
-    private fun loadImage(uri: Uri) {
-        binding.apply {
-            Glide.with(binding.root)
-                .load(uri)
-                .transform(CenterCrop(), RoundedCorners(12))
-                .into(ivUserProfile)
-        }
+        findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
     }
-
-    private val startForProfileImageResult =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-            val resultCode = result.resultCode
-            val data = result.data
-            when (resultCode) {
-                Activity.RESULT_OK -> {
-                    val fileUri = data?.data
-                    uri = fileUri.toString()
-                    if (fileUri != null) {
-                        fileImage = uriToFile(fileUri, requireContext())
-                        loadImage(fileUri)
-                    }
-                }
-                ImagePicker.RESULT_ERROR -> {
-                    Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
-        }
 
     private fun openImagePicker() {
         ImagePicker.with(this)
@@ -139,5 +113,42 @@ class EditProfileFragment : Fragment() {
             .createIntent { intent ->
                 startForProfileImageResult.launch(intent)
             }
+    }
+
+    private val startForProfileImageResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            val resultCode = result.resultCode
+            val data = result.data
+            when (resultCode) {
+                Activity.RESULT_OK -> {
+                    val fileUri = data?.data
+                    uri = fileUri.toString()
+                    if (fileUri != null) {
+                        fileImage = uriToFile(fileUri, requireContext())
+                        loadImage(fileUri)
+                    }
+                }
+
+                ImagePicker.RESULT_ERROR -> {
+                    Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+        }
+
+    private fun loadImage(uri: Uri) {
+        binding.apply {
+            Glide.with(binding.root)
+                .load(uri)
+                .transform(CenterCrop(), RoundedCorners(12))
+                .into(ivUserProfile)
+        }
+    }
+
+    private fun setStatusBarColor() {
+        requireActivity().window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
 }
