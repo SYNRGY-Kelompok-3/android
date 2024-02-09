@@ -18,8 +18,7 @@
         tools:targetApi="31">
         <activity
             android:name=".presentation.MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".presentation.auth.login.LoginActivity"
             android:exported="false"
@@ -44,11 +43,11 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".presentation.auth.forgotpassword.AturUlangPasswordActivity"
-            android:exported="true"
+            android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".presentation.auth.forgotpassword.LupaPasswordActivity"
-            android:exported="true"
+            android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".presentation.auth.register.OtpActivity"
@@ -57,7 +56,7 @@
         </activity>
         <activity
             android:name=".presentation.auth.register.RegisterActivity"
-            android:exported="true" />
+            android:exported="false" />
     </application>
 
 </manifest>

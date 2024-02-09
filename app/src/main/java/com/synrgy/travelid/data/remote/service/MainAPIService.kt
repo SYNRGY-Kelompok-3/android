@@ -3,6 +3,8 @@ package com.synrgy.travelid.data.remote.service
 import com.synrgy.travelid.data.remote.response.main.ArticleResponse
 import com.synrgy.travelid.data.remote.response.main.EditProfilePictureResponse
 import com.synrgy.travelid.data.remote.response.main.EditProfileResponse
+import com.synrgy.travelid.data.remote.response.main.FlightByIdResponse
+import com.synrgy.travelid.data.remote.response.main.ListFlightResponse
 import com.synrgy.travelid.data.remote.response.main.NotificationResponse
 import com.synrgy.travelid.data.remote.response.main.OrderHistoryByIdResponse
 import com.synrgy.travelid.data.remote.response.main.OrderHistoryResponse
@@ -60,4 +62,21 @@ interface MainAPIService {
         @Header("Authorization") token: String,
         @Path("id") id: Int
     ): List<NotificationResponse>
+
+    //Search Flight
+    @GET("flight/listFlights")
+    suspend fun searchFlight(
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+        @Query("originCity") originCity: String,
+        @Query("destinationCity") destinationCity: String,
+        @Query("startDateStr") startDate: String,
+        @Query("endDateStr") endDate: String,
+        @Query("passengerClass") pasangerClass: String
+    ): ListFlightResponse
+
+    @GET("/flight/{id}")
+    suspend fun flightById(
+        @Path("id") flightId: Int
+    ): FlightByIdResponse
 }

@@ -17,6 +17,9 @@ import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Calendar
 import java.util.Locale
 import java.util.TimeZone
 
@@ -168,4 +171,27 @@ fun formatDateArticle(timestamp: String): String {
         }
     }
     return ""
+}
+
+fun formatDateListFlight(inputDate: String): String {
+    val inputFormatter = SimpleDateFormat("dd MMM yyyy", Locale("id")) // Specify the locale for Indonesian language
+    val outputFormatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+
+    val date = inputFormatter.parse(inputDate)
+    return outputFormatter.format(date)
+}
+
+fun formatDateListFlightEndDate(inputDate: String): String {
+    val inputFormatter = SimpleDateFormat("dd MMM yyyy", Locale("id")) // Specify the locale for Indonesian language
+    val outputFormatter = SimpleDateFormat("yyyy-MM-dd'T'23:59:59")
+
+    val date = inputFormatter.parse(inputDate)
+
+    val calendar = Calendar.getInstance()
+    calendar.time = date
+    calendar.set(Calendar.HOUR_OF_DAY, 23)
+    calendar.set(Calendar.MINUTE, 59)
+    calendar.set(Calendar.SECOND, 59)
+
+    return outputFormatter.format(calendar.time)
 }

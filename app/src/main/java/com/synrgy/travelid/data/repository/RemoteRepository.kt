@@ -11,6 +11,8 @@ import com.synrgy.travelid.data.remote.response.auth.toValidateOTP
 import com.synrgy.travelid.data.remote.response.main.toEditProfile
 import com.synrgy.travelid.data.remote.response.main.toEditProfilePicture
 import com.synrgy.travelid.data.remote.response.main.toFetchArticle
+import com.synrgy.travelid.data.remote.response.main.toFlightById
+import com.synrgy.travelid.data.remote.response.main.toListFlight
 import com.synrgy.travelid.data.remote.response.main.toNotification
 import com.synrgy.travelid.data.remote.response.main.toOrderHistory
 import com.synrgy.travelid.data.remote.response.main.toOrderHistoryById
@@ -35,6 +37,8 @@ import com.synrgy.travelid.domain.model.main.Article
 import com.synrgy.travelid.domain.model.main.EditProfile
 import com.synrgy.travelid.domain.model.main.EditProfilePicture
 import com.synrgy.travelid.domain.model.main.EditProfileRequest
+import com.synrgy.travelid.domain.model.main.FlightById
+import com.synrgy.travelid.domain.model.main.ListFlight
 import com.synrgy.travelid.domain.model.main.Notification
 import com.synrgy.travelid.domain.model.main.OrderHistory
 import com.synrgy.travelid.domain.model.main.OrderHistoryById
@@ -128,6 +132,30 @@ class RemoteRepository @Inject constructor(
         return mainAPIService.orderHistoryById(
             token = "Bearer $token", id
         ).data!!.toOrderHistoryById()
+    }
+
+    override suspend fun searchFlight(
+        page: Int,
+        size: Int,
+        originCity: String,
+        destinationCity: String,
+        startDate: String,
+        endDate: String,
+        pasangerClass: String,
+    ): List<ListFlight> {
+        return mainAPIService.searchFlight(
+            page,
+            size,
+            originCity,
+            destinationCity,
+            startDate,
+            endDate,
+            pasangerClass
+        ).data!!.content.map { response -> response.toListFlight() }
+    }
+
+    override suspend fun flightById(id: Int): FlightById {
+        return mainAPIService.flightById(id).data!!.toFlightById()
     }
 
 
