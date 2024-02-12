@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.profile.helpcenter.HelpCenterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ic_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_left"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pusat Bantuan"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/black"
+                android:includeFontPadding="false"
+                android:textSize="16sp" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/materialToolbar"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_title"
+                android:layout_width="382dp"
+                android:layout_height="172dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+
+                <com.google.android.material.circularreveal.CircularRevealRelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_plane_dark">
+                </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="254dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:backgroundTint="#50FFFFFF"
+                        app:strokeWidth="0dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tv_pusat_bantuan"
+                                android:layout_width="248dp"
+                                android:layout_height="22dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/poppinsbold"
+                                android:gravity="center_horizontal|top"
+                                android:lineSpacingExtra="-2sp"
+                                android:text="Pusat Bantuan"
+                                android:textAppearance="@style/pusat_bantu"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tv_temukan_jawabanmu"
+                                android:layout_width="248dp"
+                                android:layout_height="22dp"
+                                android:layout_marginTop="24dp"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center_horizontal|top"
+                                android:lineSpacingExtra="-2sp"
+                                android:text="Temukan Jawabanmu Disini"
+                                android:textAppearance="@style/pusat_bantu"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_pusat_bantuan" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_pertanyaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="-1sp"
+                android:text="Pertanyaan yang Sering Diajukan"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/cv_title"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/cv_title"
+                app:layout_constraintTop_toBottomOf="@id/cv_title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_jelajahi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:text="Jelajahi informasi tentang penerbangan Travel.id"
+                android:textColor="#757575"
+                app:layout_constraintEnd_toEndOf="@id/tv_pertanyaan"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pertanyaan" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_help_center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/white"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/tv_jelajahi"/>
+<!--                tools:listitem="@layout/list_item_help_center"/>-->
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_hubungi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="-1sp"
+                android:text="Hubungi Call Center Travel.id"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/cv_title"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/cv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_jelajahi" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_jika"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:text="Jika masih ada pertanyaan, hubungi Call Center yah"
+                android:textColor="#757575"
+                app:layout_constraintEnd_toEndOf="@id/tv_hubungi"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_hubungi" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_help"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/white"
+                app:strokeColor="#E4E7EC"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ic_help"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/ic_whatsapp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_help"
+                        app:layout_constraintHorizontal_bias="0.186"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Guideline untuk meratakan komponen -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_help"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:includeFontPadding="false"
+                        android:text="Whatsapp Call Center"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.185"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.486" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ic_right_help"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_right"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.979"
+                        app:layout_constraintStart_toEndOf="@+id/tv_help"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.484" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.33" />
+
+                    <!-- Mengikat posisi komponen ke guideline -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/leftGroup"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintEnd_toStartOf="@id/guideline"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/rightGroup"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/guideline"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
+

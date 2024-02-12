@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_profileFragment_to_orderHistoryFragment"
             app:destination="@id/orderHistoryFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_helpCenterFragment"
+            app:destination="@id/helpCenterFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -75,5 +78,14 @@
         <action
             android:id="@+id/action_detailOrderHistoryFragment_to_orderHistoryFragment"
             app:destination="@id/orderHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/helpCenterFragment"
+        android:name="com.synrgy.travelid.presentation.profile.helpcenter.HelpCenterFragment"
+        android:label="fragment_help_center"
+        tools:layout="@layout/fragment_help_center" >
+        <action
+            android:id="@+id/action_helpCenterFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

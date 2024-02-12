@@ -43,6 +43,7 @@ class ProfileFragment : Fragment() {
         binding.btnKeluar.setOnClickListener { viewModel.clearDataUser() }
         binding.container1.setOnClickListener { goToEditProfile() }
         binding.container2.setOnClickListener { goToOrderHistory() }
+        binding.container3.setOnClickListener { goToHelpCenter() }
     }
 
     private fun observeViewModel() {
@@ -103,6 +104,10 @@ class ProfileFragment : Fragment() {
 
     private fun goToOrderHistory() {
         findNavController().navigate(R.id.action_profileFragment_to_orderHistoryFragment)
+    }
+
+    private fun goToHelpCenter() {
+        findNavController().navigate(R.id.action_profileFragment_to_helpCenterFragment)
     }
 
     private fun handleOpenLoginPage(isLoggedOut: Boolean) {

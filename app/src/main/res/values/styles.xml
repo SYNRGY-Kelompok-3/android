@@ -28,4 +28,23 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
     </style>
 
+    <style name="pusat_bantu">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:shadowColor">#3D606170</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">20</item>
+        <item name="android:shadowRadius">32</item>
+    </style>
+
+    <style name="AccordionTitleTextStyle">
+        <item name="android:fontFamily">@font/poppinsmedium</item>
+    </style>
+
+    <style name="AccordionContentTextStyle">
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+
+
 </resources>

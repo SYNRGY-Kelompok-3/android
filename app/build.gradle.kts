@@ -132,6 +132,9 @@ dependencies {
     // Custom Switch
     implementation("com.github.codersrouteandroid:flexible-switch:1.0")
 
+    // Custom Accordion
+    implementation ("com.github.gouravkhunger:AccoLib:1.1.2")
+
     // Image Picker
     implementation("com.github.dhaval2404:imagepicker:2.1")
 
