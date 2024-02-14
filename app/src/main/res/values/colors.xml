@@ -24,5 +24,8 @@
     <color name="boxBackgroundColor">#F5F5F5</color>
     <color name="textColorHint">#CDCDCD</color>
     <color name="textColor">#C2C2C2</color>
+    <color name="seatSelected">#E3E3E3</color>
     <color name="stroke">#E4E7EC</color>
+    <color name="background1">#18AF5E</color>
+    <color name="background2">#7B52AB</color>
 </resources>

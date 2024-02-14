@@ -1,6 +1,5 @@
 package com.synrgy.travelid.presentation.home.search.adapter
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,19 +7,15 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.synrgy.travelid.common.formatDateOrderHistory
 import com.synrgy.travelid.common.formatPriceOrderHistory
 import com.synrgy.travelid.databinding.ItemListTravelBinding
-import com.synrgy.travelid.databinding.ListItemOrderHistoryBinding
 import com.synrgy.travelid.domain.model.main.ListFlight
-import com.synrgy.travelid.domain.model.main.OrderHistory
-import com.synrgy.travelid.presentation.home.HomeFragment.Companion.JUMLAH_PENUMPANG
-import com.synrgy.travelid.presentation.home.HomeFragment.Companion.KURSI_DEWASA
 import java.text.SimpleDateFormat
 import java.util.Locale
 
 class ListFlightAdapter(
     private val kursiDewasa: Int,
+    private val kursiAnak: Int,
     private var kursiBayi: Int,
     private val onClick: OnClickListener
 ): RecyclerView.Adapter<ListFlightAdapter.ViewHolder>() {
@@ -51,7 +46,8 @@ class ListFlightAdapter(
             binding.tvAirlineName.text = data.airline
 
             val priceBayi = (data.discountPrice * 10/100)
-            binding.tvTravelPrice.text = formatPriceOrderHistory(((data.discountPrice * kursiDewasa) + (kursiBayi * priceBayi)))
+            binding.tvTravelPrice.text =
+                formatPriceOrderHistory(((data.discountPrice * kursiDewasa) + (data.discountPrice * kursiAnak) + (kursiBayi * priceBayi)))
             binding.tvDayStart.text = getDayOfWeek(data.flightTime)
             binding.tvDayEnd.text = getDayOfWeek(data.arrivedTime)
             binding.tvTimeStart.text = getTimeOfDay(data.flightTime)

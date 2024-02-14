@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.home.booking.payment.PaymentFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ic_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_arrow_left" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinssemibold"
+            android:includeFontPadding="false"
+            android:text="Detail pemesanan"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            app:cardBackgroundColor="#18AF5E"
+            app:cardCornerRadius="99dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="6dp"
+                    android:layout_marginStart="8dp"
+                    android:elevation="0dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="99dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginHorizontal="2.3dp"
+                        android:layout_marginVertical="2.3dp"
+                        android:src="@drawable/ic_check"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:includeFontPadding="false"
+                    android:text="Pemesanan"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <ImageView
+            android:id="@+id/dashed_line1"
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/dashed_line_booking"
+            app:layout_constraintEnd_toEndOf="@+id/btn_filterdate"
+            app:layout_constraintStart_toStartOf="@+id/btn_back_home"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutCompat10" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            app:cardBackgroundColor="@color/primary"
+            app:cardCornerRadius="99dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#E4E7EC"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="6dp"
+                    android:layout_marginStart="8dp"
+                    android:elevation="0dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="99dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="7dp"
+                        android:layout_marginVertical="2dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:includeFontPadding="false"
+                        android:text="2"
+                        android:textColor="@color/primary"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:includeFontPadding="false"
+                    android:text="Pembayaran"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <ImageView
+            android:id="@+id/dashed_line2"
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/dashed_line_booking"
+            app:layout_constraintEnd_toEndOf="@+id/btn_filterdate"
+            app:layout_constraintStart_toStartOf="@+id/btn_back_home"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutCompat10" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="99dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#E4E7EC"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="6dp"
+                    android:layout_marginStart="8dp"
+                    android:elevation="0dp"
+                    app:cardBackgroundColor="#F3F3F3"
+                    app:cardCornerRadius="99dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="7dp"
+                        android:layout_marginVertical="2dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:includeFontPadding="false"
+                        android:text="3"
+                        android:textColor="#B2B4B6"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:includeFontPadding="false"
+                    android:text="Selesai"
+                    android:textColor="#B2B4B6"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <ImageView
+        android:id="@+id/dashed_line3"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/dashed_line_booking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat15" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_time_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:elevation="0dp"
+        app:cardBackgroundColor="#FAECEB"
+        app:strokeColor="#CB3A31"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dashed_line3"
+        app:strokeWidth="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView10"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_info_payment"
+                app:layout_constraintBottom_toBottomOf="@+id/linearLayoutCompat16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/linearLayoutCompat16" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView10"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/poppinsregular"
+                    android:includeFontPadding="false"
+                    android:text="Selesaikan Pembayaran Sebelum 01 Jan 2024, Pukul 19:00!"
+                    android:textColor="#CB3A31"
+                    android:textSize="12sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_detail_pemesan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:includeFontPadding="false"
+        android:text="Metode pembayaran"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_time_payment" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_subtitle_pemesan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/poppinsregular"
+        android:includeFontPadding="false"
+        android:text="Informasi data pembayaran"
+        android:textColor="#A3A3A3"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_pemesan" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_bank_pembayaran"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/text_input_box_stroke"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle_pemesan">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_bank_pembayaran"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="start|center_vertical"
+            android:hint="Masukan jenis bank"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:paddingTop="18dp"
+            android:paddingBottom="0dp"
+            android:textColorHint="#C2C2C2"
+            android:textSize="14sp"
+            android:inputType="number"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:text="Bank"
+        android:textColor="#3E7BFA"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/til_bank_pembayaran"
+        app:layout_constraintTop_toTopOf="@+id/til_bank_pembayaran" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_nomor_kartu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/text_input_box_stroke"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_bank_pembayaran">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_nomor_kartu"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="start|center_vertical"
+            android:hint="Masukan nomor kartu"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:paddingTop="18dp"
+            android:paddingBottom="0dp"
+            android:textColorHint="#C2C2C2"
+            android:textSize="14sp"
+            android:inputType="number"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:text="Nomor Kartu Kredit/Debit"
+        android:textColor="#3E7BFA"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/til_nomor_kartu"
+        app:layout_constraintTop_toTopOf="@+id/til_nomor_kartu" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_nama_kartu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/text_input_box_stroke"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_nomor_kartu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_nama_kartu"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="start|center_vertical"
+            android:hint="Masukan nama kartu"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:paddingTop="18dp"
+            android:paddingBottom="0dp"
+            android:textColorHint="#C2C2C2"
+            android:textSize="14sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:text="Nama Kartu Kredit/Debit"
+        android:textColor="#3E7BFA"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/til_nama_kartu"
+        app:layout_constraintTop_toTopOf="@+id/til_nama_kartu" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_masa_berlaku"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/text_input_box_stroke"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_nama_kartu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_masa_berlaku"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="start|center_vertical"
+            android:hint="Masukan masa berlaku"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:paddingTop="18dp"
+            android:paddingBottom="0dp"
+            android:textColorHint="#C2C2C2"
+            android:textSize="14sp"
+            android:inputType="number"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:text="Masa Berlaku"
+        android:textColor="#3E7BFA"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/til_masa_berlaku"
+        app:layout_constraintTop_toTopOf="@+id/til_masa_berlaku" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_no_cvv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/text_input_box_stroke"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_masa_berlaku">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_no_cvv"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="start|center_vertical"
+            android:hint="Masukan nomor cvv/cvn"
+            android:includeFontPadding="false"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingTop="18dp"
+            android:paddingBottom="0dp"
+            android:textColorHint="#C2C2C2"
+            android:textSize="14sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:includeFontPadding="false"
+        android:text="CVV/CVN"
+        android:textColor="#3E7BFA"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/til_no_cvv"
+        app:layout_constraintTop_toTopOf="@+id/til_no_cvv" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/detail_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeWidth="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_placeholder_harga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:includeFontPadding="false"
+                android:text="Total"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_selanjutnya"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_travel_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:includeFontPadding="false"
+                android:text="Rp1.500.000"
+                android:textColor="#CB3A31"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_selanjutnya"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#3E7BFA"
+                android:fontFamily="@font/poppinssemibold"
+                android:includeFontPadding="false"
+                android:text="Bayar"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:cornerRadius="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

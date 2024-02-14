@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.synrgy.travelid.R
@@ -17,6 +18,8 @@ import com.synrgy.travelid.databinding.FragmentDetailOrderHistoryBinding
 import com.synrgy.travelid.domain.model.main.FlightById
 import com.synrgy.travelid.presentation.home.search.SearchFragment.Companion.FLIGHT_ID
 import com.synrgy.travelid.presentation.home.search.SearchFragment.Companion.FLIGHT_PRICE
+import com.synrgy.travelid.presentation.home.search.SearchFragment.Companion.JUMLAH_PENUMPANG_SEARCH
+import com.synrgy.travelid.presentation.home.search.SearchFragment.Companion.KURSI_ANAK_DETAIL
 import com.synrgy.travelid.presentation.home.search.SearchFragment.Companion.KURSI_BAYI_DETAIL
 import com.synrgy.travelid.presentation.home.search.SearchFragment.Companion.KURSI_DEWASA_DETAIL
 import com.synrgy.travelid.presentation.profile.orderhistory.OrderHistoryViewModel
@@ -24,8 +27,20 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailFlightFragment : BottomSheetDialogFragment() {
+    companion object{
+        const val FLIGHT_ID_DETAIL = "FlightIdDetail"
+        const val FLIGHT_PRICE_DETAIL = "FlightPriceDetail"
+        const val FLIGHT_PRICE_BASE = "FlightPriceBase"
+        const val JUMLAH_PENUMPANG_DETAIL = "JumlahPenumpangDetail"
+        const val KURSI_DEWASA_DETAIL_TO_BOOK = "KursiDewasaDetailToBook"
+        const val KURSI_ANAK_DETAIL_TO_BOOK = "KursiAnakDetailToBook"
+        const val KURSI_BAYI_DETAIL_TO_BOOK = "KursiBayiDetailToBook"
+    }
     private lateinit var binding: FragmentDetailFlightBinding
     private val viewModel: SearchViewModel by viewModels()
+    private var flightIdDetail: Int = 0
+    private var flightPriceDetail: Int = 0
+    private var flightPriceBase: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,9 +60,22 @@ class DetailFlightFragment : BottomSheetDialogFragment() {
     }
 
     private fun bindView(){
-//        val totalPrice = requireArguments().getInt(FLIGHT_PRICE)
-//        Log.d("total price", totalPrice.toString())
-//        binding.tvTravelPrice.text = formatPriceOrderHistory(totalPrice)
+        binding.btnPesanTiket.setOnClickListener {
+            val jumlahPenumpang = arguments?.getString(JUMLAH_PENUMPANG_SEARCH)
+            val kursiDewasa = requireArguments().getString(KURSI_DEWASA_DETAIL)!!.toInt()
+            val kursiAnak = requireArguments().getString(KURSI_ANAK_DETAIL)!!.toInt()
+            val kursiBayi = requireArguments().getString(KURSI_BAYI_DETAIL)!!.toInt()
+
+            val bundle = Bundle()
+            bundle.putInt(FLIGHT_ID_DETAIL, flightIdDetail)
+            bundle.putInt(FLIGHT_PRICE_DETAIL, flightPriceDetail)
+            bundle.putInt(FLIGHT_PRICE_BASE, flightPriceBase)
+            bundle.putInt(KURSI_DEWASA_DETAIL_TO_BOOK, kursiDewasa)
+            bundle.putInt(KURSI_ANAK_DETAIL_TO_BOOK, kursiAnak)
+            bundle.putInt(KURSI_BAYI_DETAIL_TO_BOOK, kursiBayi)
+            bundle.putString(JUMLAH_PENUMPANG_DETAIL, jumlahPenumpang)
+            findNavController().navigate(R.id.action_searchFragment_to_bookingFragment, bundle)
+        }
     }
 
     private fun observeLiveData() {
@@ -55,6 +83,8 @@ class DetailFlightFragment : BottomSheetDialogFragment() {
     }
 
     private fun handleDataFlightById(data: FlightById) {
+        flightIdDetail = data.id
+        flightPriceBase = data.discountPrice
         binding.tvFlightTime.text = formatDateTimeDetail(data.flightTime)
         binding.tvOriginCityAirport.text = data.originCity + " - " + data.originAirport
         Glide.with(requireContext())
@@ -77,9 +107,10 @@ class DetailFlightFragment : BottomSheetDialogFragment() {
             }
         }
         val kursiDewasa = requireArguments().getString(KURSI_DEWASA_DETAIL)!!.toInt()
+        val kursiAnak = requireArguments().getString(KURSI_ANAK_DETAIL)!!.toInt()
         val kursiBayi = requireArguments().getString(KURSI_BAYI_DETAIL)!!.toInt()
         val priceBayi = (data.discountPrice * 10/100)
-        val totalPrice = ((data.discountPrice * kursiDewasa) + (kursiBayi * priceBayi))
-        binding.tvTravelPrice.text = formatPriceOrderHistory(totalPrice)
+        flightPriceDetail = ((data.discountPrice * kursiDewasa) + (data.discountPrice * kursiAnak) + (kursiBayi * priceBayi))
+        binding.tvTravelPrice.text = formatPriceOrderHistory(flightPriceDetail)
     }
 }

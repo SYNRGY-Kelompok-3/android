@@ -34,8 +34,10 @@ class HomeFragment :
         const val TANGGAL_PERGI = "TanggalPergi"
         const val TANGGAL_PULANG = "TanggalPulang"
         const val JUMLAH_PENUMPANG = "JumlahPenumpang"
+        const val JUMLAH_PENUMPANG_2 = "JumlahPenumpang2"
         const val KELAS_PENERBANGAN = "KelasPenerbangan"
         const val KURSI_DEWASA = "KursiDewasa"
+        const val KURSI_ANAK_ANAK = "KursiAnakAnak"
         const val KURSI_BAYI = "KursiBayi"
     }
     private lateinit var binding: FragmentHomeBinding
@@ -135,6 +137,7 @@ class HomeFragment :
             val anakCount = matchResult?.groupValues?.get(2)?.toIntOrNull() ?: 0
             val bayiCount = matchResult?.groupValues?.get(3)?.toIntOrNull() ?: 0
             val totalSeats = dewasaCount + anakCount + bayiCount
+            val totalSeats2 = dewasaCount + anakCount
 
             val validation = handleValidation(
                 lokasiAwal, lokasiTujuan, tanggalPergi, jumlahPenumpang, kelasPenerbangan
@@ -147,8 +150,10 @@ class HomeFragment :
                 bundle.putString(TANGGAL_PERGI, tanggalPergi)
                 bundle.putString(TANGGAL_PULANG, tanggalPulang)
                 bundle.putString(JUMLAH_PENUMPANG, totalSeats.toString())
+                bundle.putString(JUMLAH_PENUMPANG_2, totalSeats2.toString())
                 bundle.putString(KELAS_PENERBANGAN, kelasPenerbangan)
                 bundle.putString(KURSI_DEWASA, dewasaCount.toString())
+                bundle.putString(KURSI_ANAK_ANAK, anakCount.toString())
                 bundle.putString(KURSI_BAYI, bayiCount.toString())
                 findNavController().navigate(R.id.action_homeFragment_to_searchFragment, bundle)
             }

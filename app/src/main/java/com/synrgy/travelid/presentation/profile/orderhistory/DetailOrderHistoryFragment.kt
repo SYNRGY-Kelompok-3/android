@@ -57,7 +57,7 @@ class DetailOrderHistoryFragment : Fragment() {
         }
         binding.tvTotalPrice.text = formatPriceOrderHistory(data.totalPrice)
 
-        binding.tvNamaPenumpang.text = "Tn. " + data.name
+        binding.tvNamaPenumpang.text = "Tn. " + data.name // change to customerName
 
         binding.tvFlightTime.text = formatDateTimeDetail(data.flightTime)
         binding.tvOriginCityAirport.text = data.originCity + " - " + data.originAirport

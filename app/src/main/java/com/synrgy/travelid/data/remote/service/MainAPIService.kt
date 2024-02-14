@@ -1,6 +1,7 @@
 package com.synrgy.travelid.data.remote.service
 
 import com.synrgy.travelid.data.remote.response.main.ArticleResponse
+import com.synrgy.travelid.data.remote.response.main.BookFlightAwayResponse
 import com.synrgy.travelid.data.remote.response.main.EditProfilePictureResponse
 import com.synrgy.travelid.data.remote.response.main.EditProfileResponse
 import com.synrgy.travelid.data.remote.response.main.FlightByIdResponse
@@ -8,8 +9,12 @@ import com.synrgy.travelid.data.remote.response.main.ListFlightResponse
 import com.synrgy.travelid.data.remote.response.main.NotificationResponse
 import com.synrgy.travelid.data.remote.response.main.OrderHistoryByIdResponse
 import com.synrgy.travelid.data.remote.response.main.OrderHistoryResponse
+import com.synrgy.travelid.data.remote.response.main.PaymentBookResponse
+import com.synrgy.travelid.data.remote.response.main.SeatByFlightIdResponse
 import com.synrgy.travelid.data.remote.response.main.UserProfileResponse
+import com.synrgy.travelid.domain.model.main.BookFlightAwayRequest
 import com.synrgy.travelid.domain.model.main.EditProfileRequest
+import com.synrgy.travelid.domain.model.main.PaymentBookRequest
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.Body
@@ -63,7 +68,7 @@ interface MainAPIService {
         @Path("id") id: Int
     ): List<NotificationResponse>
 
-    //Search Flight
+    // Search Flight
     @GET("flight/listFlights")
     suspend fun searchFlight(
         @Query("page") page: Int,
@@ -79,4 +84,22 @@ interface MainAPIService {
     suspend fun flightById(
         @Path("id") flightId: Int
     ): FlightByIdResponse
+
+    // Book Flight
+    @GET("seat/getByFlight/{id}")
+    suspend fun seatByFlightId(
+        @Path("id") flightId: Int
+    ): SeatByFlightIdResponse
+
+    @POST("booking/saveWithDetails")
+    suspend fun bookFlightAway(
+        @Header("Authorization") token: String,
+        @Body request: BookFlightAwayRequest
+    ): BookFlightAwayResponse
+
+    @PUT("booking/processPayment")
+    suspend fun paymentBook(
+        @Header("Authorization") token: String,
+        @Body request: PaymentBookRequest
+    ): PaymentBookResponse
 }

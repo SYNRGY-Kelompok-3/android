@@ -1,17 +1,24 @@
 package com.synrgy.travelid.data.remote.response.main
 
 import com.google.gson.annotations.SerializedName
-import com.synrgy.travelid.domain.model.main.FlightById
+import com.synrgy.travelid.domain.model.main.SeatByFlightId
 
-data class FlightByIdResponse (
+data class SeatByFlightIdResponse (
 
-    @SerializedName("data"    ) var data    : Data?   = Data(),
-    @SerializedName("message" ) var message : String? = null,
-    @SerializedName("status"  ) var status  : Int?    = null
+    @SerializedName("data"    ) var data    : ArrayList<Data> = arrayListOf(),
+    @SerializedName("message" ) var message : String?         = null,
+    @SerializedName("status"  ) var status  : Int?            = null
 
 ) {
-
     data class Data (
+
+        @SerializedName("id"         ) var id         : Int?    = null,
+        @SerializedName("flight"     ) var flight     : Flight? = Flight(),
+        @SerializedName("seatBooked" ) var seatBooked : String? = null
+
+    )
+
+    data class Flight (
 
         @SerializedName("created_date"       ) var createdDate        : String?   = null,
         @SerializedName("updated_date"       ) var updatedDate        : String?   = null,
@@ -35,6 +42,7 @@ data class FlightByIdResponse (
         @SerializedName("isDiscount"         ) var isDiscount         : String?   = null
 
     )
+
     data class Airlines (
 
         @SerializedName("id"       ) var id       : Int?    = null,
@@ -44,22 +52,8 @@ data class FlightByIdResponse (
     )
 }
 
-fun FlightByIdResponse.Data.toFlightById(): FlightById{
-    return FlightById(
-        id = id ?: 0,
-        flightTime = flightTime.orEmpty(),
-        originCity = originCity.orEmpty(),
-        originAirport = originAirport.orEmpty(),
-        airline = airlines?.airline.orEmpty(),
-        pathLogo = airlines?.pathLogo.orEmpty(),
-        flightNumber = flightNumber.orEmpty(),
-        passengerClass = passengerClass.orEmpty(),
-        duration = duration.orEmpty(),
-        arrivedTime = arrivedTime.orEmpty(),
-        destinationCity = destinationCity.orEmpty(),
-        destinationAirport = destinationAirport.orEmpty(),
-        luggage = luggage.orEmpty(),
-        freeMeal = freeMeal.orEmpty(),
-        discountPrice = discountPrice ?: 0
+fun SeatByFlightIdResponse.Data.toSeatByFlightId(): SeatByFlightId{
+    return SeatByFlightId(
+        seatBooked = seatBooked.orEmpty()
     )
 }

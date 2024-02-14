@@ -1,6 +1,7 @@
 package com.synrgy.travelid.domain.model.main
 
 data class FlightById(
+    val id: Int,
     val flightTime: String,
     val originCity: String,
     val originAirport: String,

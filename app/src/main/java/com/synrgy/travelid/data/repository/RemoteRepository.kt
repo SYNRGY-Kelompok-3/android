@@ -8,6 +8,7 @@ import com.synrgy.travelid.data.remote.response.auth.toUserConfirmOtpRegister
 import com.synrgy.travelid.data.remote.response.auth.toUserLogin
 import com.synrgy.travelid.data.remote.response.auth.toUserRegister
 import com.synrgy.travelid.data.remote.response.auth.toValidateOTP
+import com.synrgy.travelid.data.remote.response.main.toBookFlightAway
 import com.synrgy.travelid.data.remote.response.main.toEditProfile
 import com.synrgy.travelid.data.remote.response.main.toEditProfilePicture
 import com.synrgy.travelid.data.remote.response.main.toFetchArticle
@@ -16,6 +17,8 @@ import com.synrgy.travelid.data.remote.response.main.toListFlight
 import com.synrgy.travelid.data.remote.response.main.toNotification
 import com.synrgy.travelid.data.remote.response.main.toOrderHistory
 import com.synrgy.travelid.data.remote.response.main.toOrderHistoryById
+import com.synrgy.travelid.data.remote.response.main.toPaymentBook
+import com.synrgy.travelid.data.remote.response.main.toSeatByFlightId
 import com.synrgy.travelid.data.remote.response.main.toUserProfile
 import com.synrgy.travelid.data.remote.service.AuthAPIService
 import com.synrgy.travelid.data.remote.service.MainAPIService
@@ -34,6 +37,8 @@ import com.synrgy.travelid.domain.model.auth.UserRegisterRequest
 import com.synrgy.travelid.domain.model.auth.ValidateOTP
 import com.synrgy.travelid.domain.model.auth.ValidateOTPRequest
 import com.synrgy.travelid.domain.model.main.Article
+import com.synrgy.travelid.domain.model.main.BookFlightAway
+import com.synrgy.travelid.domain.model.main.BookFlightAwayRequest
 import com.synrgy.travelid.domain.model.main.EditProfile
 import com.synrgy.travelid.domain.model.main.EditProfilePicture
 import com.synrgy.travelid.domain.model.main.EditProfileRequest
@@ -42,6 +47,9 @@ import com.synrgy.travelid.domain.model.main.ListFlight
 import com.synrgy.travelid.domain.model.main.Notification
 import com.synrgy.travelid.domain.model.main.OrderHistory
 import com.synrgy.travelid.domain.model.main.OrderHistoryById
+import com.synrgy.travelid.domain.model.main.PaymentBook
+import com.synrgy.travelid.domain.model.main.PaymentBookRequest
+import com.synrgy.travelid.domain.model.main.SeatByFlightId
 import com.synrgy.travelid.domain.model.main.UserProfile
 import com.synrgy.travelid.domain.repository.AuthRepository
 import com.synrgy.travelid.domain.repository.MainRepository
@@ -158,8 +166,32 @@ class RemoteRepository @Inject constructor(
         return mainAPIService.flightById(id).data!!.toFlightById()
     }
 
+    override suspend fun seatByFlightId(flightId: Int): List<SeatByFlightId> {
+        return mainAPIService.seatByFlightId(flightId).data.map { response ->
+            response.toSeatByFlightId()
+        }
+    }
+
+    override suspend fun bookFlightAway(
+        token: String,
+        request: BookFlightAwayRequest,
+    ): BookFlightAway {
+        return mainAPIService.bookFlightAway(
+            token = "Bearer $token",
+            request
+        ).data!!.toBookFlightAway()
+    }
+
+    override suspend fun paymentBook(token: String, request: PaymentBookRequest): PaymentBook {
+        return mainAPIService.paymentBook(
+            token = "Bearer $token",
+            request
+        ).data!!.toPaymentBook()
+    }
 
     override suspend fun fetchArticle(): List<Article> {
-        return sideAPIService.fetchArticle().map { response -> response.toFetchArticle() }
+        return sideAPIService.fetchArticle().map { response ->
+            response.toFetchArticle()
+        }
     }
 }

@@ -53,6 +53,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.searchFragment -> {
                     hideBottomNav()
                 }
+                R.id.bookingFragment -> {
+                    hideBottomNav()
+                }
+                R.id.paymentFragment -> {
+                    hideBottomNav()
+                }
                 else -> {
                     showBottomNav()
                 }

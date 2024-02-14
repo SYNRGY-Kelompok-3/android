@@ -2,35 +2,28 @@ package com.synrgy.travelid.presentation.home.search
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.synrgy.travelid.R
 import com.synrgy.travelid.common.formatDateListFlight
 import com.synrgy.travelid.common.formatDateListFlightEndDate
 import com.synrgy.travelid.databinding.FragmentSearchBinding
 import com.synrgy.travelid.domain.model.main.ListFlight
-import com.synrgy.travelid.domain.model.main.OrderHistory
 import com.synrgy.travelid.presentation.home.HomeFragment.Companion.JUMLAH_PENUMPANG
+import com.synrgy.travelid.presentation.home.HomeFragment.Companion.JUMLAH_PENUMPANG_2
 import com.synrgy.travelid.presentation.home.HomeFragment.Companion.KELAS_PENERBANGAN
+import com.synrgy.travelid.presentation.home.HomeFragment.Companion.KURSI_ANAK_ANAK
 import com.synrgy.travelid.presentation.home.HomeFragment.Companion.KURSI_BAYI
 import com.synrgy.travelid.presentation.home.HomeFragment.Companion.KURSI_DEWASA
 import com.synrgy.travelid.presentation.home.HomeFragment.Companion.LOKASI_AWAL
 import com.synrgy.travelid.presentation.home.HomeFragment.Companion.LOKASI_TUJUAN
 import com.synrgy.travelid.presentation.home.HomeFragment.Companion.TANGGAL_PERGI
 import com.synrgy.travelid.presentation.home.HomeFragment.Companion.TANGGAL_PULANG
-import com.synrgy.travelid.presentation.home.PilihKelasPenerbanganFragment
 import com.synrgy.travelid.presentation.home.search.adapter.ListFlightAdapter
-import com.synrgy.travelid.presentation.profile.orderhistory.OrderHistoryFragment
-import com.synrgy.travelid.presentation.profile.orderhistory.OrderHistoryViewModel
-import com.synrgy.travelid.presentation.profile.orderhistory.adapter.OrderHistoryAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Locale
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -38,7 +31,9 @@ class SearchFragment : Fragment() {
         const val FLIGHT_ID = "FlightId"
         const val FLIGHT_PRICE = "FlightPrice"
         const val KURSI_DEWASA_DETAIL = "KursiDewasaDetail"
+        const val KURSI_ANAK_DETAIL = "KursiAnakDetail"
         const val KURSI_BAYI_DETAIL = "KursiBayiDetail"
+        const val JUMLAH_PENUMPANG_SEARCH = "JumlahPenumpangSearch"
     }
     private lateinit var binding: FragmentSearchBinding
     private val viewModel: SearchViewModel by viewModels()
@@ -92,7 +87,7 @@ class SearchFragment : Fragment() {
         binding.txtArrival.text = arguments?.getString(LOKASI_AWAL)
         binding.txtDeparture.text = arguments?.getString(LOKASI_TUJUAN)
         binding.txtDate.text = arguments?.getString(TANGGAL_PERGI)
-        binding.txtSeat.text = arguments?.getString(JUMLAH_PENUMPANG) + " kursi"
+        binding.txtSeat.text = arguments?.getString(JUMLAH_PENUMPANG_2) + " kursi"
         binding.txtSeatClass.text = arguments?.getString(KELAS_PENERBANGAN)
         binding.btnBackHome.setOnClickListener { findNavController().popBackStack() }
     }
@@ -104,13 +99,17 @@ class SearchFragment : Fragment() {
 
     private fun bindAdapter() {
         val kursiDewasa = arguments?.getString(KURSI_DEWASA)?.toIntOrNull() ?: 0
+        val kursiAnak = arguments?.getString(KURSI_ANAK_ANAK)?.toIntOrNull() ?: 0
         val kursiBayi = arguments?.getString(KURSI_BAYI)?.toIntOrNull() ?: 0
-        listFlightAdapter = ListFlightAdapter(kursiDewasa, kursiBayi, object : ListFlightAdapter.OnClickListener {
+        val jumlahPenumpang = arguments?.getString(JUMLAH_PENUMPANG_2)?. toIntOrNull() ?: 0
+        listFlightAdapter = ListFlightAdapter(kursiDewasa, kursiAnak, kursiBayi, object : ListFlightAdapter.OnClickListener {
             override fun onClickItem(data: ListFlight) {
                 val bundle = Bundle()
                 bundle.putInt(FLIGHT_ID, data.id)
                 bundle.putString(KURSI_DEWASA_DETAIL, kursiDewasa.toString())
+                bundle.putString(KURSI_ANAK_DETAIL, kursiAnak.toString())
                 bundle.putString(KURSI_BAYI_DETAIL, kursiBayi.toString())
+                bundle.putString(JUMLAH_PENUMPANG_SEARCH, jumlahPenumpang.toString())
                 val detailFlight = DetailFlightFragment()
                 detailFlight.arguments = bundle
                 detailFlight.show(childFragmentManager, detailFlight.tag)

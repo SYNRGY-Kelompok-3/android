@@ -50,8 +50,13 @@ class OrderHistoryAdapter(private val onClick: OnClickListener): RecyclerView.Ad
         fun bind(data: OrderHistory) {
             binding.tvDerpature.text = "${data.originCity} - ${data.destinationCity}"
             binding.tvIdDate.text = data.flightNumber + " • " + formatDateOrderHistory(data.flightTime)
-            if (data.paid == "true") {
-                binding.tvSuccess.text = "Berhasil"
+            when (data.paid) {
+                "true" -> {
+                    binding.tvSuccess.text = "Dibayar"
+                }
+                "false" -> {
+                    binding.tvSuccess.text = "Belum dibayar"
+                }
             }
             binding.tvTotalPrice.text = formatPriceOrderHistory(data.totalPrice)
             binding.root.setOnClickListener {
