@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.synrgy.travelid.R
 import com.synrgy.travelid.databinding.FragmentPaymentBinding
 import com.synrgy.travelid.domain.model.main.Booking
+import com.synrgy.travelid.domain.model.main.PaymentBook
 import com.synrgy.travelid.domain.model.main.PaymentBookRequest
 import com.synrgy.travelid.presentation.home.booking.book.BookingFragment.Companion.ID_BOOKING
 import com.synrgy.travelid.presentation.home.booking.book.BookingViewModel
@@ -17,6 +19,9 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PaymentFragment : Fragment() {
+    companion object{
+        const val PAYMENT_ID = "PaymentId"
+    }
     private lateinit var binding: FragmentPaymentBinding
     private val viewModel: PaymentViewModel by viewModels()
 
@@ -32,6 +37,7 @@ class PaymentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         bindView()
+        observeLiveData()
     }
 
     private fun bindView() {
@@ -57,5 +63,15 @@ class PaymentFragment : Fragment() {
             viewModel.paymentBook(request)
         }
 
+    }
+
+    private fun observeLiveData(){
+        viewModel.paymentBook.observe(viewLifecycleOwner, ::handlePayment)
+    }
+
+    private fun handlePayment(paymentBook: PaymentBook) {
+        val bundle = Bundle()
+        bundle.putInt(PAYMENT_ID, paymentBook.id)
+        findNavController().navigate(R.id.action_invoiceFragment_to_homeFragment, bundle)
     }
 }
