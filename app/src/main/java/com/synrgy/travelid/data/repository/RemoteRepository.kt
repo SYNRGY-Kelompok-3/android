@@ -13,6 +13,7 @@ import com.synrgy.travelid.data.remote.response.main.toEditProfile
 import com.synrgy.travelid.data.remote.response.main.toEditProfilePicture
 import com.synrgy.travelid.data.remote.response.main.toFetchArticle
 import com.synrgy.travelid.data.remote.response.main.toFlightById
+import com.synrgy.travelid.data.remote.response.main.toInvoiceBooking
 import com.synrgy.travelid.data.remote.response.main.toListFlight
 import com.synrgy.travelid.data.remote.response.main.toNotification
 import com.synrgy.travelid.data.remote.response.main.toOrderHistory
@@ -43,6 +44,7 @@ import com.synrgy.travelid.domain.model.main.EditProfile
 import com.synrgy.travelid.domain.model.main.EditProfilePicture
 import com.synrgy.travelid.domain.model.main.EditProfileRequest
 import com.synrgy.travelid.domain.model.main.FlightById
+import com.synrgy.travelid.domain.model.main.InvoiceBooking
 import com.synrgy.travelid.domain.model.main.ListFlight
 import com.synrgy.travelid.domain.model.main.Notification
 import com.synrgy.travelid.domain.model.main.OrderHistory
@@ -187,6 +189,13 @@ class RemoteRepository @Inject constructor(
             token = "Bearer $token",
             request
         ).data!!.toPaymentBook()
+    }
+
+    override suspend fun invoiceBooking(token: String, bookId: Int): InvoiceBooking {
+        return mainAPIService.invoiceBooking(
+            token = "Bearer $token",
+            bookId
+        ).data!!.toInvoiceBooking()
     }
 
     override suspend fun fetchArticle(): List<Article> {

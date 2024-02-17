@@ -1,7 +1,10 @@
 package com.synrgy.travelid.presentation.auth.login
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -47,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun observeViewModel(){
         viewModel.userLogin.observe(this, ::handleUserLogin)
+        viewModel.loading.observe(this, ::handleShowLoading)
     }
 
     private fun handleUserLogin(userLogin: UserLogin) {
@@ -69,6 +73,18 @@ class LoginActivity : AppCompatActivity() {
         if (validator(email, password)){
             val request = UserLoginRequest(email, password)
             viewModel.userLogin(request)
+        }
+    }
+
+    private fun handleShowLoading(isLoading: Boolean) {
+        val dialogCustom = Dialog(this)
+        dialogCustom.setContentView(R.layout.alert_loading)
+        dialogCustom.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialogCustom.setCancelable(false)
+        if (isLoading) {
+            dialogCustom.show()
+        } else {
+            dialogCustom.dismiss()
         }
     }
 

@@ -7,6 +7,7 @@ import com.synrgy.travelid.domain.model.main.EditProfile
 import com.synrgy.travelid.domain.model.main.EditProfilePicture
 import com.synrgy.travelid.domain.model.main.EditProfileRequest
 import com.synrgy.travelid.domain.model.main.FlightById
+import com.synrgy.travelid.domain.model.main.InvoiceBooking
 import com.synrgy.travelid.domain.model.main.ListFlight
 import com.synrgy.travelid.domain.model.main.Notification
 import com.synrgy.travelid.domain.model.main.OrderHistory
@@ -68,4 +69,8 @@ interface MainRepository {
     suspend fun paymentBook(
         token: String, request: PaymentBookRequest
     ): PaymentBook
+
+    suspend fun invoiceBooking(
+        token: String, bookId: Int
+    ): InvoiceBooking
 }

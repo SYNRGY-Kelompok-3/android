@@ -59,6 +59,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.paymentFragment -> {
                     hideBottomNav()
                 }
+                R.id.invoiceFragment -> {
+                    hideBottomNav()
+                }
                 else -> {
                     showBottomNav()
                 }

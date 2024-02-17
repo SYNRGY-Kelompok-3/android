@@ -288,7 +288,7 @@
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/poppinsregular"
                     android:includeFontPadding="false"
-                    android:text="Selesaikan Pembayaran Sebelum 01 Jan 2024, Pukul 19:00!"
+                    android:text="Selesaikan Pembayaran Sebelum 15 Jan 2024, Pukul 23:00!"
                     android:textColor="#CB3A31"
                     android:textSize="12sp" />
 
@@ -356,8 +356,7 @@
             android:paddingTop="18dp"
             android:paddingBottom="0dp"
             android:textColorHint="#C2C2C2"
-            android:textSize="14sp"
-            android:inputType="number"/>
+            android:textSize="14sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -499,8 +498,7 @@
             android:paddingTop="18dp"
             android:paddingBottom="0dp"
             android:textColorHint="#C2C2C2"
-            android:textSize="14sp"
-            android:inputType="number"/>
+            android:textSize="14sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

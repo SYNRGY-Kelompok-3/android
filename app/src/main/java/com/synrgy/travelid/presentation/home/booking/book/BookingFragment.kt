@@ -176,10 +176,8 @@ class BookingFragment : Fragment(), PilihSeatEkonomiFragment.SeatSelectionListen
     }
 
     private fun handleDataBook(bookFlightAway: BookFlightAway) {
-//        idBook = bookFlightAway.id
         val bundle = Bundle()
         bundle.putInt(ID_BOOKING, bookFlightAway.id)
-        Log.d("idBook2", idBook.toString())
         findNavController().navigate(R.id.action_bookingFragment_to_paymentFragment, bundle)
     }
 
@@ -281,10 +279,10 @@ class BookingFragment : Fragment(), PilihSeatEkonomiFragment.SeatSelectionListen
                 binding.tvSubtitlePenumpang1.visibility = View.VISIBLE
                 binding.tilNamaDepanPenumpang1.visibility = View.VISIBLE
                 binding.tilNamaBelakangPenumpang1.visibility = View.VISIBLE
-                binding.tilTitelPenumpang1.visibility = View.VISIBLE
+                binding.tilTitelPenumpang1.visibility = View.GONE
                 binding.tvNamaDepan1.visibility = View.VISIBLE
                 binding.tvNamaBelakang1.visibility = View.VISIBLE
-                binding.tvTitel1.visibility = View.VISIBLE
+                binding.tvTitel1.visibility = View.GONE
             }
             2 -> {
                 binding.tvDetailPenumpang1.visibility = View.VISIBLE

@@ -5,6 +5,7 @@ import com.synrgy.travelid.data.remote.response.main.BookFlightAwayResponse
 import com.synrgy.travelid.data.remote.response.main.EditProfilePictureResponse
 import com.synrgy.travelid.data.remote.response.main.EditProfileResponse
 import com.synrgy.travelid.data.remote.response.main.FlightByIdResponse
+import com.synrgy.travelid.data.remote.response.main.InvoiceBookResponse
 import com.synrgy.travelid.data.remote.response.main.ListFlightResponse
 import com.synrgy.travelid.data.remote.response.main.NotificationResponse
 import com.synrgy.travelid.data.remote.response.main.OrderHistoryByIdResponse
@@ -102,4 +103,10 @@ interface MainAPIService {
         @Header("Authorization") token: String,
         @Body request: PaymentBookRequest
     ): PaymentBookResponse
+
+    @GET("booking/{id}")
+    suspend fun invoiceBooking(
+        @Header("Authorization") token: String,
+        @Path("id") bookId: Int
+    ): InvoiceBookResponse
 }

@@ -30,7 +30,11 @@ class LoginViewModel @Inject constructor(
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
 
+    private val _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean> = _loading
+
     fun userLogin(request: UserLoginRequest){
+        _loading.value = true
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val response = authRepository.userLogin(request)
@@ -38,6 +42,7 @@ class LoginViewModel @Inject constructor(
                 insertToken(token = token)
                 withContext(Dispatchers.Main) {
                     _userLogin.value = response
+                    _loading.value = false
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
@@ -47,6 +52,7 @@ class LoginViewModel @Inject constructor(
                                 ErrorMessage::class.java
                         )
                         _errorLogin.value = ErrorMessage(message = error.message)
+                        _loading.value = false
                     }
                 }
             }

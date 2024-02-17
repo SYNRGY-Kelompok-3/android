@@ -21,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PaymentFragment : Fragment() {
     companion object{
         const val PAYMENT_ID = "PaymentId"
+        const val BOOK_FLIGHT_ID_PAYMENT = "BookFlightIdPayment"
     }
     private lateinit var binding: FragmentPaymentBinding
     private val viewModel: PaymentViewModel by viewModels()
@@ -43,7 +44,6 @@ class PaymentFragment : Fragment() {
     private fun bindView() {
         binding.btnSelanjutnya.setOnClickListener {
             val idBooking = arguments?.getInt(ID_BOOKING)
-            Log.d("idBooking", idBooking.toString())
             val jenisBank = binding.etBankPembayaran.text.toString()
             val nomorKartu = binding.etNomorKartu.text.toString()
             val namaKartu = binding.etNamaKartu.text.toString()
@@ -61,17 +61,19 @@ class PaymentFragment : Fragment() {
             )
 
             viewModel.paymentBook(request)
+            val bundle = Bundle()
+            bundle.putInt(BOOK_FLIGHT_ID_PAYMENT, idBooking!!)
+            findNavController().navigate(R.id.action_paymentFragment_to_invoiceFragment, bundle)
         }
 
     }
 
     private fun observeLiveData(){
-        viewModel.paymentBook.observe(viewLifecycleOwner, ::handlePayment)
+//        viewModel.paymentBook.observe(viewLifecycleOwner, ::handlePayment)
     }
 
-    private fun handlePayment(paymentBook: PaymentBook) {
-        val bundle = Bundle()
-        bundle.putInt(PAYMENT_ID, paymentBook.id)
-        findNavController().navigate(R.id.action_invoiceFragment_to_homeFragment, bundle)
-    }
+//    private fun handlePayment(paymentBook: PaymentBook) {
+//        val bundle = Bundle()
+//        bundle.putInt(PAYMENT_ID, paymentBook.id)
+//    }
 }
